@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html {
+    font-family: Quicksand,sans-serif;
+}
+.app-body{
+    height: calc(100% - 70px);
+    &>.main{
+        height: 100%;
+        padding-top: 70px;
+        &>.grid{
+            height: calc(100% - 62px);
+        }
+        &.grid-fixed{
+            .main-grid{
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 999;
+                background: #FFF;
+                padding-top: 0px;
+            }
+        }
+    }
+}

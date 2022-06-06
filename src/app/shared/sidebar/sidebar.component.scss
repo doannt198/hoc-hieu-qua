@@ -1,0 +1,19 @@
+::ng-deep {
+    .p-menubar{
+        background: #007aff;
+    }
+    .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
+        color: #ffffff;
+    }
+    .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
+        color: #ffffff;
+    }
+    .p-menubar .p-menuitem-link .p-menuitem-icon {
+        color: #1e90ff;
+    }
+}
