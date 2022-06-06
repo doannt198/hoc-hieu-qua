@@ -17,8 +17,10 @@ import { AvatarModule } from 'primeng/avatar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenubarModule } from 'primeng/menubar';
+import { GiaoVienComponent } from './components/admin/tai-khoan/giao-vien/giao-vien.component';
+import { HocSinhComponent } from './components/admin/tai-khoan/hoc-sinh/hoc-sinh.component';
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
