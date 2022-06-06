@@ -23,6 +23,10 @@ import { MenuNguoiDungComponent } from './components/admin/menu/menu-nguoi-dung/
 import { MenuQuanTriComponent } from './components/admin/menu/menu-quan-tri/menu-quan-tri.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { TabViewModule } from 'primeng/tabview';
+import { DropdownModule } from 'primeng/dropdown';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 @NgModule({
   declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent],
   imports: [
@@ -42,9 +46,13 @@ import { TabViewModule } from 'primeng/tabview';
     MenubarModule,
     SplitButtonModule,
     NgxSpinnerModule,
-    TabViewModule 
+    TabViewModule,
+    DropdownModule,
+    ToggleButtonModule,
+    DialogModule,
+    ButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

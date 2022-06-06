@@ -9,4 +9,12 @@
     &>.menu-tab {
         margin-top: 10px;
     }
+    label {
+        display: block;
+    }
+}
+::ng-deep{
+    .p-dropdown {
+        width: 100%;
+    }
 }
