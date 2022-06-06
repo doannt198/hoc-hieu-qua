@@ -22,6 +22,7 @@ import { HocSinhComponent } from './components/admin/tai-khoan/hoc-sinh/hoc-sinh
 import { MenuNguoiDungComponent } from './components/admin/menu/menu-nguoi-dung/menu-nguoi-dung.component';
 import { MenuQuanTriComponent } from './components/admin/menu/menu-quan-tri/menu-quan-tri.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { TabViewModule } from 'primeng/tabview';
 @NgModule({
   declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent],
   imports: [
@@ -40,7 +41,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     AvatarModule,
     MenubarModule,
     SplitButtonModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    TabViewModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
