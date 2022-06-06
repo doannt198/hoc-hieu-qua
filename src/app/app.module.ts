@@ -19,8 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenubarModule } from 'primeng/menubar';
 import { GiaoVienComponent } from './components/admin/tai-khoan/giao-vien/giao-vien.component';
 import { HocSinhComponent } from './components/admin/tai-khoan/hoc-sinh/hoc-sinh.component';
+import { MenuNguoiDungComponent } from './components/admin/menu/menu-nguoi-dung/menu-nguoi-dung.component';
+import { MenuQuanTriComponent } from './components/admin/menu/menu-quan-tri/menu-quan-tri.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,7 +39,8 @@ import { HocSinhComponent } from './components/admin/tai-khoan/hoc-sinh/hoc-sinh
     ToolbarModule,
     AvatarModule,
     MenubarModule,
-    SplitButtonModule
+    SplitButtonModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

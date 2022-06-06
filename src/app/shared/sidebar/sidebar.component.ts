@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private spinner: NgxSpinnerService
+  ) {}
   items: any;
   ngOnInit(): void {
     this.items = [
@@ -76,11 +79,13 @@ export class SidebarComponent implements OnInit {
             items: [
               { 
                 label: 'Menu người dùng',
-                icon: 'pi pi-server'
+                icon: 'pi pi-server',
+                routerLink:'/menu-nguoi-dung'
               },
               {
                 label: 'Menu quản trị',
-                icon: 'pi pi-list'
+                icon: 'pi pi-list',
+                routerLink: '/menu-quan-tri'
               }
             ] 
           },
