@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -60,11 +61,13 @@ export class SidebarComponent implements OnInit {
             items: [
               { 
                 label: 'Giáo viên',
-                icon: 'pi pi-user-plus'
+                icon: 'pi pi-user-plus',
+                routerLink: '/giao-vien'
               },
               {
                 label: 'Học sinh',
-                icon: 'pi pi-user'
+                icon: 'pi pi-user',
+                routerLink: '/hoc-sinh'
               }
             ]
           },

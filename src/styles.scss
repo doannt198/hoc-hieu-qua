@@ -27,5 +27,10 @@ html {
                 padding-top: 0px;
             }
         }
+        &>.content{
+            margin: 0 auto;
+            max-width: 1440px;
+            min-height: 80vh;
+        }
     }
 }
