@@ -6,7 +6,8 @@
         <div class="col-12">
             <form class="p-fluid" (ngSubmit)="onSave(saveForm)" #saveForm="ngForm"  novalidate>
                 <div class="field mt-3">
-                    <span class="p-float-label">
+                    <span class="p-float-label p-input-icon-right">
+                        <i class="pi pi-user"></i>
                         <input id="float-input" type="text" name="Name" pInputText [(ngModel)]="category.Name" #Name="ngModel" required> 
                         <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
                     </span>
