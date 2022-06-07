@@ -32,9 +32,14 @@ import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './service/api.service';
 import { PaginatorModule } from 'primeng/paginator';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { MessagesModule } from 'primeng/messages';
+import { ThemMoiTinTucComponent } from './components/admin/tin-tuc/them-moi-tin-tuc/them-moi-tin-tuc.component';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,9 +64,17 @@ import { PaginatorModule } from 'primeng/paginator';
     ButtonModule,
     TableModule,
     HttpClientModule,
-    PaginatorModule
+    PaginatorModule,
+    MessagesModule,
+    BreadcrumbModule,
+    InputSwitchModule,
+ 
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    ConfirmationService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
