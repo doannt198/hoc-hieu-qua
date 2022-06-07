@@ -1,0 +1,77 @@
+<div class="danh-muc-tin-tuc">
+    <p-table [value]='dataList' styleClass="p-datatable-customers" [rowHover]="true" [rows]="10"
+        [showCurrentPageReport]="true" responsiveLayout="scroll">
+        <ng-template pTemplate="caption">
+            <div class="grid">
+                <div class="col-6">
+                    <div class="table-header mt-2"> Quản lí danh mục tin tức</div>
+                </div>
+                <div class="col-6 flex justify-content-end">
+                    <p-button label="Thêm mới" icon="pi pi-plus"></p-button>
+                    <p-button label="Xuất Excel" icon="pi pi-upload"></p-button>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th>
+                    <div class="flex justify-content-between align-items-center">
+                        Tên
+                    </div>
+                </th>
+                <th>
+                    <div class="flex justify-content-end ">
+                        Hiển thị
+                    </div>
+                </th>
+                <th>
+                    <div class="flex justify-content-end align-items-center">
+                        Sắp xếp
+                    </div>
+                </th>
+                <th>
+                    <div class="flex justify-content-center align-items-center">
+                        Hành động
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dataList>
+            <tr class="p-selectable-row">
+                <td>
+                    <p-tableCheckbox [value]='dataList'>
+                    </p-tableCheckbox>
+                </td>
+                <td>
+                    {{dataList?.Name }}
+                </td>
+                <td>
+                    <div class="flex justify-content-end ">
+                        <div *ngIf="dataList.Status == 1" >
+                            <i class="pi pi-check"></i>
+                        </div>
+                    </div>
+                <td>
+                    <div class="flex justify-content-end ">
+                        {{dataList?.Order}}
+                    </div>
+                </td>
+                <td >
+                    <div class="flex justify-content-end">
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary mr-2" ></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteProduct()"></button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">No customers found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p-paginator [rows]="query.pageSize" [totalRecords]="totalRecord" (onPageChange)="paginate($event)" [rowsPerPageOptions]="[1, 2, 5, 10, 25, 50]"></p-paginator>
+</div>

@@ -8,15 +8,58 @@
           <span>Menu</span>
         </ng-template>
         <div class="chuong-trinh-hoc mt-2">
-          <div class="grid">
+          <div class="grid ">
             <div class="col-3 custom-group">
               <label for="dropdown">Màn hình</label>
               <p-dropdown [options]="cities" [(ngModel)]="selectedStatus" optionLabel="name"></p-dropdown>
             </div>
             <div class="col-3"></div>
             <div class="col-6 flex justify-content-end">
-              <p-button (click)="showModalDialog()" icon="pi pi-external-link" label="Thêm"></p-button>
-              
+              <p-button (click)="showModalDialog()" icon="pi pi-plus" label="Thêm mới"></p-button>
+              <p-dialog header="Chi tiết menu" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+                  [draggable]="false" [resizable]="false">
+                  <form class="grid">
+                    <div class="col-6">
+                        <div class="select-default">
+                            <label class="text-nowrap label-text">Tên</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="select-default">
+                            <label class="text-nowrap label-text">Đường dẫn</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label class="text-nowrap label-text">Thứ tự</label>
+                           
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="select-default">
+                            <label class="text-nowrap label-text">icon</label>
+                           
+                          
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label class="text-nowrap label-text" >màn hình</label>
+                           
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group">
+                         Hiển thị
+                           
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button pButton type="submit" class="mr-1" label="Lưu lại" icon="pi pi-save"></button>
+                    </div>
+                </form>
+                 
+              </p-dialog>
             </div>
           </div>
         </div>

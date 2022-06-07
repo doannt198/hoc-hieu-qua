@@ -17,4 +17,23 @@
     .p-dropdown {
         width: 100%;
     }
-}
+
+        .p-button {
+            background: #0d89ec;
+            border: none;
+            color: #ffffff;
+        }
+        .p-button:enabled:hover {
+            background: none;
+            color: #1e90ff;
+        }
+        .p-button:enabled:active {
+            border: none;
+        }
+        .p-button:focus {
+            box-shadow: none;
+        }
+        .p-tieredmenu .p-menuitem-link .p-menuitem-icon {
+            color: #1e90ff;
+        }
+    }

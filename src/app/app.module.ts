@@ -27,8 +27,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { DanhMucTinTucComponent } from './components/admin/tin-tuc/danh-muc-tin-tuc/danh-muc-tin-tuc.component';
+import { TableModule } from 'primeng/table';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './service/api.service';
+import { PaginatorModule } from 'primeng/paginator';
+
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -50,9 +56,12 @@ import { ButtonModule } from 'primeng/button';
     DropdownModule,
     ToggleButtonModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    TableModule,
+    HttpClientModule,
+    PaginatorModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

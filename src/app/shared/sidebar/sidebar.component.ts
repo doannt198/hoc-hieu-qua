@@ -95,7 +95,8 @@ export class SidebarComponent implements OnInit {
             items: [
               { 
                 label: 'Danh mục',
-                icon: 'pi pi-list'
+                icon: 'pi pi-list',
+                routerLink: '/danh-muc-tin-tuc'
               },
               {
                 label: 'Bài viết',
