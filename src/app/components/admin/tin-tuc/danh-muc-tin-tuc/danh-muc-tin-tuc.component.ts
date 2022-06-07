@@ -59,10 +59,18 @@ export class DanhMucTinTucComponent implements OnInit {
 
   deleteProduct(Id: string) {
     this.confirmationService.confirm({
-      message: 'Bạn có chắc chắn muốn xoá?',
+      message: `Bạn có chắc chắn muốn xoá ?`,
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-          this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'})
+          this.apiService.DeleteCategory(Id)
+          .subscribe((response) => {
+            if(response.Status === 'success') {
+              this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'})
+              this.GetNewsCategory();
+            } else {
+              this.messageService.add({ severity: 'error', summary: 'Thông báo',  detail: 'Xoá thất bại'})
+            }
+          })
       }
     });
   }

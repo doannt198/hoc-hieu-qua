@@ -46,11 +46,11 @@
                     </p-tableCheckbox>
                 </td>
                 <td>
-                    {{dataList?.Name }}
+                    {{dataList?.Name}}
                 </td>
                 <td>
                     <div class="flex justify-content-end ">
-                        <div *ngIf="dataList.Status == 1" >
+                        <div *ngIf="dataList.Status == 1 " >
                             <i class="pi pi-check"></i>
                         </div>
                     </div>
@@ -77,12 +77,12 @@
 </div>
 <p-confirmDialog [style]="{width: '50vw'}"  [baseZIndex]="10000"></p-confirmDialog>
 <p-toast position="top-right"  [baseZIndex]="5000">
-    <ng-template pTemplate="message">
+    <ng-template  let-message pTemplate="message">
         <div class="flex flex-column" style="flex: 1">
             <div class="text-center">
                 <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                <h4>Thông báo</h4>
-                <p> Thành công</p>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
             </div> 
         </div>
     </ng-template>

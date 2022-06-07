@@ -13,4 +13,13 @@ export class ApiService {
     GetNewsCategory(queryParams: any): Observable<any> { 
         return this.http.get(`https://hhq.somee.com/api/NewsCategory?${queryParams}`)
     }
+
+    DeleteCategory(queryParams: any): Observable<any> {
+        return this.http.delete(`https://hhq.somee.com/api/NewsCategory/${queryParams}`)
+    }
+
+    PostCategory(queryParams:any): Observable<any> {
+      return this.http.post(`https://hhq.somee.com/api/NewsCategory`, queryParams)
+    }
+
 }

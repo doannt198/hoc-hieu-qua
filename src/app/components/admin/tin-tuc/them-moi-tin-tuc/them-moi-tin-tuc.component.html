@@ -4,30 +4,28 @@
             <p-breadcrumb [model]="items"></p-breadcrumb>
         </div>
         <div class="col-12">
-            <form class="p-fluid">
+            <form class="p-fluid" (ngSubmit)="onSave(saveForm)" #saveForm="ngForm"  novalidate>
                 <div class="field mt-3">
-                    <span class="p-float-label p-input-icon-right">
-                    <i class="pi pi-user"></i>
-                    <input id="Name" name="Name" class="p-inputtext p-component p-invalid" value="">
-                    <label for="Name" class="p-error">Tiêu đề <span class="text-red-500"> *</span></label>
+                    <span class="p-float-label">
+                        <input id="float-input" type="text" name="Name" pInputText [(ngModel)]="category.Name" #Name="ngModel" required> 
+                        <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
                     </span>
-                    <!-- <small class="p-error">Vui lòng nhập tên danh mục</small> -->
+                    <small *ngIf="submited && Name?.errors?.['required']" class="p-error">Vui lòng nhập tên danh mục</small> 
                 </div>
                 <div class="grid">
                     <div class="col-6">
                         <div class="field mt-2">
                         <span class="p-float-label p-input-icon-right">
                         <i class="pi pi-sort-numeric-down"></i>
-                        <input id="Order" name="Order" class="p-inputtext p-component p-filled" value="0">
+                        <input id="Order" name="Order" [(ngModel)]='category.Order' class="p-inputtext p-component p-filled" value="0">
                         <label for="intOrorderer" class="">Thứ tự hiện thị</label></span>
                     </div>
                     </div>
                     <div class="col-6">
                         <div class="field flex align-items-center mt-3">
-                            <p-inputSwitch [(ngModel)]="show"></p-inputSwitch>
+                            <p-inputSwitch name ='Status' [(ngModel)]="category.Status" (onChange)="change($event)"></p-inputSwitch>
                             <label for="content" class="ml-2">Hiển thị</label>
                         </div>
-                       
                     </div>
                 </div>
                 <button type="submit" class="p-button p-component mt-2 btn-submit"><span class="p-button-label p-c">Lưu lại</span></button>
@@ -35,3 +33,14 @@
         </div>
     </div>
 </div>
+<p-toast position="top-right"  [baseZIndex]="5000">
+    <ng-template  let-message pTemplate="message">
+        <div class="flex flex-column" style="flex: 1">
+            <div class="text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div> 
+        </div>
+    </ng-template>
+</p-toast>

@@ -37,7 +37,6 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MessagesModule } from 'primeng/messages';
 import { ThemMoiTinTucComponent } from './components/admin/tin-tuc/them-moi-tin-tuc/them-moi-tin-tuc.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
-
 @NgModule({
   declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent],
   imports: [
