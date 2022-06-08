@@ -170,9 +170,10 @@ export class ThuVienComponent implements OnInit {
           this.infoImage.Path = filePath;
           this.apiService.uploadFile(this.infoImage)
           .subscribe(response => {
-            this.getSelectNode();
+            
           })
       });
+
   }
 
   onFileChanged(event: any) {
