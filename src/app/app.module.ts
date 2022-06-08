@@ -39,8 +39,11 @@ import { ThemMoiTinTucComponent } from './components/admin/tin-tuc/them-moi-tin-
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { QuanLiTinTucComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/quan-li-tin-tuc.component';
 import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/them-moi/them-moi.component';
+import { TreeSelectModule } from 'primeng/treeselect';
+import { ThuVienComponent } from './common/thu-vien/thu-vien.component';
+import { TreeModule } from 'primeng/tree';
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -69,7 +72,8 @@ import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/the
     MessagesModule,
     BreadcrumbModule,
     InputSwitchModule,
- 
+    TreeSelectModule,
+    TreeModule
   ],
   providers: [
     ApiService,

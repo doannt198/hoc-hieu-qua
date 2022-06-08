@@ -10,20 +10,30 @@ export class ApiService {
     ) { }
 
     /* Api danh mục tin tức  */
-    GetNewsCategory(queryParams: any): Observable<any> { 
+    getNewsCategory(queryParams: any): Observable<any> { 
         return this.http.get(`https://hhq.somee.com/api/NewsCategory?`+ queryParams)
     }
 
-    DeleteCategory(queryParams: any): Observable<any> {
+    deleteCategory(queryParams: any): Observable<any> {
         return this.http.delete(`https://hhq.somee.com/api/NewsCategory/${queryParams}`)
     }
 
-    PostCategory(queryParams:any): Observable<any> {
+    postCategory(queryParams:any): Observable<any> {
       return this.http.post(`https://hhq.somee.com/api/NewsCategory`, queryParams )
     }
     /* Api quản lí tin tức */ 
 
-    GetNews(queryParams: any):Observable<any> {
+    getNews(queryParams: any): Observable<any> {
       return this.http.get(`https://hhq.somee.com/api/News?`+ queryParams)
+    }
+
+    /* Api thư viện */
+
+    getLibrariesFolder(): Observable<any> {
+      return this.http.get(`https://hhq.somee.com/api/Library/GetLibrariesFolder`)
+    }
+
+    getLibrariesFile(Id: string) : Observable<any> {
+      return this.http.get(`https://hhq.somee.com/api/Library/GetLibrariesFile?folderId=${Id}`)
     }
 }

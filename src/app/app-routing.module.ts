@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ThuVienComponent } from './common/thu-vien/thu-vien.component';
 import { MenuNguoiDungComponent } from './components/admin/menu/menu-nguoi-dung/menu-nguoi-dung.component';
 import { MenuQuanTriComponent } from './components/admin/menu/menu-quan-tri/menu-quan-tri.component';
 import { GiaoVienComponent } from './components/admin/tai-khoan/giao-vien/giao-vien.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
       { path: 'danh-muc-tin-tuc', component: DanhMucTinTucComponent },
       { path: 'them-moi-tin-tuc', component: ThemMoiTinTucComponent },
       { path: 'quan-li-tin-tuc', component: QuanLiTinTucComponent },
-      { path: 'quan-li-tin-tuc/them-moi', component: ThemMoiComponent }
+      { path: 'quan-li-tin-tuc/them-moi', component: ThemMoiComponent },
+      { path: 'quan-li-thu-vien', component: ThuVienComponent }
     ],
   },
 ];

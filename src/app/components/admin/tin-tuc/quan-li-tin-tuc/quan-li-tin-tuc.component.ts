@@ -29,13 +29,13 @@ export class QuanLiTinTucComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
   fetchData() {
-    this.GetNews();
+    this.getNews();
   }
 
-  GetNews() {
+  getNews() {
     const queryParams = queryString.stringify(this.query);
     this.apiService
-      .GetNews(queryParams)
+      .getNews(queryParams)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
@@ -53,7 +53,7 @@ export class QuanLiTinTucComponent implements OnInit {
     console.log(event);
     this.query.offSet = event.first;
     this.query.pageSize = event.rows;
-    this.GetNews();
+    this.getNews();
   }
 
   deleteProduct(Id: string) {

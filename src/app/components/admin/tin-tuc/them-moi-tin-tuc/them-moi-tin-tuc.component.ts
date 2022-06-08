@@ -36,7 +36,7 @@ export class ThemMoiTinTucComponent implements OnInit {
     if(saveForm.invalid) {
       return
     }
-    this.apiService.PostCategory(this.category)
+    this.apiService.postCategory(this.category)
     .subscribe({
       next: (response) => {
         if(response.Status === 'success') {

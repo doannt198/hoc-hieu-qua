@@ -1,0 +1,13 @@
+<div class="quan-li-thu-vien mt-2">
+    <div class="grid">
+        <div class="col-3">
+            <div class="thu-muc-goc">
+                <p-button label="Thư mục gốc" icon="pi pi-folder" styleClass="p-button" ></p-button>
+            </div>
+            <p-tree [value]="roots" [(ngModel)]="selectedNode" (onNodeSelect)="handleSelectNode($event)"></p-tree>
+        </div>
+        <div class="col-9">
+           
+        </div>
+    </div>
+</div>

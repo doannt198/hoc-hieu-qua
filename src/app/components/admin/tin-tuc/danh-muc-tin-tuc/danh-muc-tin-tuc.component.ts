@@ -37,7 +37,7 @@ export class DanhMucTinTucComponent implements OnInit {
   GetNewsCategory() {
     const queryParams = queryString.stringify(this.query);
     this.apiService
-      .GetNewsCategory(queryParams)
+      .getNewsCategory(queryParams)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
@@ -62,7 +62,7 @@ export class DanhMucTinTucComponent implements OnInit {
       message: `Bạn có chắc chắn muốn xoá ?`,
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-          this.apiService.DeleteCategory(Id)
+          this.apiService.deleteCategory(Id)
           .subscribe((response) => {
             if(response.Status === 'success') {
               this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'})
