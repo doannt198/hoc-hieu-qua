@@ -110,7 +110,8 @@ export class SidebarComponent implements OnInit {
             items: [
               { 
                 label: 'Tin tuyển dụng',
-                icon: 'pi pi-tags'
+                icon: 'pi pi-tags',
+                routerLink: '/quan-li-tuyen-dung'
               },
               {
                 label: 'Ứng viên',
