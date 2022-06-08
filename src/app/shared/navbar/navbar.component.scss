@@ -50,7 +50,7 @@
         }
     }
 }
-::ng-deep{
+:host::ng-deep{
     .p-button {
         background: none;
         border: none;

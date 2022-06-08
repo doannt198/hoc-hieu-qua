@@ -49,8 +49,10 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { RatingModule } from 'primeng/rating';
+import { TuyenDungComponent } from './components/admin/tuyen-dung/tuyen-dung/tuyen-dung.component';
+import { ThemMoiTuyenDungComponent } from './components/admin/tuyen-dung/them-moi-tuyen-dung/them-moi-tuyen-dung.component';
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -13,7 +13,7 @@
         display: block;
     }
 }
-::ng-deep{
+:host::ng-deep{
     .p-dropdown {
         width: 100%;
     }
@@ -24,7 +24,6 @@
             color: #ffffff;
         }
         .p-button:enabled:hover {
-            background: none;
             color: #1e90ff;
         }
         .p-button:enabled:active {
