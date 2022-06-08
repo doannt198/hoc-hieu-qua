@@ -3,7 +3,7 @@ import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
 import { LibraryModel } from 'src/app/model/library.model';
 import { Subject, take, takeUntil } from 'rxjs';
-import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
+import { ConfirmationService, MessageService, PrimeNGConfig, TreeNode } from 'primeng/api';
 @Component({
   selector: 'app-thu-vien',
   templateUrl: './thu-vien.component.html',
@@ -19,13 +19,25 @@ export class ThuVienComponent implements OnInit {
   private readonly unsubscribe$: Subject<void> = new Subject();
   list: LibraryModel[] = [];
   listFile: any;
+  items:any
   roots: any;
-  selectNote: any
+  selectNote: any;
+  selectedFile: TreeNode;
   selectedNodes: any;
   ngOnInit(): void {
+    this.fetchData()
+    this.primengConfig.ripple = true;
+    this.items = [
+      { label: 'Thêm thư mục', icon: 'pi pi-folder'},
+      { label: 'Xoá folder', icon: 'pi pi-trash'},
+      { label: 'Thêm file', icon: 'pi pi-file'},
+      { label: 'Sửa tên', icon: 'pi pi-pencil'}
+    ]
+  }
+
+  fetchData() {
     this.getLibrariesFolder();
     this.getSelectNode();
-    this.primengConfig.ripple = true;
   }
 
   getLibrariesFolder(): void {

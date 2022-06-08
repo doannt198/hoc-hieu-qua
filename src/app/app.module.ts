@@ -42,6 +42,7 @@ import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/the
 import { TreeSelectModule } from 'primeng/treeselect';
 import { ThuVienComponent } from './common/thu-vien/thu-vien.component';
 import { TreeModule } from 'primeng/tree';
+import { ContextMenuModule } from 'primeng/contextmenu';
 @NgModule({
   declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent],
   imports: [
@@ -73,12 +74,13 @@ import { TreeModule } from 'primeng/tree';
     BreadcrumbModule,
     InputSwitchModule,
     TreeSelectModule,
-    TreeModule
+    TreeModule,
+    ContextMenuModule
   ],
   providers: [
     ApiService,
     ConfirmationService,
-    MessageService
+    MessageService,
   ],
   bootstrap: [AppComponent]
 })
