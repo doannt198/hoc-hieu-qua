@@ -1,0 +1,26 @@
+.quan-li-thu-vien {
+    .image-list {
+        grid-gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        .image-item {
+            img {
+                width: 100%;
+            }
+            &:hover {
+                .image-item--actions {
+                    bottom: 0;
+                }
+            }
+            border-radius: 5px;
+            box-shadow: 0 0 5px grey;
+            overflow: hidden;
+            position: relative;
+            &--actions {
+                bottom: -100px;
+                position: absolute;
+            }
+
+        }
+    }
+}

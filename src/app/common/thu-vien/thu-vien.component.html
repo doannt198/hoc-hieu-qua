@@ -4,10 +4,48 @@
             <div class="thu-muc-goc">
                 <p-button label="Thư mục gốc" icon="pi pi-folder" styleClass="p-button" ></p-button>
             </div>
-            <p-tree [value]="roots" [(ngModel)]="selectedNode" (onNodeSelect)="handleSelectNode($event)"></p-tree>
+            <p-tree [value]="roots" [(ngModel)]="selectedNodes" selectionMode="single" (onNodeSelect)="handleSelectNode($event)"></p-tree>
         </div>
         <div class="col-9">
-           
+            <div class="image-list">
+                <div class="image-item" *ngFor="let item of listFile">
+                    <img [src]="item?.Url" alt="hhq">
+                    <div class="image-item--actions">
+                        <button title="Chọn ảnh"
+                            class="p-button p-component p-button-rounded p-button-secondary mr-1 p-button-sm p-button-icon-only">
+                            <span class="p-button-icon p-c pi pi-check"></span>
+                            <span class="p-button-label p-c"></span>
+                        </button>
+                        <button title="Xem ảnh"
+                            class="p-button p-component p-button-rounded p-button-success mr-1 p-button-sm p-button-icon-only">
+                            <span class="p-button-icon p-c pi pi-eye"></span>
+                            <span class="p-button-label p-c"></span>
+                        </button>
+                        <button title="Xóa ảnh" (click)="deleteImages(item?.Id)"
+                            class="p-button p-component p-button-rounded p-button-danger p-button-sm p-button-icon-only">
+                            <span class="p-button-icon p-c pi pi-trash"></span>
+                            <span class="p-button-label p-c"></span>
+                        </button>
+                    </div>
+                    <div class="image-item--info">
+                        <div class="image-item--info-name">
+                           {{item?.Name}}
+                        </div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </div>
+<p-toast position="top-right"  [baseZIndex]="5000">
+    <ng-template  let-message pTemplate="message">
+        <div class="flex flex-column" style="flex: 1">
+            <div class="text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div> 
+        </div>
+    </ng-template>
+</p-toast>
+<p-confirmDialog [style]="{width: '25vw'}"  [baseZIndex]="10000"></p-confirmDialog>

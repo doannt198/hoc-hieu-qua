@@ -2,19 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
 import { LibraryModel } from 'src/app/model/library.model';
+import { Subject, take, takeUntil } from 'rxjs';
+import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-thu-vien',
   templateUrl: './thu-vien.component.html',
   styleUrls: ['./thu-vien.component.scss'],
 })
 export class ThuVienComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
+    private primengConfig: PrimeNGConfig
+    ) {}
+  private readonly unsubscribe$: Subject<void> = new Subject();
   list: LibraryModel[] = [];
-  roots: any
-  selectedNode: any;
+  listFile: any;
+  roots: any;
+  selectNote: any
+  selectedNodes: any;
   ngOnInit(): void {
     this.getLibrariesFolder();
-  
+    this.getSelectNode();
+    this.primengConfig.ripple = true;
   }
 
   getLibrariesFolder(): void {
@@ -77,8 +88,56 @@ export class ThuVienComponent implements OnInit {
       collapsedIcon: 'pi pi-folder',
     };
   }
+  
+  getSelectNode() {
+    this.apiService.getLibrariesFile(this.selectNote)
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe({
+      next: (response) => {
+        this.listFile = response.Data.Data
+      },
+      error: (error) => {
+        console.log("error", error)
+      }
+    })
+  }
 
-  handleSelectNode(event:any) {
-    console.log(event)
+  handleSelectNode(event: any) {
+    this.selectNote = event.node.nodeId
+    this.apiService.getLibrariesFile(this.selectNote)
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe({
+      next: (response) => {
+        this.listFile = response.Data.Data
+      },
+      error: (error) => {
+        console.log("error", error)
+      }
+    })
+  }
+
+  deleteImages(Id: any) {
+    this.confirmationService.confirm({
+      message: 'Bạn có chắc chắn muốn xoá ảnh không?',
+      accept: () => {
+        this.apiService.deleteLibrariesFile(Id)
+        .subscribe({
+          next: (response) => {
+            console.log("ss", response)
+            if(response.Status === 'success') {
+              this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'})
+              this.getSelectNode()
+            } else {
+              this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xoá thất bại'})
+            }
+          }
+        })
+      }
+    })
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
