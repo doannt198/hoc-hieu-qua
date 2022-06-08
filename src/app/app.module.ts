@@ -37,10 +37,10 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MessagesModule } from 'primeng/messages';
 import { ThemMoiTinTucComponent } from './components/admin/tin-tuc/them-moi-tin-tuc/them-moi-tin-tuc.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { DialogComponent } from './common/dialog/dialog.component';
 import { QuanLiTinTucComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/quan-li-tin-tuc.component';
+import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/them-moi/them-moi.component';
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, DialogComponent, QuanLiTinTucComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

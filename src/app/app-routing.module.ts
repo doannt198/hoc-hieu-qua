@@ -6,6 +6,7 @@ import { GiaoVienComponent } from './components/admin/tai-khoan/giao-vien/giao-v
 import { HocSinhComponent } from './components/admin/tai-khoan/hoc-sinh/hoc-sinh.component';
 import { DanhMucTinTucComponent } from './components/admin/tin-tuc/danh-muc-tin-tuc/danh-muc-tin-tuc.component';
 import { QuanLiTinTucComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/quan-li-tin-tuc.component';
+import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/them-moi/them-moi.component';
 import { ThemMoiTinTucComponent } from './components/admin/tin-tuc/them-moi-tin-tuc/them-moi-tin-tuc.component';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
 
@@ -25,7 +26,8 @@ const routes: Routes = [
       { path: 'menu-quan-tri', component: MenuQuanTriComponent },
       { path: 'danh-muc-tin-tuc', component: DanhMucTinTucComponent },
       { path: 'them-moi-tin-tuc', component: ThemMoiTinTucComponent },
-      { path: 'quan-li-tin-tuc', component: QuanLiTinTucComponent }
+      { path: 'quan-li-tin-tuc', component: QuanLiTinTucComponent },
+      { path: 'quan-li-tin-tuc/them-moi', component: ThemMoiComponent }
     ],
   },
 ];

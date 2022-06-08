@@ -22,7 +22,7 @@ export class QuanLiTinTucComponent implements OnInit {
   query = {
     filter: '',
     offSet: 0,
-    pageSize: 10,
+    pageSize: 5,
   };
   ngOnInit(): void {
     this.fetchData();
@@ -55,9 +55,11 @@ export class QuanLiTinTucComponent implements OnInit {
     this.query.pageSize = event.rows;
     this.GetNews();
   }
+
   deleteProduct(Id: string) {
     
   }
+  
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
