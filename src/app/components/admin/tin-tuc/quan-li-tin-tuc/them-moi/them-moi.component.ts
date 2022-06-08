@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class ThemMoiComponent implements OnInit {
 
   constructor() { }
-  items: any
-  UrlImg = ''
-  showLibrary = false
+  items: any;
+  UrlImg = '';
+  showLibrary = false;
+  val: number = 5;
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị'},

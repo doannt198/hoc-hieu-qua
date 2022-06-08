@@ -45,13 +45,23 @@
                                 <div class="grid">
                                     <div class="col-6">
                                         <div class="field">
-
+                                            <label for="">Đánh giá</label>
+                                            <p-rating [(ngModel)]="val" [cancel]="false"></p-rating>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="field">
-
+                                            <label for="">Hiển thị</label>
+                                            <div class="inputswitch">
+                                                <p-inputSwitch name='Status'></p-inputSwitch>
+                                            </div> 
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
+                                    <div class="textarea">
+                                        <textarea pInputTextarea [style]="{width: '42vw', height: '20vw'}"></textarea>
                                     </div>
                                 </div>
                             </form>
