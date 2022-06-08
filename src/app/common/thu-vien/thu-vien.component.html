@@ -13,7 +13,7 @@
                 <div class="image-item" *ngFor="let item of listFile">
                     <img [src]="item?.Url" alt="hhq">
                     <div class="image-item--actions">
-                        <button title="Chọn ảnh"
+                        <button title="Chọn ảnh" (click)="selectImg(item)"
                             class="p-button p-component p-button-rounded p-button-secondary mr-1 p-button-sm p-button-icon-only">
                             <span class="p-button-icon p-c pi pi-check"></span>
                             <span class="p-button-label p-c"></span>

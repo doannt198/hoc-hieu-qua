@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
 import { LibraryFormModel, LibraryModel } from 'src/app/model/library.model';
@@ -6,7 +6,6 @@ import { catchError, Subject, take, takeUntil } from 'rxjs';
 import { ConfirmationService, MessageService, PrimeNGConfig, TreeNode } from 'primeng/api';
 import { FileUploadService } from 'src/app/service/firebase.service';
 import * as moment from 'moment';
-
 @Component({
   selector: 'app-thu-vien',
   templateUrl: './thu-vien.component.html',
@@ -22,6 +21,7 @@ export class ThuVienComponent implements OnInit {
     ) {}
   private readonly unsubscribe$: Subject<void> = new Subject();
   list: LibraryModel[] = [];
+  @Output() selectedImage = new EventEmitter<any>();
   listFile: any;
   items:any
   roots: any;
@@ -201,13 +201,16 @@ export class ThuVienComponent implements OnInit {
         ModifiedBy: ''
       }
   };
-
-
     reader.onload = (e: any) => {
       this.imageUrl = e.target.result
     }
   }
 
+  selectImg(item:any) {
+    console.log("url", item.Url)
+    this.selectedImage.emit(item.Url)
+  }
+  
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

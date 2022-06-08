@@ -2,6 +2,63 @@
     <div class="grid">
         <div class="col-12">
             <p-breadcrumb [model]="items"></p-breadcrumb>
+            <p-tabView>
+                <p-tabPanel header="Thông tin bài viết">
+                    <div class="grid mt-2">
+                        <div class="col-3 avatar">
+                            <img [src]=" UrlImg ? UrlImg : '../../../../../../assets/images/empty-image.png'" alt="avatar" style="width:100%">
+                            <label for="uploadfile" (click)="showLibraryDialog()">
+                                <i class="pi pi-upload"></i>
+                                Ảnh đại diện
+                            </label>
+                            <p-dialog header="Chọn Media" appendTo="body" [(visible)]="showLibrary" [modal]="true"
+                                [style]="{width: '80vw', height: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+                                <app-thu-vien (selectedImage)="selectedImages($event)" ></app-thu-vien>
+                            </p-dialog>
+                        </div>
+                        <div class="col-9 pl-5">
+                            <form class="p-fluid">
+                                <span class="p-float-label p-input-icon-right">
+                                    <i class="pi pi-user"></i>
+                                    <input id="float-input" type="text" name="Name" pInputText > 
+                                    <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
+                                </span>
+                                <div class="field mt-5">
+                                    <span class="p-float-label p-input-icon-right">
+                                        <i class="pi pi-sort-numeric-down"></i>
+                                        <input id="Order" name="Order" class="p-inputtext p-component p-filled" value="0">
+                                        <label for="intOrorderer" class="">Thứ tự hiện thị</label>
+                                    </span>
+                                </div>
+                                <div class="field mt-7">
+                                    <span class="p-float-label p-input-icon-right">
+                                        <input id="Order" name="Order" class="p-inputtext p-component p-filled">
+                                        <label for="intOrorderer" class="">Tags</label>
+                                    </span>
+                                </div>
+                                <div class="field mt-5">
+                                    <span class="p-float-label p-input-icon-right">
+                                        <p-dropdown optionLabel="name" [showClear]="true"></p-dropdown>
+                                        <label for="intOrorderer" class="">Danh mục</label>
+                                    </span>
+                                </div>
+                                <div class="grid">
+                                    <div class="col-6">
+                                        <div class="field">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="field">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
         </div>
     </div>
 </div>

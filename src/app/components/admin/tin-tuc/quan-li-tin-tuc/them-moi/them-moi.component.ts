@@ -9,9 +9,23 @@ export class ThemMoiComponent implements OnInit {
 
   constructor() { }
   items: any
+  UrlImg = ''
+  showLibrary = false
   ngOnInit(): void {
     this.items = [
-      
+      { label: 'Quản trị'},
+      { label: 'Tin tức'},
+      { label: 'Chi tiết tin tức'},
     ]
   }
+
+  showLibraryDialog() {
+    this.showLibrary = true
+  }
+
+  selectedImages(event: any) {
+    this.showLibrary = false
+    this.UrlImg = event
+  }
+
 }

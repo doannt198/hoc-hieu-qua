@@ -48,6 +48,7 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { RatingModule } from 'primeng/rating';
 @NgModule({
   declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, GiaoVienComponent, HocSinhComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent],
   imports: [
@@ -80,6 +81,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     InputSwitchModule,
     TreeSelectModule,
     TreeModule,
+    RatingModule,
     ContextMenuModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
