@@ -40,4 +40,8 @@ export class ApiService {
     deleteLibrariesFile(Id: string) :Observable<any> {
       return this.http.delete(`https://hhq.somee.com/api/Library/${Id}`)
     }
+
+    uploadFile(data :any): Observable<any> {
+      return this.http.post('https://hhq.somee.com/api/Library', data)
+    }
 }

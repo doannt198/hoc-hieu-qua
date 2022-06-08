@@ -24,13 +24,33 @@ export class ThuVienComponent implements OnInit {
   selectNote: any;
   selectedFile: TreeNode;
   selectedNodes: any;
+  imageUrl = '';
+  file: any = null;
+  display: boolean = false;
+  infoImage: any = {
+    CreateBy: "",
+    CreateDate: "",
+    Description: "",
+    Height: 0,
+    Id: "",
+    ModifiedBy: "",
+    ModifiedDate: "",
+    Name: "",
+    ParentId: "",
+    Path: "",
+    Size: "",
+    Type: "",
+    Url: "",
+    VideoImage: "",
+    Width: ""
+  };
   ngOnInit(): void {
     this.fetchData()
     this.primengConfig.ripple = true;
     this.items = [
       { label: 'Thêm thư mục', icon: 'pi pi-folder'},
       { label: 'Xoá folder', icon: 'pi pi-trash'},
-      { label: 'Thêm file', icon: 'pi pi-file'},
+      { label: 'Thêm file', icon: 'pi pi-file', command: (event:any) => this.viewAddFile() },
       { label: 'Sửa tên', icon: 'pi pi-pencil'}
     ]
   }
@@ -146,6 +166,33 @@ export class ThuVienComponent implements OnInit {
         })
       }
     })
+  }
+
+  viewAddFile() {
+    this.display = true
+  }
+
+  uploadFile() {
+    this.display = false;
+    var formUpload: any = new FormData()
+    if (this.file) {
+      formUpload.append('Image', this.file)
+    } else {
+      formUpload.append('Image', null)
+    }
+    this.apiService.uploadFile(formUpload)
+    .subscribe(response => {
+      console.log("resdata", response)
+    })
+  }
+
+  onFileChanged(event: any) {
+    this.file = event.target.files[0]
+    const reader = new FileReader()
+    reader.readAsDataURL(this.file)
+    reader.onload = (e: any) => {
+      this.imageUrl = e.target.result
+    }
   }
 
   ngOnDestroy() {
