@@ -110,7 +110,7 @@ export class SidebarComponent implements OnInit {
             routerLink: '/tai-khoan'
           },
           { label: 'Trang chủ', icon: 'pi pi-bookmark' },
-          { label: 'FAQ', icon: 'pi pi-comments' },
+          { label: 'FAQ', icon: 'pi pi-comments', routerLink: '/faq'},
           { label: 'Trò chơi', icon: 'pi pi-discord' },
           { label: 'Thư viện', icon: 'pi pi-chart-bar' },
           { label: 'Slider', icon: 'pi pi-image' },

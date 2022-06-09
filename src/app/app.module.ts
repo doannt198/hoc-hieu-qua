@@ -51,8 +51,9 @@ import { TuyenDungComponent } from './components/admin/tuyen-dung/tuyen-dung/tuy
 import { ThemMoiTuyenDungComponent } from './components/admin/tuyen-dung/them-moi-tuyen-dung/them-moi-tuyen-dung.component';
 import { UngVienComponent } from './components/admin/tuyen-dung/ung-vien/ung-vien.component';
 import { TaiKhoanComponent } from './components/admin/tai-khoan/tai-khoan/tai-khoan.component';
+import { FaqComponent } from './components/admin/faq/faq/faq.component';
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent, UngVienComponent, TaiKhoanComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent, UngVienComponent, TaiKhoanComponent, FaqComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

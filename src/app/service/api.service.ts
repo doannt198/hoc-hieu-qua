@@ -60,5 +60,8 @@ export class ApiService {
     }
      
    /*  Api FAQ */
-
+   
+    getFAQ(queryParams: any): Observable<any> {
+      return this.http.get(`${apiServer}/api/faq?`+ queryParams)
+    }
 }
