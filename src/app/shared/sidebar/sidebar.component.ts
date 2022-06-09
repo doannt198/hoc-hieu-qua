@@ -58,22 +58,6 @@ export class SidebarComponent implements OnInit {
         label: 'Quản trị',
         icon: 'pi pi-cog',
         items: [
-          { 
-            label: 'Tài khoản',
-            icon: 'pi pi-users',
-            items: [
-              { 
-                label: 'Giáo viên',
-                icon: 'pi pi-user-plus',
-                routerLink: '/giao-vien'
-              },
-              {
-                label: 'Học sinh',
-                icon: 'pi pi-user',
-                routerLink: '/hoc-sinh'
-              }
-            ]
-          },
           { label: 'Menu', 
             icon: 'pi pi-sliders-h',
             items: [
@@ -116,9 +100,14 @@ export class SidebarComponent implements OnInit {
               {
                 label: 'Ứng viên',
                 icon: 'pi pi-users',
-                routerLink: 'ung-vien'
+                routerLink: '/ung-vien'
               }
             ]
+          },
+          { 
+            label: 'Tài khoản',
+            icon: 'pi pi-users',
+            routerLink: '/tai-khoan'
           },
           { label: 'Trang chủ', icon: 'pi pi-bookmark' },
           { label: 'FAQ', icon: 'pi pi-comments' },

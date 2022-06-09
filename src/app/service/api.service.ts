@@ -53,4 +53,12 @@ export class ApiService {
       return this.http.get(`${apiServer}/api/RecruitCandidate?`+ queryParams )
     }
 
+   /*  Api Account  */
+
+    getAccount(queryParams: any): Observable<any> {
+       return this.http.get(`${apiServer}/api/Account?`+ queryParams)
+    }
+     
+   /*  Api FAQ */
+
 }

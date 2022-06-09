@@ -3,8 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ThuVienComponent } from './common/thu-vien/thu-vien.component';
 import { MenuNguoiDungComponent } from './components/admin/menu/menu-nguoi-dung/menu-nguoi-dung.component';
 import { MenuQuanTriComponent } from './components/admin/menu/menu-quan-tri/menu-quan-tri.component';
-import { GiaoVienComponent } from './components/admin/tai-khoan/giao-vien/giao-vien.component';
-import { HocSinhComponent } from './components/admin/tai-khoan/hoc-sinh/hoc-sinh.component';
+import { TaiKhoanComponent } from './components/admin/tai-khoan/tai-khoan/tai-khoan.component';
 import { DanhMucTinTucComponent } from './components/admin/tin-tuc/danh-muc-tin-tuc/danh-muc-tin-tuc.component';
 import { QuanLiTinTucComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/quan-li-tin-tuc.component';
 import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/them-moi/them-moi.component';
@@ -24,8 +23,7 @@ const routes: Routes = [
     path: '',
     component: DefaultLayoutComponent,
     children: [
-      { path: 'giao-vien', component: GiaoVienComponent },
-      { path: 'hoc-sinh', component: HocSinhComponent },
+      { path: 'tai-khoan', component: TaiKhoanComponent }, 
       { path: 'menu-nguoi-dung', component: MenuNguoiDungComponent },
       { path: 'menu-quan-tri', component: MenuQuanTriComponent },
       { path: 'danh-muc-tin-tuc', component: DanhMucTinTucComponent },
