@@ -56,6 +56,7 @@ import { SliderComponent } from './components/admin/silder/slider/slider.compone
 import { GiaoVienComponent } from './components/admin/giao-vien/giao-vien/giao-vien.component';
 import { LopHocComponent } from './components/admin/lop-hoc/lop-hoc/lop-hoc.component';
 import { MonHocComponent } from './components/admin/mon-hoc/mon-hoc/mon-hoc.component';
+import { CalendarModule } from 'primeng/calendar';
 import { BaiKiemTraComponent } from './components/admin/bai-kiem-tra/bai-kiem-tra/bai-kiem-tra.component';
 import { ThemMoiTaiKhoanComponent } from './components/admin/tai-khoan/them-moi-tai-khoan/them-moi-tai-khoan.component';
 @NgModule({
@@ -95,7 +96,8 @@ import { ThemMoiTaiKhoanComponent } from './components/admin/tai-khoan/them-moi-
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    CalendarModule
   ],
   providers: [
     ApiService,
