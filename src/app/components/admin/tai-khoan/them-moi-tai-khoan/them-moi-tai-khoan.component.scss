@@ -1,0 +1,19 @@
+.chi-tiet-tin-tuc {
+          margin: 0 auto;
+          max-width: 1170px;
+          padding: 0 20px;
+          .avatar{
+              box-shadow: 0 0 3px #aaa9a9;
+              label{
+                  background: #1e90ff;
+                  border-radius: 5px;
+                  color: #fff;
+                  cursor: pointer;
+                  display: inline-block;
+                  font-weight: 600;
+                  padding: 10px;
+                  text-align: center;
+                  width: 100%;
+              }
+          }
+      }

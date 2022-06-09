@@ -10,6 +10,7 @@ import { MenuQuanTriComponent } from './components/admin/menu/menu-quan-tri/menu
 import { MonHocComponent } from './components/admin/mon-hoc/mon-hoc/mon-hoc.component';
 import { SliderComponent } from './components/admin/silder/slider/slider.component';
 import { TaiKhoanComponent } from './components/admin/tai-khoan/tai-khoan/tai-khoan.component';
+import { ThemMoiTaiKhoanComponent } from './components/admin/tai-khoan/them-moi-tai-khoan/them-moi-tai-khoan.component';
 import { DanhMucTinTucComponent } from './components/admin/tin-tuc/danh-muc-tin-tuc/danh-muc-tin-tuc.component';
 import { QuanLiTinTucComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/quan-li-tin-tuc.component';
 import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/them-moi/them-moi.component';
@@ -45,7 +46,8 @@ const routes: Routes = [
       { path: 'giao-vien', component: GiaoVienComponent },
       { path: 'lop-hoc', component: LopHocComponent },
       { path: 'mon-hoc', component: MonHocComponent },
-      { path: 'bai-kiem-tra', component: BaiKiemTraComponent }
+      { path: 'bai-kiem-tra', component: BaiKiemTraComponent },
+      { path: 'tai-khoan/them-moi-tai-khoan', component: ThemMoiTaiKhoanComponent }
     ],
   },
 ];
