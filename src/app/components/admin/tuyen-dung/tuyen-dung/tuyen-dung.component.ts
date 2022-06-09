@@ -57,8 +57,27 @@ export class TuyenDungComponent implements OnInit {
     this.getRecruit();
   }
 
-  deleteProduct(Id: string) {
-    
+  deleteProduct(dataList: any ) {
+    this.confirmationService.confirm({
+      message: 'Bạn có chắc chắn muốn xoá?',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+         this.apiService.deleteRecruit(dataList.Id)
+        .subscribe({
+          next: (response) => {
+            if(response.Status === 'success') {
+              this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'})
+              this.getRecruit();
+            } else {
+              this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xoá thất bại'})
+            }
+          },
+          error: (error) => {
+            console.error("deleteProduct", error)
+          }
+        }) 
+      }
+    })
   }
   
   ngOnDestroy() {

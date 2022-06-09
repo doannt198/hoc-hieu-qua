@@ -57,6 +57,10 @@ export class ApiService {
       return this.http.get(`${apiServer}/api/RecruitCandidate?`+ queryParams )
     }
 
+    deleteRecruit(Id: string): Observable<any> {
+      return this.http.delete(`${apiServer}/api/recruit/${Id}`)
+    }
+    
    /*  Api Account  */
 
     getListAccount(queryParams: any): Observable<any> {

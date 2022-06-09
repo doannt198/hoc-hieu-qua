@@ -57,20 +57,33 @@ export class DanhMucTinTucComponent implements OnInit {
     this.GetNewsCategory();
   }
 
-  deleteProduct(Id: string) {
+  deleteCategory(dataList: any) {
     this.confirmationService.confirm({
       message: `Bạn có chắc chắn muốn xoá ?`,
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-          this.apiService.deleteCategory(Id)
-          .subscribe((response) => {
-            if(response.Status === 'success') {
-              this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'})
-              this.GetNewsCategory();
-            } else {
-              this.messageService.add({ severity: 'error', summary: 'Thông báo',  detail: 'Xoá thất bại'})
+          this.apiService.deleteCategory(dataList.Id)
+          .subscribe({
+            next: (response) => {
+                if (response.Status === 'success') {
+                  this.messageService.add({
+                    severity: 'success',
+                    summary: 'Thông báo',
+                    detail: 'Xoá thành công',
+                  });
+                  this.GetNewsCategory();
+                } else {
+                  this.messageService.add({
+                    severity: 'error',
+                    summary: 'Thông báo',
+                    detail: 'Xoá thất bại',
+                  });
+                }
+            },
+            error: (error) => {
+              console.error("deleteCategory", error)
             }
-          })
+        })
       }
     });
   }

@@ -60,6 +60,7 @@ export class QuanLiTinTucComponent implements OnInit {
     console.log("xoá ", dataList)
     this.confirmationService.confirm({
       message: 'Bạn có chắc chắn muốn xoá',
+      icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.apiService.deleteNewsItem(dataList.Id)
         .subscribe({
