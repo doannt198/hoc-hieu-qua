@@ -11,3 +11,11 @@ export const environment = {
         measurementId: "G-0D5WFYCQFP"
     }
   };
+ 
+const host = {
+    apiHochieuqua: 'https://hhq.somee.com'
+}
+
+export const apiHochieuqua = {
+    apiBaseHocHieuQua : host.apiHochieuqua
+}

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { apiHochieuqua } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-
+const apiServer = apiHochieuqua.apiBaseHocHieuQua;
 @Injectable()
 export class ApiService {
   constructor(
@@ -11,37 +11,41 @@ export class ApiService {
 
     /* Api danh mục tin tức  */
     getNewsCategory(queryParams: any): Observable<any> { 
-        return this.http.get(`https://hhq.somee.com/api/NewsCategory?`+ queryParams)
+        return this.http.get(`${apiServer}/api/NewsCategory?`+ queryParams)
     }
 
     deleteCategory(queryParams: any): Observable<any> {
-        return this.http.delete(`https://hhq.somee.com/api/NewsCategory/${queryParams}`)
+        return this.http.delete(`${apiServer}/api/NewsCategory/${queryParams}`)
     }
 
     postCategory(queryParams:any): Observable<any> {
-      return this.http.post(`https://hhq.somee.com/api/NewsCategory`, queryParams )
+      return this.http.post(`${apiServer}/api/NewsCategory`, queryParams )
     }
     /* Api quản lí tin tức */ 
 
     getNews(queryParams: any): Observable<any> {
-      return this.http.get(`https://hhq.somee.com/api/News?`+ queryParams)
+      return this.http.get(`${apiServer}/api/News?`+ queryParams)
     }
 
     /* Api thư viện */
 
     getLibrariesFolder(): Observable<any> {
-      return this.http.get(`https://hhq.somee.com/api/Library/GetLibrariesFolder`)
+      return this.http.get(`${apiServer}/api/Library/GetLibrariesFolder`)
     }
 
-    getLibrariesFile(Id: string) : Observable<any> {
-      return this.http.get(`https://hhq.somee.com/api/Library/GetLibrariesFile?folderId=${Id}`)
+    getLibrariesFile(Id: string): Observable<any> {
+      return this.http.get(`${apiServer}/api/Library/GetLibrariesFile?folderId=${Id}`)
     }
 
-    deleteLibrariesFile(Id: string) :Observable<any> {
-      return this.http.delete(`https://hhq.somee.com/api/Library/${Id}`)
+    deleteLibrariesFile(Id: string): Observable<any> {
+      return this.http.delete(`${apiServer}/api/Library/${Id}`)
     }
 
     uploadFile(data :any): Observable<any> {
-      return this.http.post('https://hhq.somee.com/api/Library', data)
+      return this.http.post(`${apiServer}/api/Library`, data)
+    }
+
+    getRecruit(queryParams: any): Observable<any> {
+      return this.http.get(`${apiServer}/api/Recruit?${queryParams}`)
     }
 }

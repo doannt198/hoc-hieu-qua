@@ -23,24 +23,24 @@ export class TuyenDungComponent implements OnInit {
   query = {
     filter: '',
     offSet: 0,
-    pageSize: 5,
+    pageSize: 10,
   };
   ngOnInit(): void {
     this.fetchData();
     this.primengConfig.ripple = true;
   }
   fetchData() {
-    this.getNews();
+    this.getRecruit();
   }
 
-  getNews() {
+  getRecruit() {
     const queryParams = queryString.stringify(this.query);
     this.apiService
-      .getNews(queryParams)
+      .getRecruit(queryParams)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          console.log(response)
+          console.log("tuyển dụng", response)
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
         },
@@ -54,7 +54,7 @@ export class TuyenDungComponent implements OnInit {
     console.log(event);
     this.query.offSet = event.first;
     this.query.pageSize = event.rows;
-    this.getNews();
+    this.getRecruit();
   }
 
   deleteProduct(Id: string) {
