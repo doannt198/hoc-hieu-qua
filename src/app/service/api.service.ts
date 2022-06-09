@@ -27,6 +27,10 @@ export class ApiService {
       return this.http.get(`${apiServer}/api/News?`+ queryParams)
     }
 
+    deleteNewsItem(queryParams:any): Observable<any> {
+      return this.http.delete(`${apiServer}/api/News/`+ queryParams)
+    }
+
     /* Api thư viện */
 
     getLibrariesFolder(): Observable<any> {

@@ -15,7 +15,7 @@ export class ThemMoiComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị'},
-      { label: 'Tin tức'},
+      { label: 'Tin tức',  routerLink: '/quan-li-tin-tuc'},
       { label: 'Chi tiết tin tức'},
     ]
   }
@@ -28,5 +28,4 @@ export class ThemMoiComponent implements OnInit {
     this.showLibrary = false
     this.UrlImg = event
   }
-
 }

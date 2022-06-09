@@ -56,8 +56,27 @@ export class QuanLiTinTucComponent implements OnInit {
     this.getNews();
   }
 
-  deleteProduct(Id: string) {
-    
+  deleteProduct(dataList: any) {
+    console.log("xoá ", dataList)
+    this.confirmationService.confirm({
+      message: 'Bạn có chắc chắn muốn xoá',
+      accept: () => {
+        this.apiService.deleteNewsItem(dataList.Id)
+        .subscribe({
+          next: (response) => {
+            if(response.Status === 'success') {
+              this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công '})
+              this.getNews()
+            } else {
+              this.messageService.add({severity: 'erorr', summary: 'Thông báo', detail: 'Xoá thất bại'})
+            }
+          },
+          error: (error) => {
+            console.log("deleteProduct", error)
+          }
+        })
+      }
+    })
   }
   
   ngOnDestroy() {
