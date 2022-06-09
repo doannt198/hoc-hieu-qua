@@ -115,7 +115,8 @@ export class SidebarComponent implements OnInit {
               },
               {
                 label: 'Ứng viên',
-                icon: 'pi pi-users'
+                icon: 'pi pi-users',
+                routerLink: 'ung-vien'
               }
             ]
           },

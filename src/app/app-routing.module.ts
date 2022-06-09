@@ -11,6 +11,7 @@ import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/the
 import { ThemMoiTinTucComponent } from './components/admin/tin-tuc/them-moi-tin-tuc/them-moi-tin-tuc.component';
 import { ThemMoiTuyenDungComponent } from './components/admin/tuyen-dung/them-moi-tuyen-dung/them-moi-tuyen-dung.component';
 import { TuyenDungComponent } from './components/admin/tuyen-dung/tuyen-dung/tuyen-dung.component';
+import { UngVienComponent } from './components/admin/tuyen-dung/ung-vien/ung-vien.component';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: 'quan-li-tin-tuc/them-moi', component: ThemMoiComponent },
       { path: 'quan-li-thu-vien', component: ThuVienComponent },
       { path: 'quan-li-tuyen-dung', component: TuyenDungComponent },
-      { path: 'quan-li-tuyen-dung/them-moi', component: ThemMoiTuyenDungComponent}
+      { path: 'quan-li-tuyen-dung/them-moi', component: ThemMoiTuyenDungComponent},
+      { path: 'ung-vien', component: UngVienComponent}
     ],
   },
 ];

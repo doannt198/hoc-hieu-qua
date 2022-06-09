@@ -15,7 +15,7 @@ export class ApiService {
     }
 
     deleteCategory(queryParams: any): Observable<any> {
-        return this.http.delete(`${apiServer}/api/NewsCategory/${queryParams}`)
+        return this.http.delete(`${apiServer}/api/NewsCategory/`+ queryParams)
     }
 
     postCategory(queryParams:any): Observable<any> {
@@ -46,6 +46,11 @@ export class ApiService {
     }
 
     getRecruit(queryParams: any): Observable<any> {
-      return this.http.get(`${apiServer}/api/Recruit?${queryParams}`)
+      return this.http.get(`${apiServer}/api/Recruit?`+ queryParams)
     }
+
+    getRecruitCandidate(queryParams: any): Observable<any> {
+      return this.http.get(`${apiServer}/api/RecruitCandidate?`+ queryParams )
+    }
+
 }
