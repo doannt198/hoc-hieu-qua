@@ -66,6 +66,10 @@ export class ApiService {
     getListAccount(queryParams: any): Observable<any> {
        return this.http.get(`${apiServer}/api/Account?`+ queryParams)
     }
+
+    deleteAccount(queryParams: any): Observable<any> {
+       return this.http.delete(`${apiServer}/api/Account/`+ queryParams)
+    }
      
    /*  Api FAQ */
    
@@ -85,9 +89,16 @@ export class ApiService {
       return this.http.get(`${apiServer}/api/Teacher?`+ queryParams)
    }
 
+   deleteTeacher(Id: string): Observable<any> {
+    return this.http.delete(`${apiServer}/api/Teacher/${Id}`)
+  }
+
    /* api ClassRoom */
 
    getListClassRoom(queryParams: any): Observable<any> {
       return this.http.get(`${apiServer}/api/ClassRoom?`+ queryParams)
    }
+
+   
+
 }

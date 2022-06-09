@@ -56,8 +56,23 @@ export class TaiKhoanComponent implements OnInit {
     this.getListAccount();
   }
 
-  deleteProduct(Id: string) {
-    
+  deleteAccount(dataList: any) {
+    this.confirmationService.confirm({
+      message: 'Bạn có chắc chắn muốn xoá?',
+      accept: () => {
+        this.apiService.deleteAccount(dataList.Id)
+        .subscribe({
+          next:(response) => {
+            if(response.Status === 'success') {
+              this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'});
+              this.getListAccount();
+            } else {
+              this.messageService.add({ severity: 'error', summary : 'Thông báo', detail: 'Xoá thất bại'})
+            }
+          } 
+        })
+      } 
+    })
   }
   
   ngOnDestroy() {

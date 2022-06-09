@@ -59,8 +59,27 @@ export class GiaoVienComponent implements OnInit {
     this.getListTeacher();
   }
 
-  deleteProduct(Id: string) {
-    
+  deleteTeacher(dataList: any) {
+      this.confirmationService.confirm({
+        message: `Bạn có chắc chắn muốn xoá?`,
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.apiService.deleteTeacher(dataList.Id)
+          .subscribe({
+            next: (response) => {
+              if(response.Status === 'success') {
+                this.messageService.add({severity: 'success', summary: 'Thông báo', detail: "Xoá thành công"})
+                this.getListTeacher();
+              } else {
+                this.messageService.add({severity: 'error', summary: 'Thông báo', detail: "Xoá thất bại"})
+              }
+            }, 
+            error: (error) => {
+              console.error("deleteTeacher", error)
+            }
+          })
+        }
+      })
   }
   
   ngOnDestroy() {
