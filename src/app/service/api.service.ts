@@ -64,4 +64,10 @@ export class ApiService {
     getFAQ(queryParams: any): Observable<any> {
       return this.http.get(`${apiServer}/api/faq?`+ queryParams)
     }
+
+   /*  Api Slider */
+
+    getSlider(queryParams: any): Observable<any> {
+        return this.http.get(`${apiServer}/api/Slide?`+ queryParams)
+    }
 }
