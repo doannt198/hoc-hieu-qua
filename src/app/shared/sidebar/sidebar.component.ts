@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -114,8 +113,8 @@ export class SidebarComponent implements OnInit {
           { label: 'Trò chơi', icon: 'pi pi-discord' },
           { label: 'Thư viện', icon: 'pi pi-chart-bar' },
           { label: 'Slider', icon: 'pi pi-image', routerLink: '/slider' },
-          { label: 'Giáo viên', icon: 'pi pi-user-plus' },
-          { label: 'Lớp học', icon: 'pi pi-microsoft' },
+          { label: 'Giáo viên', icon: 'pi pi-user-plus', routerLink: '/giao-vien' },
+          { label: 'Lớp học', icon: 'pi pi-microsoft', routerLink: '/lop-hoc' },
           { label: 'Môn học', icon: 'pi pi-th-large' },
           { label: 'Bài kiểm tra', icon: 'pi pi-server' }
         ],

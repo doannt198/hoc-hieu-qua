@@ -55,19 +55,31 @@ export class ApiService {
 
    /*  Api Account  */
 
-    getAccount(queryParams: any): Observable<any> {
+    getListAccount(queryParams: any): Observable<any> {
        return this.http.get(`${apiServer}/api/Account?`+ queryParams)
     }
      
    /*  Api FAQ */
    
-    getFAQ(queryParams: any): Observable<any> {
+    getListFAQ(queryParams: any): Observable<any> {
       return this.http.get(`${apiServer}/api/faq?`+ queryParams)
     }
 
    /*  Api Slider */
 
-    getSlider(queryParams: any): Observable<any> {
+    getListSlider(queryParams: any): Observable<any> {
         return this.http.get(`${apiServer}/api/Slide?`+ queryParams)
     }
+
+   /*  Api Teacher */
+
+   getListTeacher(queryParams: any): Observable<any> {
+      return this.http.get(`${apiServer}/api/Teacher?`+ queryParams)
+   }
+
+   /* api ClassRoom */
+
+   getListClassRoom(queryParams: any): Observable<any> {
+      return this.http.get(`${apiServer}/api/ClassRoom?`+ queryParams)
+   }
 }

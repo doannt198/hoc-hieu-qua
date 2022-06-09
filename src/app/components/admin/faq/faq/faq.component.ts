@@ -29,13 +29,13 @@ export class FaqComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
   fetchData() {
-    this.getFAQ();
+    this.getListFAQ();
   }
 
-  getFAQ(): void {
+  getListFAQ(): void {
     const queryParams = queryString.stringify(this.query);
     this.apiService
-      .getFAQ(queryParams)
+      .getListFAQ(queryParams)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
@@ -53,7 +53,7 @@ export class FaqComponent implements OnInit {
     console.log(event);
     this.query.offSet = event.first;
     this.query.pageSize = event.rows;
-    this.getFAQ();
+    this.getListFAQ();
   }
 
   deleteProduct(Id: string) {

@@ -31,13 +31,13 @@ export class SliderComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
   fetchData() {
-    this.getSlider();
+    this.getListSlider();
   }
 
-  getSlider(): void {
+  getListSlider(): void {
     const queryParams = queryString.stringify(this.query);
     this.apiService
-      .getSlider(queryParams)
+      .getListSlider(queryParams)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
@@ -55,7 +55,7 @@ export class SliderComponent implements OnInit {
     console.log(event);
     this.query.offSet = event.first;
     this.query.pageSize = event.rows;
-    this.getSlider();
+    this.getListSlider();
   }
 
   deleteProduct(Id: string) {

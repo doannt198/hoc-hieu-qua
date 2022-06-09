@@ -4,11 +4,12 @@ import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
 @Component({
-  selector: 'app-tai-khoan',
-  templateUrl: './tai-khoan.component.html',
-  styleUrls: ['./tai-khoan.component.scss']
+  selector: 'app-lop-hoc',
+  templateUrl: './lop-hoc.component.html',
+  styleUrls: ['./lop-hoc.component.scss']
 })
-export class TaiKhoanComponent implements OnInit {
+export class LopHocComponent implements OnInit {
+
   private readonly unsubscribe$: Subject<void> = new Subject();
   dataList: any = [];
   data: any = [];
@@ -22,24 +23,26 @@ export class TaiKhoanComponent implements OnInit {
   query = {
     filter: '',
     offSet: 0,
-    pageSize: 5,
+    pageSize: 5
   };
+
   ngOnInit(): void {
     this.fetchData();
     this.primengConfig.ripple = true;
   }
+
   fetchData() {
-    this.getListAccount();
+    this.getListClassRoom();
   }
 
-  getListAccount(): void {
+  getListClassRoom(): void {
     const queryParams = queryString.stringify(this.query);
     this.apiService
-      .getListAccount(queryParams)
+      .getListClassRoom(queryParams)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          console.log("tài khoản",response)
+          console.log("LỚp học", response)
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
         },
@@ -53,7 +56,7 @@ export class TaiKhoanComponent implements OnInit {
     console.log(event);
     this.query.offSet = event.first;
     this.query.pageSize = event.rows;
-    this.getListAccount();
+    this.getListClassRoom();
   }
 
   deleteProduct(Id: string) {
