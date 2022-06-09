@@ -4,6 +4,7 @@ import { ThuVienComponent } from './common/thu-vien/thu-vien.component';
 import { FaqComponent } from './components/admin/faq/faq/faq.component';
 import { MenuNguoiDungComponent } from './components/admin/menu/menu-nguoi-dung/menu-nguoi-dung.component';
 import { MenuQuanTriComponent } from './components/admin/menu/menu-quan-tri/menu-quan-tri.component';
+import { SliderComponent } from './components/admin/silder/slider/slider.component';
 import { TaiKhoanComponent } from './components/admin/tai-khoan/tai-khoan/tai-khoan.component';
 import { DanhMucTinTucComponent } from './components/admin/tin-tuc/danh-muc-tin-tuc/danh-muc-tin-tuc.component';
 import { QuanLiTinTucComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/quan-li-tin-tuc.component';
@@ -35,7 +36,8 @@ const routes: Routes = [
       { path: 'quan-li-tuyen-dung', component: TuyenDungComponent },
       { path: 'quan-li-tuyen-dung/them-moi', component: ThemMoiTuyenDungComponent},
       { path: 'ung-vien', component: UngVienComponent },
-      { path: 'faq', component: FaqComponent }
+      { path: 'faq', component: FaqComponent },
+      { path: 'slider', component: SliderComponent },
     ],
   },
 ];
