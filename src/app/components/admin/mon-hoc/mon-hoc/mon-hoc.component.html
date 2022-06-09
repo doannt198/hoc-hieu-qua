@@ -1,10 +1,10 @@
-<div class="quan-li-lop-hoc">
+<div class="quan-li-mon-hoc">
     <p-table [value]='dataList' styleClass="p-datatable-customers" [rowHover]="true" [rows]="10"
         [showCurrentPageReport]="true" responsiveLayout="scroll">
         <ng-template pTemplate="caption">
             <div class="grid">
                 <div class="col-6">
-                    <div class="table-header mt-2"> Quản lí môn học</div>
+                    <div class="table-header mt-2"> Quản lí Môn học</div>
                 </div>
                 <div class="col-6 flex justify-content-end">
                     <p-button label="Thêm mới" icon="pi pi-plus" class="mr-3" routerLink="/quan-li-tin-tuc/them-moi">
@@ -20,17 +20,42 @@
                 </th>
                 <th>
                     <div class="flex justify-content-between align-items-center">
+                        Hình ảnh
+                    </div>
+                </th>
+                <th>
+                    <div class="flex justify-content-between align-items-center">
+                        Mã 
+                    </div>
+                </th>
+                <th>
+                    <div class="flex justify-content-between align-items-center">
                         Tên
                     </div>
                 </th>
                 <th>
                     <div class="flex justify-content-between align-items-center">
-                        Hiển thị
+                        Ngày tạo
                     </div>
                 </th>
                 <th>
                     <div class="flex justify-content-between align-items-center">
-                        Sắp xếp
+                        Giáo viên
+                    </div>
+                </th>
+                <th>
+                    <div class="flex justify-content-between align-items-center">
+                        Giá 
+                    </div>
+                </th>
+                <th>
+                    <div class="flex justify-content-between align-items-center">
+                        Giá giảm
+                    </div>
+                </th>
+                <th>
+                    <div class="flex justify-content-between align-items-center">
+                        Trạng thái
                     </div>
                 </th>
                 <th>

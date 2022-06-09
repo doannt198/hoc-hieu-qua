@@ -55,8 +55,10 @@ import { FaqComponent } from './components/admin/faq/faq/faq.component';
 import { SliderComponent } from './components/admin/silder/slider/slider.component';
 import { GiaoVienComponent } from './components/admin/giao-vien/giao-vien/giao-vien.component';
 import { LopHocComponent } from './components/admin/lop-hoc/lop-hoc/lop-hoc.component';
+import { MonHocComponent } from './components/admin/mon-hoc/mon-hoc/mon-hoc.component';
+import { BaiKiemTraComponent } from './components/admin/bai-kiem-tra/bai-kiem-tra/bai-kiem-tra.component';
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent, UngVienComponent, TaiKhoanComponent, FaqComponent, SliderComponent, GiaoVienComponent, LopHocComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent, UngVienComponent, TaiKhoanComponent, FaqComponent, SliderComponent, GiaoVienComponent, LopHocComponent, MonHocComponent, BaiKiemTraComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

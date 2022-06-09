@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ThuVienComponent } from './common/thu-vien/thu-vien.component';
+import { BaiKiemTraComponent } from './components/admin/bai-kiem-tra/bai-kiem-tra/bai-kiem-tra.component';
 import { FaqComponent } from './components/admin/faq/faq/faq.component';
 import { GiaoVienComponent } from './components/admin/giao-vien/giao-vien/giao-vien.component';
 import { LopHocComponent } from './components/admin/lop-hoc/lop-hoc/lop-hoc.component';
 import { MenuNguoiDungComponent } from './components/admin/menu/menu-nguoi-dung/menu-nguoi-dung.component';
 import { MenuQuanTriComponent } from './components/admin/menu/menu-quan-tri/menu-quan-tri.component';
+import { MonHocComponent } from './components/admin/mon-hoc/mon-hoc/mon-hoc.component';
 import { SliderComponent } from './components/admin/silder/slider/slider.component';
 import { TaiKhoanComponent } from './components/admin/tai-khoan/tai-khoan/tai-khoan.component';
 import { DanhMucTinTucComponent } from './components/admin/tin-tuc/danh-muc-tin-tuc/danh-muc-tin-tuc.component';
@@ -41,7 +43,9 @@ const routes: Routes = [
       { path: 'faq', component: FaqComponent },
       { path: 'slider', component: SliderComponent },
       { path: 'giao-vien', component: GiaoVienComponent },
-      { path: 'lop-hoc', component: LopHocComponent }
+      { path: 'lop-hoc', component: LopHocComponent },
+      { path: 'mon-hoc', component: MonHocComponent },
+      { path: 'bai-kiem-tra', component: BaiKiemTraComponent }
     ],
   },
 ];

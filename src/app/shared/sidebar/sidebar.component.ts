@@ -115,8 +115,8 @@ export class SidebarComponent implements OnInit {
           { label: 'Slider', icon: 'pi pi-image', routerLink: '/slider' },
           { label: 'Giáo viên', icon: 'pi pi-user-plus', routerLink: '/giao-vien' },
           { label: 'Lớp học', icon: 'pi pi-microsoft', routerLink: '/lop-hoc' },
-          { label: 'Môn học', icon: 'pi pi-th-large' },
-          { label: 'Bài kiểm tra', icon: 'pi pi-server' }
+          { label: 'Môn học', icon: 'pi pi-th-large', routerLink: '/mon-hoc' },
+          { label: 'Bài kiểm tra', icon: 'pi pi-server', routerLink: '/bai-kiem-tra' }
         ],
       },
     ];
