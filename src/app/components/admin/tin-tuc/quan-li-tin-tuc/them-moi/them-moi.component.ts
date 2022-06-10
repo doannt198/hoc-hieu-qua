@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import * as queryString from 'query-string';
 import { ApiService } from 'src/app/service/api.service';
+import { NewModel } from 'src/app/model/news.model';
 @Component({
   selector: 'app-them-moi',
   templateUrl: './them-moi.component.html',
@@ -19,6 +20,9 @@ export class ThemMoiComponent implements OnInit {
   val: number = 5;
   dataDropdown: any = [];
   data: any = [];
+  Title: any;
+  Order: any;
+  dataSave: NewModel = new NewModel();
   query = {
     filter: '',
     offSet: 0,
@@ -39,6 +43,11 @@ export class ThemMoiComponent implements OnInit {
     this.GetNewsCategory();
   }
 
+  onSave() {
+   console.log(this.dataSave)
+  
+  }
+
   GetNewsCategory(): void {
     const queryParams = queryString.stringify(this.query);
     this.apiService
@@ -47,7 +56,6 @@ export class ThemMoiComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.dataDropdown = response.Data.Data;
-          console.log("đâtropdown", this.dataDropdown)
         },
         error: (error) => {
           console.log('error', error);
@@ -59,7 +67,7 @@ export class ThemMoiComponent implements OnInit {
     this.showLibrary = true
   }
 
-  selectedImages(event: any) {
+  selectedImg(event: any) {
     this.showLibrary = false
     this.UrlImg = event
   }

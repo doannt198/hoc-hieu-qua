@@ -21,13 +21,14 @@ export class ThuVienComponent implements OnInit {
     ) {}
   private readonly unsubscribe$: Subject<void> = new Subject();
   list: LibraryModel[] = [];
-  @Output() selectedImage = new EventEmitter<any>();
+  @Output() selecteImg = new EventEmitter<any>();
   listFile: any;
   items:any
   roots: any;
   selectNote: any;
   selectedFile: TreeNode;
   selectedNodes: any;
+  displayModal = false
   imageUrl = '';
   file: any = null;
   display: boolean = false;
@@ -206,9 +207,9 @@ export class ThuVienComponent implements OnInit {
     }
   }
 
-  selectImg(item:any) {
+  selectImged(item:any) {
     console.log("url", item.Url)
-    this.selectedImage.emit(item.Url)
+    this.selecteImg.emit(item.Url)
   }
   
   ngOnDestroy() {

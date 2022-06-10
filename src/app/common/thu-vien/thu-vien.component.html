@@ -3,9 +3,23 @@
         <div class="col-3">
             <div class="thu-muc-goc">
                 <p-button label="Thư mục gốc" icon="pi pi-folder" styleClass="p-button" ></p-button>
+                <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false"
+                    [resizable]="false">
+                    <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <ng-template pTemplate="footer">
+                        <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+                    </ng-template>
+                </p-dialog>
             </div>
-            <p-tree [value]="roots" [(ngModel)]="selectedNodes" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="handleSelectNode($event)" [contextMenu]="cm">
-            </p-tree>
+            <div class="tree mt-3">
+                <p-tree [value]="roots" [(ngModel)]="selectedNodes" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="handleSelectNode($event)" [contextMenu]="cm">
+                </p-tree>
+            </div>
             <p-contextMenu #cm [model]="items"></p-contextMenu>
         </div>
         <div class="col-9">
@@ -13,7 +27,7 @@
                 <div class="image-item" *ngFor="let item of listFile">
                     <img [src]="item?.Url" alt="hhq">
                     <div class="image-item--actions">
-                        <button title="Chọn ảnh" (click)="selectImg(item)"
+                        <button title="Chọn ảnh" (click)="selectImged(item)"
                             class="p-button p-component p-button-rounded p-button-secondary mr-1 p-button-sm p-button-icon-only">
                             <span class="p-button-icon p-c pi pi-check"></span>
                             <span class="p-button-label p-c"></span>

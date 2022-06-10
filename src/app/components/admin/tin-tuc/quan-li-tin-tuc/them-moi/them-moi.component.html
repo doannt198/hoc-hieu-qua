@@ -11,34 +11,34 @@
                                 <i class="pi pi-upload"></i>
                                 Ảnh đại diện
                             </label>
-                            <p-dialog header="Chọn Media" appendTo="body" [(visible)]="showLibrary" [modal]="true"
-                                [style]="{width: '80vw', height: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
-                                <app-thu-vien (selectedImage)="selectedImages($event)" ></app-thu-vien>
-                            </p-dialog>
+                            <p-dialog header="Chọn Media" [(visible)]="showLibrary" [modal]="true"
+                                [style]="{width: '80vw', height: '50vw'}"   >
+                               <app-thu-vien appendTo="body" (selecteImg)="selectedImg($event)"></app-thu-vien> 
+                            </p-dialog> 
                         </div>
                         <div class="col-9 pl-5">
-                            <form class="p-fluid">
+                            <form class="p-fluid" (ngSubmit)="onSave()" #dataSave="ngForm">
                                 <span class="p-float-label p-input-icon-right">
                                     <i class="pi pi-user"></i>
-                                    <input id="float-input" type="text" name="Name" pInputText > 
+                                    <input id="float-input" type="text" name="Name" pInputText [(ngModel)]='Title' > 
                                     <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
                                 </span>
                                 <div class="field mt-5">
                                     <span class="p-float-label p-input-icon-right">
                                         <i class="pi pi-sort-numeric-down"></i>
-                                        <input id="Order" name="Order" class="p-inputtext p-component p-filled" value="0">
+                                        <input name="Order" class="p-inputtext p-component p-filled" [(ngModel)]='Order'>
                                         <label for="intOrorderer" class="">Thứ tự hiện thị</label>
                                     </span>
                                 </div>
                                 <div class="field mt-7">
                                     <span class="p-float-label p-input-icon-right">
-                                        <input id="Order" name="Order" class="p-inputtext p-component p-filled">
+                                        <input name="Tags" class="p-inputtext p-component p-filled">
                                         <label for="intOrorderer" class="">Tags</label>
                                     </span>
                                 </div>
                                 <div class="field mt-5">
                                     <span class="p-float-label p-input-icon-right">
-                                        <p-dropdown [options]="dataDropdown" optionLabel="Name" id='intOrorderer' name='selectedCategory'[(ngModel)]="selectedCategory" ></p-dropdown>
+                                        <p-dropdown [options]="dataDropdown" optionLabel="Name" id='intOrorderer' name='selectedCategory' [(ngModel)]="selectedCategory" ></p-dropdown>
                                         <label for="intOrorderer" class="">Danh mục</label>
                                     </span>
                                 </div>
@@ -46,7 +46,7 @@
                                     <div class="col-6">
                                         <div class="field">
                                             <label for="">Đánh giá</label>
-                                            <p-rating [(ngModel)]="val" [cancel]="false"></p-rating>
+                                            <p-rating name="danhgia" [(ngModel)]="val" [cancel]="false"></p-rating>
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -61,7 +61,7 @@
                                         <div class="field">
                                             <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
                                             <div class="textarea">
-                                                <textarea pInputTextarea [style]="{width: '100%', height: '20vw'}"></textarea>
+                                                <textarea  name='ShortContent' pInputTextarea [style]="{width: '100%', height: '20vw'}"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@
                                         <div class="field">
                                             <label for="float-input">Nội dung bài viết<span class="text-red-500"> *</span></label>
                                             <div class="textarea">
-                                                <textarea pInputTextarea [style]="{width: '100%', height: '20vw'}"></textarea>
+                                                <textarea name='Content' pInputTextarea [style]="{width: '100%', height: '20vw'}"></textarea>
                                             </div>
                                         </div>
                                     </div>
