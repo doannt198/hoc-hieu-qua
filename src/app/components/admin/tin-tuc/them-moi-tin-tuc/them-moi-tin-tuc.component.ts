@@ -39,11 +39,10 @@ export class ThemMoiTinTucComponent implements OnInit {
     this.apiService.postCategory(this.category)
     .subscribe({
       next: (response) => {
+        console.log("dsd", response)
         if(response.Status === 'success') {
           this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Thêm thành công'})
-          this.category.Name = '',
-          this.category.Status = 0,
-          this.category.Order = ''
+          this.router.navigate([`/danh-muc-tin-tuc/${response.Data}`])  
         } else {
           this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
         }
@@ -51,12 +50,15 @@ export class ThemMoiTinTucComponent implements OnInit {
     })
   }
 
+
   change(event:any ) {
     if(event.checked == true) {
       this.category.Status = 1
+      console.log("sss", this.category.Status)
     } 
     if(event.checked == false) {
       this.category.Status = 0 
+      console.log("aaa", this.category.Status)
     }
   }
 }

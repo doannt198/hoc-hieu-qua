@@ -21,6 +21,11 @@ export class ApiService {
     postCategory(queryParams:any): Observable<any> {
       return this.http.post(`${apiServer}/api/NewsCategory`, queryParams )
     }
+
+    getCategoryDetail(Id: any): Observable<any> {
+      return this.http.get(`${apiServer}/api/NewsCategory/${Id}`)
+    }
+
     /* Api quản lí tin tức */ 
 
     getNews(queryParams: any): Observable<any> {
@@ -30,6 +35,7 @@ export class ApiService {
     deleteNewsItem(queryParams:any): Observable<any> {
       return this.http.delete(`${apiServer}/api/News/`+ queryParams)
     }
+    
 
     /* Api thư viện */
 

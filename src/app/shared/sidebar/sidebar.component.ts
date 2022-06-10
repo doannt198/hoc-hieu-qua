@@ -12,6 +12,12 @@ export class SidebarComponent implements OnInit {
   ) {}
   items: any;
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
     this.items = [
       {
         label: 'Tài khoản',

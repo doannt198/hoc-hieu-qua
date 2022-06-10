@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -59,8 +59,9 @@ import { MonHocComponent } from './components/admin/mon-hoc/mon-hoc/mon-hoc.comp
 import { CalendarModule } from 'primeng/calendar';
 import { BaiKiemTraComponent } from './components/admin/bai-kiem-tra/bai-kiem-tra/bai-kiem-tra.component';
 import { ThemMoiTaiKhoanComponent } from './components/admin/tai-khoan/them-moi-tai-khoan/them-moi-tai-khoan.component';
+import { ChiTietTinTucComponent } from './components/admin/tin-tuc/chi-tiet-tin-tuc/chi-tiet-tin-tuc.component';
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent, UngVienComponent, TaiKhoanComponent, FaqComponent, SliderComponent, GiaoVienComponent, LopHocComponent, MonHocComponent, BaiKiemTraComponent, ThemMoiTaiKhoanComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent, UngVienComponent, TaiKhoanComponent, FaqComponent, SliderComponent, GiaoVienComponent, LopHocComponent, MonHocComponent, BaiKiemTraComponent, ThemMoiTaiKhoanComponent, ChiTietTinTucComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -99,6 +100,7 @@ import { ThemMoiTaiKhoanComponent } from './components/admin/tai-khoan/them-moi-
     AngularFirestoreModule,
     CalendarModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     ApiService,
     ConfirmationService,

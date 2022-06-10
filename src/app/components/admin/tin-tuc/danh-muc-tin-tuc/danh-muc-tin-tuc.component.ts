@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
+import { NgxSpinnerModule } from "ngx-spinner";
 import * as queryString from 'query-string';
 import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
 @Component({
@@ -17,7 +18,8 @@ export class DanhMucTinTucComponent implements OnInit {
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private spinner: NgxSpinnerModule
   ) {}
   query = {
     filter: '',
@@ -26,6 +28,7 @@ export class DanhMucTinTucComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    
     this.fetchData();
     this.primengConfig.ripple = true;
   }
@@ -86,6 +89,9 @@ export class DanhMucTinTucComponent implements OnInit {
         })
       }
     });
+  }
+  handleEdit(): void {
+
   }
 
   ngOnDestroy() {

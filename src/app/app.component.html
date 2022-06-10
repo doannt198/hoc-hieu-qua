@@ -1,10 +1,11 @@
 
 <router-outlet>
+    <ngx-spinner [zIndex]="9999999999999" type="ball-scale-multiple"></ngx-spinner>
     <p-confirmDialog [style]="{width: '15vw'}"  [baseZIndex]="10000" acceptLabel="Đồng ý" rejectLabel="Không"></p-confirmDialog>
       <p-toast position="top-right"  [baseZIndex]="5000">
           <ng-template  let-message pTemplate="message">
               <div class="flex flex-column" style="flex: 1">
-                  <div class="text-right">
+                  <div class="text-center">
                       <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
                       <h4>{{message.summary}}</h4>
                       <p>{{message.detail}}</p>

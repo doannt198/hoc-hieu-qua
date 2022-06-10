@@ -11,6 +11,7 @@ import { MonHocComponent } from './components/admin/mon-hoc/mon-hoc/mon-hoc.comp
 import { SliderComponent } from './components/admin/silder/slider/slider.component';
 import { TaiKhoanComponent } from './components/admin/tai-khoan/tai-khoan/tai-khoan.component';
 import { ThemMoiTaiKhoanComponent } from './components/admin/tai-khoan/them-moi-tai-khoan/them-moi-tai-khoan.component';
+import { ChiTietTinTucComponent } from './components/admin/tin-tuc/chi-tiet-tin-tuc/chi-tiet-tin-tuc.component';
 import { DanhMucTinTucComponent } from './components/admin/tin-tuc/danh-muc-tin-tuc/danh-muc-tin-tuc.component';
 import { QuanLiTinTucComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/quan-li-tin-tuc.component';
 import { ThemMoiComponent } from './components/admin/tin-tuc/quan-li-tin-tuc/them-moi/them-moi.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: 'menu-nguoi-dung', component: MenuNguoiDungComponent },
       { path: 'menu-quan-tri', component: MenuQuanTriComponent },
       { path: 'danh-muc-tin-tuc', component: DanhMucTinTucComponent },
+      { path: 'danh-muc-tin-tuc/:id', component: ChiTietTinTucComponent },
       { path: 'them-moi-tin-tuc', component: ThemMoiTinTucComponent },
       { path: 'quan-li-tin-tuc', component: QuanLiTinTucComponent },
       { path: 'quan-li-tin-tuc/them-moi', component: ThemMoiComponent },
@@ -47,7 +49,8 @@ const routes: Routes = [
       { path: 'lop-hoc', component: LopHocComponent },
       { path: 'mon-hoc', component: MonHocComponent },
       { path: 'bai-kiem-tra', component: BaiKiemTraComponent },
-      { path: 'tai-khoan/them-moi-tai-khoan', component: ThemMoiTaiKhoanComponent }
+      { path: 'tai-khoan/them-moi-tai-khoan', component: ThemMoiTaiKhoanComponent }, 
+      { path: 'danh-muc-tin-tuc/:id', component: ChiTietTinTucComponent }
     ],
   },
 ];
