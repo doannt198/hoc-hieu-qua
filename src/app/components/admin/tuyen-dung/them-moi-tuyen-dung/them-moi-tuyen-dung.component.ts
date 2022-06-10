@@ -4,6 +4,7 @@ import * as queryString from 'query-string';
 import { Subject, takeUntil } from 'rxjs';
 import { RecruitModel } from 'src/app/model/recruit.model';
 import { ApiService } from 'src/app/service/api.service';
+import * as moment from 'moment';
 @Component({
   selector: 'app-them-moi-tuyen-dung',
   templateUrl: './them-moi-tuyen-dung.component.html',
@@ -60,8 +61,8 @@ export class ThemMoiTuyenDungComponent implements OnInit {
     this.dataSave.Tags = this.Tags
     this.dataSave.CreatedBy = ''
     this.dataSave.ModifiedBy = ''
-    this.dataSave.CreatedBy = ''
-    this.dataSave.ModifiedDate = ''
+    this.dataSave.CreatedDate =  moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
+    this.dataSave.ModifiedDate = moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
     this.apiService.postCategory(this.dataSave)
     .subscribe({
       next: (response) => {

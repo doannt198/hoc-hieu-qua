@@ -9,8 +9,8 @@ export class RecruitModel {
     Tags: '' ;
     Content: '';
     Requirement: '';
-    CreatedDate: '';
-    ModifiedDate: '' ;
+    CreatedDate: any =null;
+    ModifiedDate: any = null ;
     CreatedBy: '' ;
     ModifiedBy: '' ;
 }
