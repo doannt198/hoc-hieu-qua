@@ -1,6 +1,6 @@
 
 <router-outlet>
-    <ngx-spinner [zIndex]="9999999999999" type="ball-scale-multiple" ></ngx-spinner>
+    <sa-spinner-circular [size]="50" [thickness]="100" [speed]="100" color="rgba(57, 94, 172, 1)" secondaryColor="rgba(24, 24, 24, 0.1)" ></sa-spinner-circular>
     <p-confirmDialog [style]="{width: '15vw'}"  [baseZIndex]="10000" acceptLabel="Đồng ý" rejectLabel="Không"></p-confirmDialog>
       <p-toast position="top-right"  [baseZIndex]="5000">
           <ng-template  let-message pTemplate="message">
