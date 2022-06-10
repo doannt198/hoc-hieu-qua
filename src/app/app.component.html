@@ -1,11 +1,10 @@
 
 <router-outlet>
-    <sa-spinner-circular [size]="50" [thickness]="100" [speed]="100" color="rgba(57, 94, 172, 1)" secondaryColor="rgba(24, 24, 24, 0.1)" ></sa-spinner-circular>
     <p-confirmDialog [style]="{width: '15vw'}"  [baseZIndex]="10000" acceptLabel="Đồng ý" rejectLabel="Không"></p-confirmDialog>
       <p-toast position="top-right"  [baseZIndex]="5000">
           <ng-template  let-message pTemplate="message">
               <div class="flex flex-column" style="flex: 1">
-                  <div class="text-center">
+                  <div class="text-right">
                       <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
                       <h4>{{message.summary}}</h4>
                       <p>{{message.detail}}</p>
@@ -14,4 +13,3 @@
           </ng-template>
       </p-toast>
 </router-outlet>
-

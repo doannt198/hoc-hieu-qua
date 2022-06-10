@@ -98,7 +98,7 @@ import { ChiTietTinTucComponent } from './components/admin/tin-tuc/chi-tiet-tin-
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
-    CalendarModule
+    CalendarModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
