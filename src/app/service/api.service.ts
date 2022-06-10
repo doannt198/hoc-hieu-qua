@@ -66,6 +66,10 @@ export class ApiService {
     deleteRecruit(Id: string): Observable<any> {
       return this.http.delete(`${apiServer}/api/recruit/${Id}`)
     }
+
+    postRecruit(data :any): Observable<any> {
+      return this.http.post(`${apiServer}/api/Recruit`, data)
+    }
     
    /*  Api Account  */
 
