@@ -68,7 +68,7 @@
 <p-dialog header="Upload" [(visible)]="display" [modal]="true" [style]="{width: '30vw'}">
     <div class="grid" *ngIf="display">
         <div class="upload-media">
-            <form class="grid mt-1" (ngSubmit)="uploadFile()">
+            <form class="grid mt-1" (ngSubmit)="uploadFile()" #upfile="ngForm">
                 <div class="col-5">
                     <label for="uploadfile">
                         <img [src]="imageUrl ? imageUrl : '../../../assets/images/empty-image.png'"alt="img" style="width:100%">

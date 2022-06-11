@@ -36,6 +36,9 @@ export class ApiService {
       return this.http.delete(`${apiServer}/api/News/`+ queryParams)
     }
     
+    postNews(data: any): Observable<any> {
+      return this.http.post(`${apiServer}/api/News`, data)
+    }
 
     /* Api thư viện */
 

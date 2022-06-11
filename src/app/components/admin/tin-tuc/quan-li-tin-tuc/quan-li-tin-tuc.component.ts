@@ -22,7 +22,7 @@ export class QuanLiTinTucComponent implements OnInit {
   query = {
     filter: '',
     offSet: 0,
-    pageSize: 5,
+    pageSize: 10,
   };
   ngOnInit(): void {
     this.fetchData();

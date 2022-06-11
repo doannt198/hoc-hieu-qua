@@ -1,7 +1,7 @@
 export class NewModel {
     id: '' ;
     title: '' ;
-    avatar: 'test' ;
+    avatar:any = null ;
     categoryId: '' ;
     content: '' ;
     status: 0 ;
@@ -11,8 +11,8 @@ export class NewModel {
     tags: '' ;
     view: 0 ;
     author: '' ;
-    createdDate: '' ;
+    createdDate:any = null;
     createdBy: '' ;
-    modifiedDate: '' ;
+    modifiedDate:any = null ;
     modifiedBy: '';
 }

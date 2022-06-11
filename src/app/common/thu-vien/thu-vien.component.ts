@@ -44,7 +44,7 @@ export class ThuVienComponent implements OnInit {
     ]
   }
 
-  fetchData() {
+  fetchData(): void {
     this.getLibrariesFolder();
     this.getSelectNode();
   }
@@ -98,7 +98,7 @@ export class ThuVienComponent implements OnInit {
     this.roots = roots
   }
 
-  bindingData(item: any) {
+  bindingData(item: any){
     return {
       nodeId: item.Id,
       data: item,
@@ -110,7 +110,7 @@ export class ThuVienComponent implements OnInit {
     };
   }
   
-  getSelectNode() {
+  getSelectNode(): void {
     this.apiService.getLibrariesFile(this.selectNote)
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe({

@@ -3,6 +3,7 @@ import { Subject, takeUntil } from 'rxjs';
 import * as queryString from 'query-string';
 import { ApiService } from 'src/app/service/api.service';
 import { NewModel } from 'src/app/model/news.model';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-them-moi',
   templateUrl: './them-moi.component.html',
@@ -11,17 +12,19 @@ import { NewModel } from 'src/app/model/news.model';
 export class ThemMoiComponent implements OnInit {
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private messageService: MessageService
   ) { }
   private readonly unsubscribe$: Subject<void> = new Subject();
   items: any;
-  UrlImg = '';
+  UrlImg: any = null ;
   showLibrary = false;
   val: number = 5;
   dataDropdown: any = [];
   data: any = [];
   Title: any;
   Order: any;
+  Tags: any;
   dataSave: NewModel = new NewModel();
   query = {
     filter: '',
@@ -44,7 +47,35 @@ export class ThemMoiComponent implements OnInit {
   }
 
   onSave() {
-   console.log(this.dataSave)
+  const createdDate = new Date()
+  const modifiedDate = new Date()
+   this.dataSave.id= ''
+   this.dataSave.avatar = this.UrlImg
+   this.dataSave.categoryId = this.selectedCategory
+  this.dataSave.title = this.Title
+  this.dataSave.content = ''
+  this.dataSave.status = 0
+  this.dataSave.order = 0
+  this.dataSave.status = 0
+  this.dataSave.rate = 0
+  this.dataSave.shortContent = ''
+  this.dataSave.tags = ''
+  this.dataSave.view = 0
+  this.dataSave.author= ''
+  this.dataSave.createdDate = createdDate
+  this.dataSave.createdBy = ''
+  this.dataSave.modifiedDate = modifiedDate
+  this.dataSave.modifiedBy = ''
+  this.apiService.postNews(this.dataSave)
+  .subscribe({
+    next: (response) => {
+      console.log("kết quả", response)
+      this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Thêm thành công'})
+    },
+    error: (error) => {
+      console.log("error", error)
+    }
+  })
   
   }
 
@@ -56,6 +87,7 @@ export class ThemMoiComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.dataDropdown = response.Data.Data;
+          console.log("dropdown", this.dataDropdown)
         },
         error: (error) => {
           console.log('error', error);

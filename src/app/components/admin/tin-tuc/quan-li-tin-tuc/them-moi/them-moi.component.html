@@ -13,7 +13,7 @@
                             </label>
                             <p-dialog header="Chọn Media" [(visible)]="showLibrary" [modal]="true"
                                 [style]="{width: '80vw', height: '50vw'}"   >
-                               <app-thu-vien appendTo="body" (selecteImg)="selectedImg($event)"></app-thu-vien> 
+                               <app-thu-vien (selecteImg)="selectedImg($event)"></app-thu-vien> 
                             </p-dialog> 
                         </div>
                         <div class="col-9 pl-5">
@@ -32,13 +32,13 @@
                                 </div>
                                 <div class="field mt-7">
                                     <span class="p-float-label p-input-icon-right">
-                                        <input name="Tags" class="p-inputtext p-component p-filled">
+                                        <input name="Tags" class="p-inputtext p-component p-filled" [ngModel]="Tags">
                                         <label for="intOrorderer" class="">Tags</label>
                                     </span>
                                 </div>
                                 <div class="field mt-5">
                                     <span class="p-float-label p-input-icon-right">
-                                        <p-dropdown [options]="dataDropdown" optionLabel="Name" id='intOrorderer' name='selectedCategory' [(ngModel)]="selectedCategory" ></p-dropdown>
+                                        <p-dropdown [options]="dataDropdown" optionLabel="Name" optionValue="Id" id='intOrorderer' name='selectedCategory' [(ngModel)]="selectedCategory" ></p-dropdown>
                                         <label for="intOrorderer" class="">Danh mục</label>
                                     </span>
                                 </div>
