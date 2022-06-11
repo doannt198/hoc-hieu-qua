@@ -5,6 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { RecruitModel } from 'src/app/model/recruit.model';
 import { ApiService } from 'src/app/service/api.service';
 import * as moment from 'moment';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-them-moi-tuyen-dung',
   templateUrl: './them-moi-tuyen-dung.component.html',
@@ -13,7 +14,8 @@ import * as moment from 'moment';
 export class ThemMoiTuyenDungComponent implements OnInit {
   constructor(
     private apiService: ApiService,
-    private messageService: MessageService
+    private messageService: MessageService, 
+    private spinner: NgxSpinnerService
     ) {}
   private readonly unsubscribe$: Subject<void> = new Subject();
   items: any;
@@ -40,6 +42,12 @@ export class ThemMoiTuyenDungComponent implements OnInit {
   selectedCategory: any;
 
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
     this.items = [
       { label: 'Quản trị' },
       { label: 'Tuyển dụng ', routerLink: '/quan-li-tuyen-dung' },
@@ -49,6 +57,9 @@ export class ThemMoiTuyenDungComponent implements OnInit {
   }
 
   onSave() {
+    const CreatedDate = new Date()
+    const ModifiedDate = new Date()
+    const cvTag = this.Tags.toString()
     this.dataSave.Id= ''
     this.dataSave.Name = this.Name
     this.dataSave.Price = this.Price
@@ -58,12 +69,12 @@ export class ThemMoiTuyenDungComponent implements OnInit {
     this.dataSave.Content = this.Content
     this.dataSave.Status = this.Status
     this.dataSave.IsHot = this.IsHot
-    this.dataSave.Tags = this.Tags
+    this.dataSave.Tags = cvTag
     this.dataSave.CreatedBy = ''
     this.dataSave.ModifiedBy = ''
-    this.dataSave.CreatedDate =  moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
-    this.dataSave.ModifiedDate = moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
-    this.apiService.postCategory(this.dataSave)
+    this.dataSave.CreatedDate =  CreatedDate
+    this.dataSave.ModifiedDate = ModifiedDate
+    this.apiService.postRecruit(this.dataSave)
     .subscribe({
       next: (response) => {
         console.log(response)

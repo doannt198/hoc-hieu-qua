@@ -57,6 +57,7 @@ import { GiaoVienComponent } from './components/admin/giao-vien/giao-vien/giao-v
 import { LopHocComponent } from './components/admin/lop-hoc/lop-hoc/lop-hoc.component';
 import { MonHocComponent } from './components/admin/mon-hoc/mon-hoc/mon-hoc.component';
 import { CalendarModule } from 'primeng/calendar';
+import { ChipsModule } from 'primeng/chips';
 import { BaiKiemTraComponent } from './components/admin/bai-kiem-tra/bai-kiem-tra/bai-kiem-tra.component';
 import { ThemMoiTaiKhoanComponent } from './components/admin/tai-khoan/them-moi-tai-khoan/them-moi-tai-khoan.component';
 import { ChiTietTinTucComponent } from './components/admin/tin-tuc/chi-tiet-tin-tuc/chi-tiet-tin-tuc.component';
@@ -70,7 +71,6 @@ import { ChiTietTinTucComponent } from './components/admin/tin-tuc/chi-tiet-tin-
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    AppRoutingModule,
     InputTextModule,
     ConfirmDialogModule,
     ToastModule,
@@ -92,6 +92,7 @@ import { ChiTietTinTucComponent } from './components/admin/tin-tuc/chi-tiet-tin-
     InputSwitchModule,
     TreeSelectModule,
     TreeModule,
+    ChipsModule,
     RatingModule,
     ContextMenuModule,
     AngularFireModule.initializeApp(environment.firebase),

@@ -1,7 +1,7 @@
 
 <router-outlet>
     <ngx-spinner bdColor = "rgba(116,145,191,0.8)" size = "large" color = "#fff" type="timer" [fullScreen] = "true"><p style="color: white" > Đang tải </p></ngx-spinner>
-    <p-confirmDialog [style]="{width: '15vw'}"  [baseZIndex]="10000" acceptLabel="Đồng ý" rejectLabel="Không"></p-confirmDialog>
+    <p-confirmDialog [style]="{width: '30vw'}"  [baseZIndex]="10000" acceptLabel="Đồng ý" rejectLabel="Không"></p-confirmDialog>
       <p-toast position="top-right"  [baseZIndex]="5000">
           <ng-template  let-message pTemplate="message">
               <div class="flex flex-column" style="flex: 1">

@@ -3,6 +3,7 @@ import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api'
 import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string'
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-ung-vien',
   templateUrl: './ung-vien.component.html',
@@ -18,7 +19,8 @@ export class UngVienComponent implements OnInit {
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private spinner: NgxSpinnerService
   ) { }
   query = {
     filter: '',
@@ -26,6 +28,12 @@ export class UngVienComponent implements OnInit {
     pageSize: 10,
   };
   ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
     this.fetchData();
     this.primengConfig.ripple = true;
   }
