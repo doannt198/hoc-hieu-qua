@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
 import * as queryString from 'query-string';
 import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
 @Component({
@@ -19,7 +19,7 @@ export class DanhMucTinTucComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
-    private spinner: NgxSpinnerModule
+    private spinner: NgxSpinnerService
   ) {}
   query = {
     filter: '',
@@ -28,7 +28,12 @@ export class DanhMucTinTucComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
     this.fetchData();
     this.primengConfig.ripple = true;
   }

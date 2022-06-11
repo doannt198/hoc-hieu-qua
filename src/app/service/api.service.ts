@@ -70,6 +70,10 @@ export class ApiService {
     postRecruit(data: any): Observable<any> {
       return this.http.post(`${apiServer}/api/recruit`, data)
     }
+
+    getDetailRecruit(Id: any): Observable<any> {
+      return this.http.get(`${apiServer}/api/Recruit/${Id}`)
+    }
     
    /*  Api Account  */
 
