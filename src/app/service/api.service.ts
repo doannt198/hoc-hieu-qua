@@ -75,6 +75,7 @@ export class ApiService {
       return this.http.get(`${apiServer}/api/Recruit/${Id}`)
     }
     
+
    /*  Api Account  */
 
     getListAccount(queryParams: any): Observable<any> {

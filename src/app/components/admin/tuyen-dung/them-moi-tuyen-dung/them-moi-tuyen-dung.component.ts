@@ -6,6 +6,7 @@ import { RecruitModel } from 'src/app/model/recruit.model';
 import { ApiService } from 'src/app/service/api.service';
 import * as moment from 'moment';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-them-moi-tuyen-dung',
   templateUrl: './them-moi-tuyen-dung.component.html',
@@ -15,7 +16,8 @@ export class ThemMoiTuyenDungComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private messageService: MessageService, 
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
     ) {}
   private readonly unsubscribe$: Subject<void> = new Subject();
   items: any;
@@ -79,6 +81,7 @@ export class ThemMoiTuyenDungComponent implements OnInit {
       next: (response) => {
         console.log(response)
          this.messageService.add({severity: 'success', summary: 'Thông báo', detail: "Thêm thành công"})
+         this.router.navigate([`/tuyen-dung/${response.Data}`])
       },
       error: (error) => {
         console.error("Error", error)

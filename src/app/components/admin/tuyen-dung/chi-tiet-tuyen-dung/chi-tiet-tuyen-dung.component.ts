@@ -71,7 +71,8 @@ export class ChiTietTuyenDungComponent implements OnInit {
   }
 
   onSave(): void {
-    const cvTag = this.dataDetail.Tags.split( )
+    /* const cvTag = this.dataDetail.Tags.split(",") */
+    
     const dataSave = {
       Id: this.dataDetail.Id,
       Name: this.dataDetail.Name,
@@ -82,7 +83,7 @@ export class ChiTietTuyenDungComponent implements OnInit {
       Content: this.dataDetail.Content,
       Status: this.dataDetail.Status,
       IsHot: this.dataDetail.IsHot,
-      Tags: cvTag,
+      Tags: "",
       CreatedBy: this.dataDetail.CreatedBy,
       ModifiedBy: this.dataDetail.ModifiedBy,
       CreatedDate: this.dataDetail.CreatedDate,
@@ -107,7 +108,7 @@ export class ChiTietTuyenDungComponent implements OnInit {
     this.dataSave.ModifiedBy = ''
     this.dataSave.CreatedDate =  CreatedDate
     this.dataSave.ModifiedDate = ModifiedDate */
-   /*  this.apiService.postRecruit(dataSave)
+    this.apiService.postRecruit(dataSave)
     .subscribe({
       next: (response) => {
         console.log(response)
@@ -116,7 +117,7 @@ export class ChiTietTuyenDungComponent implements OnInit {
       error: (error) => {
         console.error("Error", error)
       }
-    }) */
+    }) 
   }
 
   changeStatus(event: any): void {
