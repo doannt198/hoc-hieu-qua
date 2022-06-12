@@ -7,4 +7,32 @@
      object-fit: cover;
      width: 210px;    
     }
+    .slider-image {
+        box-shadow: 0 0 3px #aaa9a9;
+        label {
+            background: #1e90ff;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 600;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+    }
+   .p-input-icon-right {
+        width: 100%;
+   }
+
+}
+
+::ng-deep {
+    .p-input-icon-right > .p-inputtext {
+        width: 100%;
+    }
+
+    .p-button {
+        width: 100%
+    }
 }

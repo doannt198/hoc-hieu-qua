@@ -101,6 +101,10 @@ export class ApiService {
         return this.http.get(`${apiServer}/api/Slide?`+ queryParams)
     }
 
+    deleteSlider(Id: string): Observable<any> {
+        return this.http.delete(`${apiServer}/api/Slide/`+ Id)
+    }
+
    /*  Api Teacher */
 
    getListTeacher(queryParams: any): Observable<any> {

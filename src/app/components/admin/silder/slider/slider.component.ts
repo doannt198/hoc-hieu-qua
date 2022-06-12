@@ -26,11 +26,13 @@ export class SliderComponent implements OnInit {
     pageSize: 5,
     screen: ''
   };
+  showdialog = false
+  showLibrary = false
   ngOnInit(): void {
     this.fetchData();
     this.primengConfig.ripple = true;
   }
-  fetchData() {
+  fetchData(): void {
     this.getListSlider();
   }
 
@@ -50,18 +52,45 @@ export class SliderComponent implements OnInit {
         },
       });
   }
+  showDiaglog():  void {
+    this.showdialog = true
+  }
 
-  paginate(event: any) {
+  selectedImg(event: any): void {
+
+  }
+
+  paginate(event: any): void {
     console.log(event);
     this.query.offSet = event.first;
     this.query.pageSize = event.rows;
     this.getListSlider();
   }
 
-  deleteProduct(Id: string) {
-    
+  deleteProduct(dataList: any): void {
+    this.confirmationService.confirm({
+      message: `Bạn có chắc chắn muốn xóa ${dataList.Name} ?`,
+      accept: () => {
+          this.apiService.deleteSlider(dataList.Id)
+          .subscribe({
+            next: (response) => {
+              if (response.Status === 'success') {
+                this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xóa thành công'})
+                this.getListSlider();
+              }
+            },
+            error: (error) => {
+              console.error("error", error)
+            }
+          })
+      }
+    })
   }
   
+  showLibraryDialog(): void {
+    this.showLibrary = true
+  }
+
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
