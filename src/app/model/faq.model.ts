@@ -4,8 +4,8 @@ export class FaqModel {
   content: "";
   order: 0;
   status: 0;
-  createdDate: null;
-  modifiedDate: null;
+  createdDate:any = null;
+  modifiedDate:any = null;
   createdBy: "";
   modifiedBy: "";
 }

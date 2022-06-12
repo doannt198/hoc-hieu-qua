@@ -20,11 +20,16 @@ export class ThemMoiFaqComponent implements OnInit {
   items :any;
   show: any;
   dataSave: FaqModel = new FaqModel();
+  Title: any;
+  Order: any;
+  Status: any;
+  Content: any;
   category = {
     Name: '',
     Status: 0,
     Order:''
   }
+
   ngOnInit(): void {
     this.items = [
       {label:'Quản trị'},
@@ -38,14 +43,15 @@ export class ThemMoiFaqComponent implements OnInit {
     if(saveForm.invalid) {
       return
     }
-    this.dataSave.id
-    this.dataSave.title
-    this.dataSave.content
-    this.dataSave.order
-    this.dataSave.status
-    this.dataSave.createdDate
-    this.dataSave.modifiedDate
-    
+    const createdDate = new Date()
+    const modifiedDate = new Date()
+    this.dataSave.id = ''
+    this.dataSave.title = this.Title
+    this.dataSave.content = this.Content
+    this.dataSave.order = this.Order
+    this.dataSave.status = this.Status
+    this.dataSave.createdDate = createdDate
+    this.dataSave.modifiedDate =modifiedDate
     /* this.apiService.postCategory(this.category)
     .subscribe({
       next: (response) => {

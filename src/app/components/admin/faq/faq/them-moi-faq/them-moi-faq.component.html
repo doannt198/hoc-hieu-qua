@@ -8,7 +8,7 @@
                                         <div class="field mt-5">
                                                   <span class="p-float-label p-input-icon-right">
                                                             <i class="pi pi-user"></i>
-                                                            <input id="float-input" type="text" name="Name" pInputText>
+                                                            <input id="float-input" type="text" name="Title" [(ngModel)]="Title" pInputText>
                                                             <label for="float-input">Tiêu đề <span class="text-red-500">
                                                                                 *</span></label>
                                                   </span>
@@ -18,7 +18,7 @@
                                                             <div class="field mt-2">
                                                                       <span class="p-float-label p-input-icon-right">
                                                                                 <i class="pi pi-sort-numeric-down"></i>
-                                                                                <input id="Order" name="Order"
+                                                                                <input id="Order" name="Order" [(ngModel)]="Order"
                                                                                           class="p-inputtext p-component p-filled"
                                                                                           value="0">
                                                                                 <label for="intOrorderer" class="">Thứ
@@ -27,7 +27,7 @@
                                                   </div>
                                                   <div class="col-6">
                                                             <div class="field flex align-items-center mt-3">
-                                                                      <p-inputSwitch name='Status'
+                                                                      <p-inputSwitch name='Status' [(ngModel)]="Status"
                                                                                 (onChange)="change($event)">
                                                                       </p-inputSwitch>
                                                                       <label for="content" class="ml-2">Hiển thị</label>
@@ -38,7 +38,7 @@
                                                             <label for="float-input">Nội dung bài viết<span
                                                                                 class="text-red-500"> *</span></label>
                                                             <div class="textarea">
-                                                                      <textarea name='Content' pInputTextarea
+                                                                      <textarea name='Content' pInputTextarea [(ngModel)]="Content"
                                                                                 [style]="{width: '100%', height: '20vw'}"></textarea>
                                                             </div>
                                         </div>
