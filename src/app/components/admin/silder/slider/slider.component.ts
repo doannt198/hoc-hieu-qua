@@ -3,6 +3,7 @@ import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api'
 import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
+import { SliderModel } from 'src/app/model/slider.model';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -14,6 +15,10 @@ export class SliderComponent implements OnInit {
   dataList: any = [];
   data: any = [];
   totalRecord = 0;
+  Name: any;
+  Screen: any;
+  Order: any ;
+  Status: any;
   constructor(
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
@@ -28,6 +33,9 @@ export class SliderComponent implements OnInit {
   };
   showdialog = false
   showLibrary = false
+  UrlImg: any = null
+  dataSave: SliderModel = new SliderModel()
+
   ngOnInit(): void {
     this.fetchData();
     this.primengConfig.ripple = true;
@@ -57,7 +65,8 @@ export class SliderComponent implements OnInit {
   }
 
   selectedImg(event: any): void {
-
+    this.showLibrary = false
+    this.UrlImg = event
   }
 
   paginate(event: any): void {
@@ -77,6 +86,8 @@ export class SliderComponent implements OnInit {
               if (response.Status === 'success') {
                 this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xóa thành công'})
                 this.getListSlider();
+              } else {
+                this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xóa thất bại'})
               }
             },
             error: (error) => {
@@ -87,6 +98,36 @@ export class SliderComponent implements OnInit {
     })
   }
   
+  onSave(): void {
+    this.dataSave.name = this.Name 
+    this.dataSave.imageUrl = this.UrlImg
+    this.dataSave.status = this.Status
+    this.dataSave.order =  this.Order
+    this.dataSave.screen =  this. Screen
+    this.apiService.postSlider(this.dataSave)
+    .subscribe({
+      next: (response) => {
+        if(response.Status ==='success') {
+          this.messageService.add({ severity:'success', summary: 'Thông báo', detail: 'Thêm thành công'})
+          this.showLibrary = false
+        } else {
+          this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
+        }
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    })
+  }
+
+  changeStatus(event: any): void {
+    if(event.checked == true) {
+      this.Status = 1
+    } else if(event.checked ==  false) {
+      this.Status = 0
+    }
+  }
+
   showLibraryDialog(): void {
     this.showLibrary = true
   }
