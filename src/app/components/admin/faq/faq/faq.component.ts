@@ -36,6 +36,7 @@ export class FaqComponent implements OnInit {
 
   getListFAQ(): void {
     const queryParams = queryString.stringify(this.query);
+    this.spinner.show()
     this.apiService
       .getListFAQ(queryParams)
       .pipe(takeUntil(this.unsubscribe$))
@@ -44,6 +45,7 @@ export class FaqComponent implements OnInit {
           console.log("Faq", response)
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
+          this.spinner.hide()
         },
         error: (error) => {
           console.log('error', error);
