@@ -24,7 +24,7 @@ export class FaqComponent implements OnInit {
   query = {
     filter: '',
     offSet: 0,
-    pageSize: 5,
+    pageSize: 25,
   };
   ngOnInit(): void {
     this.fetchData();

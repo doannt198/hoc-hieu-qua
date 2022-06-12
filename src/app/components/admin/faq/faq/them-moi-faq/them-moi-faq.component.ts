@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { FaqModel } from 'src/app/model/faq.model';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class ThemMoiFaqComponent implements OnInit {
   submited = false
   items :any;
   show: any;
+  dataSave: FaqModel = new FaqModel();
   category = {
     Name: '',
     Status: 0,
@@ -36,7 +38,15 @@ export class ThemMoiFaqComponent implements OnInit {
     if(saveForm.invalid) {
       return
     }
-    this.apiService.postCategory(this.category)
+    this.dataSave.id
+    this.dataSave.title
+    this.dataSave.content
+    this.dataSave.order
+    this.dataSave.status
+    this.dataSave.createdDate
+    this.dataSave.modifiedDate
+    
+    /* this.apiService.postCategory(this.category)
     .subscribe({
       next: (response) => {
         console.log("dsd", response)
@@ -47,7 +57,7 @@ export class ThemMoiFaqComponent implements OnInit {
           this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
         }
       }
-    })
+    }) */
   }
 
   change(event:any ) {
