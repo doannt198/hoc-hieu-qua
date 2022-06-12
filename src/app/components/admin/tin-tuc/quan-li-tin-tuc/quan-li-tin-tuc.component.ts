@@ -3,6 +3,7 @@ import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api'
 import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-quan-li-tin-tuc',
   templateUrl: './quan-li-tin-tuc.component.html',
@@ -17,7 +18,8 @@ export class QuanLiTinTucComponent implements OnInit {
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private spinner: NgxSpinnerService
   ) { }
   query = {
     filter: '',
@@ -33,6 +35,7 @@ export class QuanLiTinTucComponent implements OnInit {
   }
 
   getNews() {
+    this.spinner.show();
     const queryParams = queryString.stringify(this.query);
     this.apiService
       .getNews(queryParams)
@@ -42,6 +45,7 @@ export class QuanLiTinTucComponent implements OnInit {
           console.log(response)
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
+          this.spinner.hide();
         },
         error: (error) => {
           console.log('error', error);

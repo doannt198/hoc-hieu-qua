@@ -26,7 +26,7 @@ import { DefaultLayoutComponent } from './containers/default-layout/default-layo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tai-khoan',
     pathMatch: 'full',
   },
   {
