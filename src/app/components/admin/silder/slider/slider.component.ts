@@ -51,7 +51,6 @@ export class SliderComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          console.log("Slider", response)
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
         },
@@ -98,7 +97,7 @@ export class SliderComponent implements OnInit {
     })
   }
   
-  onSave(): void {
+  onSaveSlider(): void {
     this.dataSave.name = this.Name 
     this.dataSave.imageUrl = this.UrlImg
     this.dataSave.status = this.Status
@@ -107,11 +106,13 @@ export class SliderComponent implements OnInit {
     this.apiService.postSlider(this.dataSave)
     .subscribe({
       next: (response) => {
+        console.log("slide", response)
         if(response.Status ==='success') {
           this.messageService.add({ severity:'success', summary: 'Thông báo', detail: 'Thêm thành công'})
           this.showLibrary = false
+          this.getListSlider();
         } else {
-          this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
+          this.messageService.add({ severity:'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
         }
       },
       error: (error) => {
@@ -136,6 +137,5 @@ export class SliderComponent implements OnInit {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-
 
 }

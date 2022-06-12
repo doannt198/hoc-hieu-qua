@@ -208,7 +208,6 @@ export class ThuVienComponent implements OnInit {
   }
 
   selectImged(item:any) {
-    console.log("url", item.Url)
     this.selecteImg.emit(item.Url)
   }
   

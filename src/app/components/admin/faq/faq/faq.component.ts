@@ -56,8 +56,26 @@ export class FaqComponent implements OnInit {
     this.getListFAQ();
   }
 
-  deleteProduct(Id: string) {
-    
+  deleteFaq(dataList: any) {
+    this.confirmationService.confirm({
+      message: `Bạn có chắc chắn muốn xóa?`,
+      accept: () => {
+        this.apiService.deleteFaq(dataList.Id)
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe({
+          next: (response) => {
+            if(response.Status === 'success') {
+              this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xóa thành công'})
+              this.getListFAQ()
+            } else {
+              this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xóa thất bại'})
+            }
+          }, error: (error) => {
+            console.error(error)
+          }
+        })
+      }
+    })
   }
   
   ngOnDestroy() {

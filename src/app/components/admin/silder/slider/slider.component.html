@@ -11,7 +11,7 @@
                     <p-dialog header="Quản lý Slider" [(visible)]="showdialog" [modal]="true" [style]="{width: '90vw'}"
                         [draggable]="true" [resizable]="false">
                         <div class="slider-form">
-                            <form class="grid mt-3" (ngSubmit)="onSave()" #save='ngForm'>
+                            <form class="grid mt-3" (ngSubmit)="onSaveSlider()" #save='ngForm'>
                                 <div class="col-4 slider-image">
                                     <img [src]="UrlImg ? UrlImg: '../../../../../assets/images/empty-image.png' "
                                         alt="img" style="width:100%">

@@ -95,6 +95,10 @@ export class ApiService {
       return this.http.get(`${apiServer}/api/faq?`+ queryParams)
     }
 
+    deleteFaq(Id: any): Observable<any> {
+      return this.http.delete(`${apiServer}/api/FAQ/`+ Id)
+    }
+
    /*  Api Slider */
 
     getListSlider(queryParams: any): Observable<any> {
