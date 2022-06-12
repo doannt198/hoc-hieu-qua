@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
-import { Subject, takeUntil } from 'rxjs';
+import { finalize, Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
@@ -17,7 +18,8 @@ export class FaqComponent implements OnInit {
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private spinner: NgxSpinnerService
   ) { }
   query = {
     filter: '',
@@ -60,6 +62,7 @@ export class FaqComponent implements OnInit {
     this.confirmationService.confirm({
       message: `Bạn có chắc chắn muốn xóa?`,
       accept: () => {
+        this.spinner.show()
         this.apiService.deleteFaq(dataList.Id)
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe({
@@ -67,6 +70,7 @@ export class FaqComponent implements OnInit {
             if(response.Status === 'success') {
               this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xóa thành công'})
               this.getListFAQ()
+              this.spinner.hide()
             } else {
               this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xóa thất bại'})
             }
