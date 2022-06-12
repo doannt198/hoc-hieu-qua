@@ -68,11 +68,11 @@ export class ThemMoiFaqComponent implements OnInit {
 
   change(event:any ) {
     if(event.checked == true) {
-      this.category.Status = 1
+      this.Status = 1
       console.log("sss", this.category.Status)
     } 
     if(event.checked == false) {
-      this.category.Status = 0 
+      this.Status = 0 
       console.log("aaa", this.category.Status)
     }
   }
