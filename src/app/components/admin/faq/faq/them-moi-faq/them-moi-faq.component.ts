@@ -52,18 +52,18 @@ export class ThemMoiFaqComponent implements OnInit {
     this.dataSave.status = this.Status
     this.dataSave.createdDate = createdDate
     this.dataSave.modifiedDate =modifiedDate
-    /* this.apiService.postCategory(this.category)
+    this.apiService.postFaq(this.dataSave)
     .subscribe({
       next: (response) => {
         console.log("dsd", response)
         if(response.Status === 'success') {
           this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Thêm thành công'})
-          this.router.navigate([`/danh-muc-tin-tuc/${response.Data}`])  
+        /*   this.router.navigate([`/faq/${response.Data}`])   */
         } else {
           this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
         }
       }
-    }) */
+    }) 
   }
 
   change(event:any ) {

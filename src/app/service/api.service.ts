@@ -99,6 +99,10 @@ export class ApiService {
       return this.http.delete(`${apiServer}/api/FAQ/`+ Id)
     }
 
+    postFaq(data: any): Observable<any> {
+      return this.http.post(`${apiServer}/api/FAQ`, data)
+    }
+
    /*  Api Slider */
 
     getListSlider(queryParams: any): Observable<any> {
