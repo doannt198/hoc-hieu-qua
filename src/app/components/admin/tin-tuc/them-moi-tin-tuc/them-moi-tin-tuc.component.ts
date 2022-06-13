@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { CategoryModel } from 'src/app/model/category.model';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -18,11 +19,11 @@ export class ThemMoiTinTucComponent implements OnInit {
   submited = false
   items :any;
   show: any;
-  category = {
-    Name: '',
-    Status: 0,
-    Order:''
-  }
+  Name: any;
+  Order: any;
+  Status: any;
+  cvStatus: any;
+  dataSave: CategoryModel = new CategoryModel();
   ngOnInit(): void {
     this.items = [
       {label:'Quản trị'},
@@ -36,29 +37,28 @@ export class ThemMoiTinTucComponent implements OnInit {
     if(saveForm.invalid) {
       return
     }
-    this.apiService.postCategory(this.category)
+    this.dataSave.id= ''
+    this.dataSave.name = this.Name
+    this.dataSave.order = this.Order
+    if( this.Status == true) {
+      this.cvStatus = 1
+    } else {
+      this.cvStatus = 2
+    }
+    this.dataSave.status = this.cvStatus
+    this.apiService.postCategory(this.dataSave)
     .subscribe({
       next: (response) => {
         console.log("dsd", response)
         if(response.Status === 'success') {
           this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Thêm thành công'})
           this.router.navigate([`/danh-muc-tin-tuc/${response.Data}`])  
-        } else {
-          this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
         }
+      }, 
+      error: () => {
+        this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
       }
     })
   }
 
-
-  change(event:any ) {
-    if(event.checked == true) {
-      this.category.Status = 1
-      console.log("sss", this.category.Status)
-    } 
-    if(event.checked == false) {
-      this.category.Status = 0 
-      console.log("aaa", this.category.Status)
-    }
-  }
 }

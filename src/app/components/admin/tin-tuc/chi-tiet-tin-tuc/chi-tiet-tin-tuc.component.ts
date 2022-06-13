@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { Subject, takeUntil } from 'rxjs';
+import { CategoryModel } from 'src/app/model/category.model';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -26,14 +27,11 @@ export class ChiTietTinTucComponent implements OnInit {
   Order: any;
   Status: any ;
   data: any;
-    test: any
+  test: any
   datadetail: any;
-  Id: number = 0
-  category = {
-    Name: '',
-    Status: 0,
-    Order:''
-  }
+  Id: any;
+  cvStatus: any
+  dataUpdate: CategoryModel = new CategoryModel();
   ngOnInit(): void {
     this.items = [
       {label:'Quản trị'},
@@ -50,6 +48,9 @@ export class ChiTietTinTucComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.data = response.Data
+          this.Id = this.data.Id
+          this.Name = this.data.Name
+          this.Order = this.data.Order
           if(this.data.Status == 1) {
             this.Status = true
           } else if (this.data.Status == 0 ) {
@@ -67,32 +68,26 @@ export class ChiTietTinTucComponent implements OnInit {
     if(saveForm.invalid) {
       return
     }
-    const dataSave = {
-      Id: this.data.Id,
-      Name: this.data.Name,
-      Order: this.data.Order,
-      Status: this.Status
+    if(this.Status ==  true) {
+      this.cvStatus = 1
+    } else {
+      this.cvStatus = 0
     }
-    console.log(dataSave)
-    this.apiService.postCategory(dataSave)
+    this.dataUpdate.id = this.Id
+    this.dataUpdate.name = this.Name
+    this.dataUpdate.order = this.Order
+    this.dataUpdate.status = this.cvStatus 
+    this.apiService.postCategory(this.dataUpdate)
     .subscribe({
       next: (response) => {
         if(response.Status === 'success') {
           this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Cập nhật thành công'})
-        } else {
-          this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
-        }
-      }
+        } 
+      },
+      error: () => {
+        this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Cập nhật thất bại'})
+      } 
     })
-  }
-
-  change(event: any) {
-    if(event.checked == true) {
-      this.Status = 1
-    } else {
-      this.Status = 0
-    }
-    console.log(this.Status)
   }
 
   ngOnDestroy() {
