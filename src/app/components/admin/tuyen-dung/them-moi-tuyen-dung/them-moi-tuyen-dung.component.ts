@@ -34,6 +34,8 @@ export class ThemMoiTuyenDungComponent implements OnInit {
   Content: any;
   Status: any;
   IsHot: any;
+  cvStatus: any
+  cvIsHot: any 
   Requirement: any;
   submited = false
   dataSave: RecruitModel = new RecruitModel() 
@@ -64,6 +66,16 @@ export class ThemMoiTuyenDungComponent implements OnInit {
     if(dataSave.invalid) {
       return 
     }
+    if(this.Status == true) {
+      this.cvStatus = 1
+    } else {
+      this.cvStatus = 0
+    }
+    if(this.IsHot == true) {
+      this.cvIsHot = 1
+    } else {
+      this.cvIsHot = 0
+    }
     const CreatedDate = new Date()
     const ModifiedDate = new Date()
     const cvTag = this.Tags.toString()
@@ -74,8 +86,8 @@ export class ThemMoiTuyenDungComponent implements OnInit {
     this.dataSave.Order = this.Order
     this.dataSave.Requirement = this.Requirement
     this.dataSave.Content = this.Content
-    this.dataSave.Status = this.Status
-    this.dataSave.IsHot = this.IsHot
+    this.dataSave.Status = this.cvStatus
+    this.dataSave.IsHot = this.cvIsHot
     this.dataSave.Tags = cvTag
     this.dataSave.CreatedBy = ''
     this.dataSave.ModifiedBy = ''
@@ -95,22 +107,10 @@ export class ThemMoiTuyenDungComponent implements OnInit {
   }
 
   changeStatus(event: any) {
-      if(event.checked ==  true) {
-        this.Status = 1
-      }
-      if(event.checked == false)
-      {
-        this.Status = 0
-      }
+    
   }
 
   changeIsHot(event: any) {
-    if(event.checked ==  true) {
-      this.IsHot = 1
-    }
-    if(event.checked == false)
-    {
-      this.IsHot = 0
-    }
+    
   }
 }

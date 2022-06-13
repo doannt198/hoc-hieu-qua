@@ -18,15 +18,17 @@
                             <div class="col-6">
                                 <span class="p-float-label p-input-icon-right mt-5">
                                     <i class="pi pi-user"></i>
-                                    <input id="float-input-invalid" type="text" name="Price" #price="ngModel" required [(ngModel)]='Price' pInputText
-                                    [ngClass]="{'ng-invalid ng-dirty' : submited && price.errors?.required}"
-                                    >
-                                    <label for="float-input" [ngClass]="{'invalid': submited && price.errors?.required}">Giá <span class="text-red-500"> *</span></label>
+                                    <input id="float-input-invalid" type="text" name="Price" #price="ngModel" required
+                                        [(ngModel)]='Price' pInputText
+                                        [ngClass]="{'ng-invalid ng-dirty' : submited && price.errors?.required}">
+                                    <label for="float-input"
+                                        [ngClass]="{'invalid': submited && price.errors?.required}">Giá <span
+                                            class="text-red-500"> *</span></label>
                                 </span>
-                                <small *ngIf="submited && price.errors?.required || (price.errors?.required && name.touched)"
-                                class="p-error">Vui lòng nhập tiêu đề bài viết</small>
+                                <small
+                                    *ngIf="submited && price.errors?.required || (price.errors?.required && name.touched)"
+                                    class="p-error">Vui lòng nhập giá tuyển dụng</small>
                             </div>
-                            
                             <div class="col-6">
                                 <span class="p-float-label p-input-icon-right mt-5">
                                     <i class="pi pi-user"></i>
@@ -41,6 +43,7 @@
                                     <label for="float-input">Thứ tự<span class="text-red-500"> *</span></label>
                                 </span>
                             </div>
+                    
                             <div class="col-3">
                                 <div class="field mt-5 flex align-items-center">
                                     <p-inputSwitch name='Status' [(ngModel)]="Status" (onChange)="changeStatus($event)">
@@ -62,23 +65,29 @@
                                 </span>
                             </div>
                             <div class="col-12">
-                                <label for="float-input" [ngClass]="{'invalid': submited && requirement.errors?.required}" >Yêu cầu <span class="text-red-500"> *</span></label>
+                                <label for="float-input"
+                                    [ngClass]="{'invalid': submited && requirement.errors?.required}">Yêu cầu <span
+                                        class="text-red-500"> *</span></label>
                                 <div class="textarea">
-                                    <textarea pInputTextarea name='Requirement' [(ngModel)]="Requirement" required #requirement="ngModel"
-                                        [style]="{width: '100%', height: '20vw'}"  [ngClass]="{'invalid' : submited && requirement.errors?.required}"
-                                        ></textarea>
+                                    <textarea pInputTextarea name='Requirement' [(ngModel)]="Requirement" required
+                                        #requirement="ngModel" [style]="{width: '100%', height: '20vw'}"
+                                        [ngClass]="{'invalid' : submited && requirement.errors?.required}"></textarea>
                                 </div>
-                                <small *ngIf="submited && requirement.errors?.required || (requirement.errors?.required && name.touched)"
-                                class="p-error">Vui lòng nhập tiêu đề bài viết</small>
+                                <small
+                                    *ngIf="submited && requirement.errors?.required || (requirement.errors?.required && name.touched)"
+                                    class="p-error">Vui lòng nhập tiêu đề bài viết</small>
                             </div>
                             <div class="col-12">
-                                <label for="float-input" [ngClass]="{'invalid': submited && content.errors?.required ||(content.errors?.required && content.touched)}">Nội dung bài viết<span class="text-red-500"> *</span></label>
+                                <label for="float-input"
+                                    [ngClass]="{'invalid': submited && content.errors?.required ||(content.errors?.required && content.touched)}">Nội
+                                    dung bài viết<span class="text-red-500"> *</span></label>
                                 <div class="textarea">
-                                    <textarea pInputTextarea name='Content' [(ngModel)]="Content" required #content='ngModel'
-                                        [style]="{width: '100%', height: '20vw'}"></textarea>
+                                    <textarea pInputTextarea name='Content' [(ngModel)]="Content" required
+                                        #content='ngModel' [style]="{width: '100%', height: '20vw'}"></textarea>
                                 </div>
-                                <small *ngIf="submited && content.errors?.required || (content.errors?.required && name.touched)"
-                                class="p-error">Vui lòng nhập tiêu đề bài viết</small>
+                                <small
+                                    *ngIf="submited && content.errors?.required || (content.errors?.required && name.touched)"
+                                    class="p-error">Vui lòng nhập tiêu đề bài viết</small>
                             </div>
                         </div>
                         <button type="submit" class="p-button p-component mt-2 btn-submit">
