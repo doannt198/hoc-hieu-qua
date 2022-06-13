@@ -24,12 +24,7 @@ export class ThemMoiFaqComponent implements OnInit {
   Order: any;
   Status: any;
   Content: any;
-  category = {
-    Name: '',
-    Status: 0,
-    Order:''
-  }
-
+  cvStatus: any;
   ngOnInit(): void {
     this.items = [
       {label:'Quản trị'},
@@ -43,13 +38,18 @@ export class ThemMoiFaqComponent implements OnInit {
     if(saveForm.invalid) {
       return
     }
+    if (this.Status == true ) {
+      this.cvStatus = 1
+    } else {
+      this.cvStatus = 0
+    }
     const createdDate = new Date()
     const modifiedDate = new Date()
     this.dataSave.id = ''
     this.dataSave.title = this.Title
     this.dataSave.content = this.Content
     this.dataSave.order = this.Order
-    this.dataSave.status = this.Status
+    this.dataSave.status = this.cvStatus
     this.dataSave.createdDate = createdDate
     this.dataSave.modifiedDate =modifiedDate
     this.apiService.postFaq(this.dataSave)
@@ -67,14 +67,4 @@ export class ThemMoiFaqComponent implements OnInit {
     }) 
   }
 
-  change(event:any ) {
-    if(event.checked == true) {
-      this.Status = 1
-      console.log("sss", this.category.Status)
-    } 
-    if(event.checked == false) {
-      this.Status = 0 
-      console.log("aaa", this.category.Status)
-    }
-  }
 }
