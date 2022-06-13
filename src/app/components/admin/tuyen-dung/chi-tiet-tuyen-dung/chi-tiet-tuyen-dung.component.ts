@@ -33,15 +33,16 @@ export class ChiTietTuyenDungComponent implements OnInit {
   Tags: any;
   Content: any;
   Status: any;
+  cvStatus: any;
+  cvIsHot: any;
   IsHot: any;
+  CreatedDate: any;
+  CreatedBy: any;
   Requirement: any;
-  submited = false
-  dataSave: RecruitModel = new RecruitModel() 
-  query = {
-    filter: '',
-    offSet: 0,
-    pageSize: 10,
-  };
+  submited = false;
+  ModifiedBy: any;
+  ModifiedDate: any;
+  dataUpdate: RecruitModel = new RecruitModel() 
   selectedCategory: any;
 
   ngOnInit(): void {
@@ -62,7 +63,31 @@ export class ChiTietTuyenDungComponent implements OnInit {
       this.apiService.getDetailRecruit(Id)
       .subscribe({
         next: (response) => {
+          if(this.dataDetail.Status = 1) {
+            this.cvStatus = true
+          } else {
+            this.cvStatus = false
+          }
+          if(this.dataDetail.IsHot = 1) {
+            this.cvIsHot = true
+          } else {
+            this.cvIsHot = false
+          }
           this.dataDetail = response.Data
+          this.Id = this.dataDetail.Id
+          this.Address = this.dataDetail.Address
+          this.Content = this.dataDetail.Content
+          this.CreatedBy = this.dataDetail.CreatedBy
+          this.CreatedDate = this.dataDetail.CreatedDate
+          this.Name = this.dataDetail.Name
+          this.Order = this.dataDetail.Order
+          this.Price = this.dataDetail.Price
+          this.Tags = ""
+          this.Requirement = this.dataDetail.Requirement
+          this.ModifiedBy = this.dataDetail.ModifiedBy
+          this.ModifiedDate = this.dataDetail.ModifiedDate
+          this.Status = this.cvStatus
+          this.IsHot = this.cvIsHot
         },
         error: (error) => {
           console.log("Error", error)
@@ -76,22 +101,22 @@ export class ChiTietTuyenDungComponent implements OnInit {
     if(datasave.invalid) {
         return;
     }
-    const dataSave = {
-      Id: this.dataDetail.Id,
-      Name: this.dataDetail.Name,
-      Price: this.dataDetail.Price,
-      Address: this.dataDetail.Address,
-      Order: this.dataDetail.Order,
-      Requirement: this.dataDetail.Requirement,
-      Content: this.dataDetail.Content,
-      Status: this.dataDetail.Status,
-      IsHot: this.dataDetail.IsHot,
-      Tags: "",
-      CreatedBy: this.dataDetail.CreatedBy,
-      ModifiedBy: this.dataDetail.ModifiedBy,
-      CreatedDate: this.dataDetail.CreatedDate,
-      ModifiedDate: this.dataDetail.ModifiedDate
-    }
+  
+      this.dataUpdate.Id =  this.Id,
+      this.dataUpdate.Name = this.Name,
+      this.dataUpdate.Price = this.Price,
+      this.dataUpdate.Address = this.Address,
+      this.dataUpdate.Order = this.Order,
+      this.dataUpdate.Requirement = this.Requirement,
+      this.dataUpdate.Content = this.Content,
+      this.Status = this.Status,
+      this.dataUpdate.IsHot = this.IsHot,
+      this.dataUpdate.Tags= "",
+      this.dataUpdate.CreatedBy = this.CreatedBy,
+      this.dataUpdate.ModifiedBy = this.ModifiedBy,
+      this.dataUpdate.CreatedDate = this.CreatedDate,
+      this.dataUpdate.ModifiedDate = this.ModifiedDate
+  
     /* const CreatedDate = new Date()
     const ModifiedDate = new Date()
     const cvTag = this.Tags.toString()
@@ -109,7 +134,7 @@ export class ChiTietTuyenDungComponent implements OnInit {
     this.dataSave.ModifiedBy = ''
     this.dataSave.CreatedDate =  CreatedDate
     this.dataSave.ModifiedDate = ModifiedDate */
-    this.apiService.postRecruit(dataSave)
+    this.apiService.postRecruit(this.dataUpdate)
     .subscribe({
       next: (response) => {
         console.log(response)
