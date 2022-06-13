@@ -47,8 +47,8 @@
                                 <div class="grid">
                                     <div class="col-6">
                                         <div class="field">
-                                            <label for="">Đánh giá</label>
-                                            <p-rating name="danhgia" [(ngModel)]="val" [cancel]="false"></p-rating>
+                                            <label [ngClass]="{'invalid': submited}" >Đánh giá</label>
+                                            <p-rating name="danhgia" [(ngModel)]="val" [cancel]="false"  #rating="ngModel"></p-rating>
                                         </div>
                                     </div>
                                     <div class="col-6">

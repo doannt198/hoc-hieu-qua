@@ -4,15 +4,18 @@
             <p-breadcrumb [model]="items"></p-breadcrumb>
         </div>
         <div class="col-12">
-            <form class="p-fluid" (ngSubmit)="onSave(saveForm)" #saveForm="ngForm" >
+            <form class="p-fluid" (ngSubmit)="onSave(saveForm)" #saveForm="ngForm">
                 <div class="field mt-5">
                     <span class="p-float-label p-input-icon-right">
                         <i class="pi pi-user"></i>
-                        <input id="float-input" type="text" name="Title" [(ngModel)]="Title" #title="ngModel" required pInputText [ngClass]="{'p-invalid' : submited && title.errors?.required }">
-                        <label for="float-input" [ngClass]="{'invalid' : submited && title.errors?.required }">Tiêu đề <span class="text-red-500">
+                        <input id="float-input-invalid" type="text" name="Title" [(ngModel)]="Title" #title="ngModel" required
+                            pInputText  [ngClass]="{'ng-invalid ng-dirty' : submited && title.errors?.required}">
+                        <label for="float-input-invalid" [ngClass]="{'invalid' : submited && title.errors?.required }">Tiêu đề
+                            <span class="text-red-500">
                                 *</span></label>
                     </span>
-                    <small *ngIf="submited && title.errors?.required || (title.errors?.required && title.touched)" class="p-error">Vui lòng nhập tiêu đề bài viết</small>
+                    <small *ngIf="submited && title.errors?.required || (title.errors?.required && title.touched)"
+                        class="p-error">Vui lòng nhập tiêu đề bài viết</small>
                 </div>
                 <div class="grid mt-3">
                     <div class="col-6">
@@ -34,12 +37,14 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <label for="float-input" [ngClass]="{'invalid' : submited && content.errors?.required }">Nội dung bài viết<span class="text-red-500"> *</span></label>
+                    <label for="float-input" [ngClass]="{'invalid':submited && content.errors?.required }">Nội dung
+                        bài viết<span class="text-red-500"> *</span></label>
                     <div class="textarea">
                         <textarea name='Content' pInputTextarea [(ngModel)]="Content" #content="ngModel" required
                             [style]="{width: '100%', height: '20vw'}"></textarea>
                     </div>
-                    <small *ngIf="submited && content.errors?.required || (content.errors?.required && content.touched)" class="p-error">Vui lòng đặt nội dung bài viết</small>
+                    <small *ngIf="submited && content.errors?.required || (content.errors?.required && content.touched)"
+                        class="p-error">Vui lòng đặt nội dung bài viết</small>
                 </div>
                 <button type="submit" class="p-button p-component mt-2 btn-submit"><span class="p-button-label p-c">Lưu
                         lại</span></button>
