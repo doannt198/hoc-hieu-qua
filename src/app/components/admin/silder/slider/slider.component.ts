@@ -85,12 +85,10 @@ export class SliderComponent implements OnInit {
               if (response.Status === 'success') {
                 this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xóa thành công'})
                 this.getListSlider();
-              } else {
-                this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xóa thất bại'})
               }
             },
             error: (error) => {
-              console.error("error", error)
+              this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xóa thất bại'})
             }
           })
       }
@@ -106,12 +104,9 @@ export class SliderComponent implements OnInit {
     this.apiService.postSlider(this.dataSave)
     .subscribe({
       next: (response) => {
-        console.log("slide", response)
-        if(response.Status ==='success') {
-          this.messageService.add({ severity:'success', summary: 'Thông báo', detail: 'Thêm thành công'})
-          this.showLibrary = false
+        this.messageService.add({ severity:'success', summary: 'Thông báo', detail: 'Thêm thành công'})
+          this.showdialog = false
           this.getListSlider();
-        }
       },
       error: () => {
         this.messageService.add({ severity:'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
