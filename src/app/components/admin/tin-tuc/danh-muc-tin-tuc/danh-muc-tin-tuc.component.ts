@@ -43,6 +43,7 @@ export class DanhMucTinTucComponent implements OnInit {
   }
 
   GetNewsCategory() {
+    this.spinner.show();
     const queryParams = queryString.stringify(this.query);
     this.apiService
       .getNewsCategory(queryParams)
@@ -51,6 +52,7 @@ export class DanhMucTinTucComponent implements OnInit {
         next: (response) => {
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
+          this.spinner.hide()
         },
         error: (error) => {
           console.log('error', error);
