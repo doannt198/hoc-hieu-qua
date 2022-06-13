@@ -80,16 +80,10 @@ export class DanhMucTinTucComponent implements OnInit {
                     detail: 'Xoá thành công',
                   });
                   this.GetNewsCategory();
-                } else {
-                  this.messageService.add({
-                    severity: 'error',
-                    summary: 'Thông báo',
-                    detail: 'Xoá thất bại',
-                  });
-                }
+                } 
             },
-            error: (error) => {
-              console.error("deleteCategory", error)
+            error: () => {
+              this.messageService.add({ severity: 'error', summary : 'Thông báo', detail: 'Xoá thất bại'})
             }
         })
       }

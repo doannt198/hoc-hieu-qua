@@ -83,8 +83,8 @@ export class ThemMoiTuyenDungComponent implements OnInit {
          this.messageService.add({severity: 'success', summary: 'Thông báo', detail: "Thêm thành công"})
          this.router.navigate([`/tuyen-dung/${response.Data}`])
       },
-      error: (error) => {
-        console.error("Error", error)
+      error: () => {
+        this.messageService.add({severity: 'success', summary: 'Thông báo', detail: "Thêm thất bại"})
       }
     })
   }

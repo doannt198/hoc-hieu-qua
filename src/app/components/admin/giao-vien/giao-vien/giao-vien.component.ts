@@ -70,12 +70,10 @@ export class GiaoVienComponent implements OnInit {
               if(response.Status === 'success') {
                 this.messageService.add({severity: 'success', summary: 'Thông báo', detail: "Xoá thành công"})
                 this.getListTeacher();
-              } else {
-                this.messageService.add({severity: 'error', summary: 'Thông báo', detail: "Xoá thất bại"})
               }
             }, 
-            error: (error) => {
-              console.error("deleteTeacher", error)
+            error: () => {
+              this.messageService.add({ severity: 'error', summary : 'Thông báo', detail: 'Xoá thất bại'})
             }
           })
         }

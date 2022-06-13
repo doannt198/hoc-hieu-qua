@@ -72,8 +72,8 @@ export class ThemMoiComponent implements OnInit {
       console.log("kết quả", response)
       this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Thêm thành công'})
     },
-    error: (error) => {
-      console.log("error", error)
+    error: () => {
+      this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
     }
   })
   

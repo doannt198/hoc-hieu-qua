@@ -149,9 +149,10 @@ export class ThuVienComponent implements OnInit {
               this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'})
               this.fileUploadService.deleteFileStorage(item.Path);
               this.getSelectNode();
-            } else {
-              this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xoá thất bại'})
-            }
+            } 
+          }, 
+          error: () => {
+            this.messageService.add({ severity: 'error', summary : 'Thông báo', detail: 'Xoá thất bại'})
           }
         })
       }

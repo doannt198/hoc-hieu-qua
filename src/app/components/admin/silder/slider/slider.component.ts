@@ -111,12 +111,10 @@ export class SliderComponent implements OnInit {
           this.messageService.add({ severity:'success', summary: 'Thông báo', detail: 'Thêm thành công'})
           this.showLibrary = false
           this.getListSlider();
-        } else {
-          this.messageService.add({ severity:'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
         }
       },
-      error: (error) => {
-        console.error(error);
+      error: () => {
+        this.messageService.add({ severity:'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
       }
     })
   }

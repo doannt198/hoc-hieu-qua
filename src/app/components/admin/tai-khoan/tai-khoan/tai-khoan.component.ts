@@ -66,9 +66,9 @@ export class TaiKhoanComponent implements OnInit {
             if(response.Status === 'success') {
               this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'});
               this.getListAccount();
-            } else {
-              this.messageService.add({ severity: 'error', summary : 'Thông báo', detail: 'Xoá thất bại'})
             }
+          }, error : () => {
+            this.messageService.add({ severity: 'error', summary : 'Thông báo', detail: 'Xoá thất bại'})
           } 
         })
       } 

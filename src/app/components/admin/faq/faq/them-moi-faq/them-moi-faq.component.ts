@@ -59,9 +59,10 @@ export class ThemMoiFaqComponent implements OnInit {
         if(response.Status === 'success') {
           this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Thêm thành công'})
         /*   this.router.navigate([`/faq/${response.Data}`])   */
-        } else {
-          this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
-        }
+        } 
+      },
+      error: () => {
+        this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
       }
     }) 
   }

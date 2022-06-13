@@ -76,12 +76,10 @@ export class TuyenDungComponent implements OnInit {
             if(response.Status === 'success') {
               this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xoá thành công'})
               this.getRecruit();
-            } else {
-              this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xoá thất bại'})
-            }
+            } 
           },
-          error: (error) => {
-            console.error("deleteProduct", error)
+          error: () => {
+            this.messageService.add({ severity: 'error', summary: 'Thông báo', detail: 'Xoá thất bại'})
           }
         }) 
       }
