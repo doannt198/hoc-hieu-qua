@@ -8,7 +8,7 @@
                 <div class="field mt-3">
                     <span class="p-float-label p-input-icon-right">
                         <i class="pi pi-user"></i>
-                        <input id="float-input" type="text" name="Name" pInputText [(ngModel)]="category.Name" required #Name="ngModel" > 
+                        <input id="float-input" type="text" name="Name" pInputText [(ngModel)]="category.Name" required #Name="ngModel" [ngClass]="{'ng-invalid ng-dirty' : submited && Name.errors?.required}"> 
                         <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
                     </span>
                     <small  *ngIf="submited && Name.errors?.required || (Name.errors?.required && Name.touched)" class="p-error">Vui lòng nhập tên danh mục</small>

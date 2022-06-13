@@ -25,6 +25,8 @@ export class ThemMoiComponent implements OnInit {
   Title: any;
   Order: any;
   Tags: any;
+  ShortContent: any;
+  Content: any;
   dataSave: NewModel = new NewModel();
   query = {
     filter: '',
@@ -32,7 +34,7 @@ export class ThemMoiComponent implements OnInit {
     pageSize: 10,
   };
   selectedCategory: any
-
+  submited = false
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị'},
@@ -46,26 +48,30 @@ export class ThemMoiComponent implements OnInit {
     this.GetNewsCategory();
   }
 
-  onSave() {
-  const createdDate = new Date()
-  const modifiedDate = new Date()
-   this.dataSave.id= ''
-   this.dataSave.avatar = this.UrlImg
-   this.dataSave.categoryId = this.selectedCategory
-  this.dataSave.title = this.Title
-  this.dataSave.content = ''
-  this.dataSave.status = 0
-  this.dataSave.order = 0
-  this.dataSave.status = 0
-  this.dataSave.rate = 0
-  this.dataSave.shortContent = ''
-  this.dataSave.tags = ''
-  this.dataSave.view = 0
-  this.dataSave.author= ''
-  this.dataSave.createdDate = createdDate
-  this.dataSave.createdBy = ''
-  this.dataSave.modifiedDate = modifiedDate
-  this.dataSave.modifiedBy = ''
+  onSave(dataSave: any) {
+  this.submited = true
+  if(dataSave.invalid) {
+    return;
+  }
+  const createdDate = new Date();
+  const modifiedDate = new Date();
+   this.dataSave.id= '';
+   this.dataSave.avatar = this.UrlImg;
+   this.dataSave.categoryId = this.selectedCategory;
+  this.dataSave.title = this.Title;
+  this.dataSave.content = this.Content;
+  this.dataSave.status = 0;
+  this.dataSave.order = 0;
+  this.dataSave.status = 0;
+  this.dataSave.rate = 0;
+  this.dataSave.shortContent = this.ShortContent;
+  this.dataSave.tags = '';
+  this.dataSave.view = 0;
+  this.dataSave.author= '';
+  this.dataSave.createdDate = createdDate;
+  this.dataSave.createdBy = '';
+  this.dataSave.modifiedDate = modifiedDate;
+  this.dataSave.modifiedBy = '';
   this.apiService.postNews(this.dataSave)
   .subscribe({
     next: (response) => {
@@ -96,7 +102,7 @@ export class ThemMoiComponent implements OnInit {
       });
   }
 
-  showLibraryDialog() {
+  showLibraryDialog(): void {
     this.showLibrary = true
   }
 
