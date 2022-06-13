@@ -20,7 +20,7 @@
                             <form class="p-fluid" (ngSubmit)="onSave(dataSave)" #dataSave="ngForm">
                                 <span class="p-float-label p-input-icon-right">
                                         <i class="pi pi-user"></i>
-                                        <input id="float-input-invalid" type="text" pInputText [(ngModel)]="Title" name="Title" required #title="ngModel"  [ngClass]="{'ng-invalid ng-dirty' : submited && title.errors?.required}" > 
+                                        <input id="float-input-invalid" type="text" pInputText [(ngModel)]="Title" name="Title" required #title="ngModel" [ngClass]="{'ng-invalid ng-dirty' : submited && title.errors?.required}" > 
                                         <label for="float-input-invalid">Tiêu đề<span class="text-red-500"> *</span></label>
                                 </span>
                                 <small *ngIf="submited && title.errors?.required || (title.errors?.required && title.touched)" class="p-error">Vui lòng nhập tiêu đề bài viết</small>

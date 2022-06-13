@@ -34,7 +34,7 @@ export class ThemMoiComponent implements OnInit {
     pageSize: 10,
   };
   selectedCategory: any
-  submited = false
+  submited=false
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị'},
@@ -49,10 +49,11 @@ export class ThemMoiComponent implements OnInit {
   }
 
   onSave(dataSave: any) {
-  this.submited = true
+  this.submited=true;
   if(dataSave.invalid) {
     return;
   }
+  console.log(this.submited)
   const createdDate = new Date();
   const modifiedDate = new Date();
    this.dataSave.id= '';
@@ -83,7 +84,6 @@ export class ThemMoiComponent implements OnInit {
       this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
     }
   })
-  
   }
 
   GetNewsCategory(): void {

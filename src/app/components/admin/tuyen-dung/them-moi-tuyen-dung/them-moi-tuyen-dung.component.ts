@@ -35,6 +35,7 @@ export class ThemMoiTuyenDungComponent implements OnInit {
   Status: any;
   IsHot: any;
   Requirement: any;
+  submited = false
   dataSave: RecruitModel = new RecruitModel() 
   query = {
     filter: '',
@@ -58,7 +59,11 @@ export class ThemMoiTuyenDungComponent implements OnInit {
     
   }
 
-  onSave() {
+  onSave(dataSave :any) { 
+    this.submited=true;
+    if(dataSave.invalid) {
+      return 
+    }
     const CreatedDate = new Date()
     const ModifiedDate = new Date()
     const cvTag = this.Tags.toString()
