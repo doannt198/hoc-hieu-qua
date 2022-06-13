@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <label for="float-input" [ngClass]="{'invalid':submited && content.errors?.required }">Nội dung
+                    <label for="float-input" [ngClass]="{'invalid':submited && content.errors?.required || (content.errors?.required && content.touched)}">Nội dung
                         bài viết<span class="text-red-500"> *</span></label>
                     <div class="textarea">
                         <textarea name='Content' pInputTextarea [(ngModel)]="Content" #content="ngModel" required
