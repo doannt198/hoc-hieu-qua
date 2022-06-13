@@ -56,9 +56,9 @@ export class ChiTietFaqComponent implements OnInit {
         next: (response) => {
           console.log('dataDetail', response);
           this.dataDetail = response.Data;
-          if ((this.dataDetail.Status == 1)) {
+          if (this.dataDetail.Status == 1) {
             this.Status = true;
-          } else if ((this.dataDetail.Status == 0)) {
+          } else if (this.dataDetail.Status == 0) {
             this.Status = false;
           }
           this.spinner.hide();

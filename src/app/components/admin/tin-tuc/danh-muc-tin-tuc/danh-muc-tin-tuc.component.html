@@ -50,9 +50,12 @@
                 </td>
                 <td>
                     <div class="flex justify-content-end ">
-                        <div *ngIf="dataList.Status == 1 " >
+                        <div *ngIf="dataList.Status == 1; else close " >
                             <i class="pi pi-check"></i>
                         </div>
+                        <ng-template #close>
+                            <i class="pi pi-times"></i>
+                        </ng-template>
                     </div>
                 <td>
                     <div class="flex justify-content-end ">
