@@ -26,10 +26,10 @@ export class ChiTietFaqComponent implements OnInit {
   dataSave: FaqModel = new FaqModel();
   Title: any;
   Order: any;
-  Status: any;
+  Status: any 
   Content: any;
   Id = 0;
-  dataDetail: any[] = []
+  dataDetail: any = []
   category = {
     Name: '',
     Status: 0,
@@ -55,6 +55,12 @@ export class ChiTietFaqComponent implements OnInit {
       .subscribe({
         next: (response) => {
             console.log("dataDetail", response)
+            this.dataDetail = response.Data
+            if(this.dataDetail.Status = 1) {
+              this.Status = true
+          } else if(this.dataDetail.Status = 0) {
+            this.Status = false
+          }
             this.spinner.hide()
         }, error: (error)=> {
           console.error(error)
@@ -66,26 +72,31 @@ export class ChiTietFaqComponent implements OnInit {
     if(saveForm.invalid) {
       return
     }
+    if(this.dataDetail.Status = 1) {
+        this.Status = true
+    } else if(this.dataDetail.Status = 0) {
+      this.Status = false
+    }
     const createdDate = new Date()
     const modifiedDate = new Date()
-    this.dataSave.id = ''
-    this.dataSave.title = this.Title
-    this.dataSave.content = this.Content
-    this.dataSave.order = this.Order
-    this.dataSave.status = this.Status
+    this.dataSave.id = this.dataDetail.Id
+    this.dataSave.title = this.dataDetail.Title
+    this.dataSave.content = this.dataDetail.Content
+    this.dataSave.order = this.dataDetail.Order
+    this.dataSave.status = this.dataDetail.Status
     this.dataSave.createdDate = createdDate
-    this.dataSave.modifiedDate =modifiedDate
+    this.dataSave.modifiedDate = modifiedDate
     this.apiService.postFaq(this.dataSave)
     .subscribe({
       next: (response) => {
         console.log("dsd", response)
         if(response.Status === 'success') {
-          this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Thêm thành công'})
-        /*   this.router.navigate([`/faq/${response.Data}`])   */
+          this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Cập nhật thành công'})
+       
         } 
       },
       error: () => {
-        this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
+        this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Cập nhật thất bại'})
       }
     }) 
   }

@@ -8,7 +8,7 @@
                 <div class="field mt-5">
                     <span class="p-float-label p-input-icon-right">
                         <i class="pi pi-user"></i>
-                        <input id="float-input-invalid" type="text" name="Title" [(ngModel)]="Title" #title="ngModel" required
+                        <input id="float-input-invalid" type="text" name="Title" [(ngModel)]="dataDetail.Title" #title="ngModel" required
                             pInputText  [ngClass]="{'ng-invalid ng-dirty' : submited && title.errors?.required}">
                         <label for="float-input-invalid" [ngClass]="{'invalid' : submited && title.errors?.required }">Tiêu đề
                             <span class="text-red-500">
@@ -22,8 +22,8 @@
                         <div class="field mt-2">
                             <span class="p-float-label p-input-icon-right">
                                 <i class="pi pi-sort-numeric-down"></i>
-                                <input id="Order" name="Order" [(ngModel)]="Order"
-                                    class="p-inputtext p-component p-filled" value="0">
+                                <input id="Order" name="Order" [(ngModel)]="dataDetail.Order"
+                                    class="p-inputtext p-component p-filled" >
                                 <label for="intOrorderer" class="">Thứ
                                     tự hiện thị</label></span>
                         </div>
@@ -40,7 +40,7 @@
                     <label for="float-input" [ngClass]="{'invalid':submited && content.errors?.required }">Nội dung
                         bài viết<span class="text-red-500"> *</span></label>
                     <div class="textarea">
-                        <textarea name='Content' pInputTextarea [(ngModel)]="Content" #content="ngModel" required
+                        <textarea name='Content' pInputTextarea [(ngModel)]="dataDetail.Content" #content="ngModel" required
                             [style]="{width: '100%', height: '20vw'}"></textarea>
                     </div>
                     <small *ngIf="submited && content.errors?.required || (content.errors?.required && content.touched)"
