@@ -26,6 +26,7 @@ export class ChiTietFaqComponent implements OnInit {
   Title: any;
   Order: any;
   Status: any;
+  cvStatus: any;
   Content: any;
   Id = 0;
   dataDetail: any = [];
@@ -56,6 +57,9 @@ export class ChiTietFaqComponent implements OnInit {
         next: (response) => {
           console.log('dataDetail', response);
           this.dataDetail = response.Data;
+          this.Title = this.dataDetail.Title
+          this.Order = this.dataDetail.Order
+          this.Content = this.dataDetail.Content
           if (this.dataDetail.Status == 1) {
             this.Status = true;
           } else if (this.dataDetail.Status == 0) {
@@ -73,13 +77,18 @@ export class ChiTietFaqComponent implements OnInit {
     if (saveForm.invalid) {
       return;
     }
+    if (this.Status == true) {
+      this.cvStatus = 1
+    } else {
+      this.cvStatus = 0 
+    }
     const createdDate = new Date();
     const modifiedDate = new Date();
     this.dataSave.id = this.dataDetail.Id;
     this.dataSave.title = this.dataDetail.Title;
     this.dataSave.content = this.dataDetail.Content;
     this.dataSave.order = this.dataDetail.Order;
-    this.dataSave.status = this.Status;
+    this.dataSave.status = this.cvStatus;
     this.dataSave.createdDate = createdDate;
     this.dataSave.modifiedDate = modifiedDate;
     this.apiService.postFaq(this.dataSave).subscribe({
