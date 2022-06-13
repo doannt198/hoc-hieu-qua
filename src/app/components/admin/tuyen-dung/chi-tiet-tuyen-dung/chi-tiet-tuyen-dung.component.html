@@ -1,80 +1,97 @@
 <div class="chi-tiet-tuyen-dung">
-          <div class="grid">
-              <div class="col-12">
-                  <p-breadcrumb [model]="items"></p-breadcrumb>
-                  <div class="grid mt-2">
-                      <div class="col-12 ">
-                          <form class="p-fluid" (ngSubmit)="onSave(datasave)" #datasave="ngForm">
-                              <span class="p-float-label p-input-icon-right mt-3">
-                                  <i class="pi pi-user"></i>
-                                  <input id="float-input-invalid" type="text" name="Name" [(ngModel)]='dataDetail.Name' pInputText 
-                                  [ngClass]="{'ng-invalid ng-dirty' : submited && name.errors?.required}" 
-                                  required #name="ngModel">
-                                  <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
-                              </span>
-                              <small *ngIf="submited && name.errors?.required || (name.errors?.required && name.touched)"
-                              class="p-error">Vui lòng nhập tiêu đề bài viết</small>
-                              <div class="grid">
-                                  <div class="col-6">
-                                      <span class="p-float-label p-input-icon-right mt-5">
-                                          <i class="pi pi-user"></i>
-                                          <input id="float-input" type="text" name="Price" [(ngModel)]='dataDetail.Price' pInputText #price="ngModel"
-                                          [ngClass]="{'ng-invalid ng-dirty' : submited && price.errors?.required}"
-                                          >
-                                          <label for="float-input" [ngClass]="{'invalid': submited && price.errors?.required}">Giá <span class="text-red-500"> *</span></label>
-                                      </span>
-                                  </div>
-                                  <div class="col-6">
-                                      <span class="p-float-label p-input-icon-right mt-5">
-                                          <i class="pi pi-user"></i>
-                                          <input id="float-input" type="text" name="Address" [(ngModel)]='dataDetail.Address' pInputText>
-                                          <label for="float-input">Địa chỉ <span class="text-red-500"> *</span></label>
-                                      </span>
-                                  </div>
-                                  <div class="col-6">
-                                      <span class="p-float-label p-input-icon-right mt-5">
-                                          <i class="pi pi-sort-numeric-down"></i>
-                                          <input id="float-input" type="text" name="Order" [(ngModel)]='dataDetail.Order' pInputText>
-                                          <label for="float-input">Thứ tự<span class="text-red-500"> *</span></label>
-                                      </span>
-                                  </div>
-                                  <div class="col-3">
-                                      <div class="field mt-5 flex align-items-center">
-                                          <p-inputSwitch name='Status' [(ngModel)]="dataDetail.Status" (onChange)="changeStatus($event)"></p-inputSwitch>
-                                          <label for="">Hiển thị</label>
-                                      </div>
-                                  </div>
-                                  <div class="col-3">
-                                      <div class="field mt-5 flex align-items-center">
-                                          <p-inputSwitch name='IsHot' [(ngModel)]="dataDetail.IsHot" (onChange)="changeIsHot($event)"></p-inputSwitch>
-                                          <label for="">Tuyển dụng hot</label>
-                                      </div>
-                                  </div>
-                                  <div class="col-12">
-                                      <span class="p-float-label p-input-icon-right mt-5"> 
-                                          <p-chips id="Tags" name="Tags" [(ngModel)]="dataDetail.Tags" ></p-chips>
-                                          <label for="intOrorderer" class="">Tags</label>
-                                      </span>
-                                  </div>
-                                  <div class="col-12">
-                                      <label for="float-input">Yêu cầu <span class="text-red-500"> *</span></label>
-                                      <div class="textarea">
-                                          <textarea pInputTextarea name='Requirement' [(ngModel)]="dataDetail.Requirement"  [style]="{width: '100%', height: '20vw'}"></textarea>
-                                      </div>
-                                  </div>
-                                  <div class="col-12">
-                                      <label for="float-input">Nội dung bài viết<span class="text-red-500"> *</span></label>
-                                      <div class="textarea">
-                                          <textarea pInputTextarea name='Content' [(ngModel)]="dataDetail.Content" [style]="{width: '100%', height: '20vw'}"></textarea>
-                                      </div>
-                                  </div>
-                              </div>
-                              <button type="submit" class="p-button p-component mt-2 btn-submit">
-                                  <span class="p-button-label p-c">Lưu lại</span>
-                              </button>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+    <div class="grid">
+        <div class="col-12">
+            <p-breadcrumb [model]="items"></p-breadcrumb>
+            <div class="grid mt-2">
+                <div class="col-12 ">
+                    <form class="p-fluid" (ngSubmit)="onSave(datasave)" #datasave="ngForm">
+                        <span class="p-float-label p-input-icon-right mt-3">
+                            <i class="pi pi-user"></i>
+                            <input id="float-input-invalid" type="text" name="Name" [(ngModel)]='dataDetail.Name'
+                                pInputText [ngClass]="{'ng-invalid ng-dirty' : submited && name.errors?.required}"
+                                required #name="ngModel">
+                            <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
+                        </span>
+                        <small *ngIf="submited && name.errors?.required || (name.errors?.required && name.touched)"
+                            class="p-error">Vui lòng nhập tiêu đề bài viết</small>
+                        <div class="grid">
+                            <div class="col-6">
+                                <span class="p-float-label p-input-icon-right mt-5">
+                                    <i class="pi pi-user"></i>
+                                    <input id="float-input" type="text" name="Price" [(ngModel)]='dataDetail.Price'
+                                        pInputText #price="ngModel"
+                                        [ngClass]="{'ng-invalid ng-dirty' : submited && price.errors?.required}">
+                                    <label for="float-input"
+                                        [ngClass]="{'invalid': submited && price.errors?.required}">Giá <span
+                                            class="text-red-500"> *</span></label>
+                                </span>
+                            </div>
+                            <div class="col-6">
+                                <span class="p-float-label p-input-icon-right mt-5">
+                                    <i class="pi pi-user"></i>
+                                    <input id="float-input" type="text" name="Address" [(ngModel)]='dataDetail.Address'
+                                        pInputText>
+                                    <label for="float-input">Địa chỉ <span class="text-red-500"> *</span></label>
+                                </span>
+                            </div>
+                            <div class="col-6">
+                                <span class="p-float-label p-input-icon-right mt-5">
+                                    <i class="pi pi-sort-numeric-down"></i>
+                                    <input id="float-input" type="text" name="Order" [(ngModel)]='dataDetail.Order'
+                                        pInputText>
+                                    <label for="float-input">Thứ tự<span class="text-red-500"> *</span></label>
+                                </span>
+                            </div>
+                            <div class="col-3">
+                                <div class="field mt-5 flex align-items-center">
+                                    <p-inputSwitch name='Status' [(ngModel)]="dataDetail.Status"
+                                        (onChange)="changeStatus($event)"></p-inputSwitch>
+                                    <label for="">Hiển thị</label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="field mt-5 flex align-items-center">
+                                    <p-inputSwitch name='IsHot' [(ngModel)]="dataDetail.IsHot"
+                                        (onChange)="changeIsHot($event)"></p-inputSwitch>
+                                    <label for="">Tuyển dụng hot</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <span class="p-float-label p-input-icon-right mt-5">
+                                    <p-chips id="Tags" name="Tags" [(ngModel)]="dataDetail.Tags"></p-chips>
+                                    <label for="intOrorderer" class="">Tags</label>
+                                </span>
+                            </div>
+                            <div class="col-12">
+                                <label for="float-input"
+                                    [ngClass]="{'invalid': submited && requirement.errors?.required}">Yêu cầu <span
+                                        class="text-red-500"> *</span></label>
+                                <div class="textarea">
+                                    <textarea pInputTextarea name='Requirement' [(ngModel)]="dataDetail.Requirement"
+                                        [style]="{width: '100%', height: '20vw'}" required #requirement="ngModel"
+                                        [ngClass]="{'invalid' : submited && requirement.errors?.required}"></textarea>
+                                </div>
+                                <small
+                                    *ngIf="submited && requirement.errors?.required || (requirement.errors?.required && name.touched)"
+                                    class="p-error">Vui lòng nhập tiêu đề bài viết</small>
+                            </div>
+                            <div class="col-12">
+                                <label for="float-input"
+                                    [ngClass]="{'invalid': submited && content.errors?.required ||(content.errors?.required && content.touched)}">Nội
+                                    dung bài viết<span class="text-red-500"> *</span></label>
+                                <div class="textarea">
+                                    <textarea pInputTextarea name='Content' #content="ngModel" required
+                                        [(ngModel)]="dataDetail.Content"
+                                        [style]="{width: '100%', height: '20vw'}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="p-button p-component mt-2 btn-submit">
+                            <span class="p-button-label p-c">Lưu lại</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

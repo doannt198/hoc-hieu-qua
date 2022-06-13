@@ -62,7 +62,6 @@ export class ChiTietTuyenDungComponent implements OnInit {
       this.apiService.getDetailRecruit(Id)
       .subscribe({
         next: (response) => {
-          console.log("chi tiết tuyển dụng", response)
           this.dataDetail = response.Data
         },
         error: (error) => {
