@@ -35,7 +35,7 @@ export class SliderComponent implements OnInit {
   showLibrary = false
   UrlImg: any = null
   dataSave: SliderModel = new SliderModel()
-
+  submited = false
   ngOnInit(): void {
     this.fetchData();
     this.primengConfig.ripple = true;
@@ -95,7 +95,11 @@ export class SliderComponent implements OnInit {
     })
   }
   
-  onSaveSlider(): void {
+  onSaveSlider(dataSave:any): void {
+    this.submited = true
+    if(dataSave.invalid) {
+        return;
+    }
     this.dataSave.name = this.Name 
     this.dataSave.imageUrl = this.UrlImg
     this.dataSave.status = this.Status
@@ -124,6 +128,7 @@ export class SliderComponent implements OnInit {
 
   showLibraryDialog(): void {
     this.showLibrary = true
+    this.submited = false
   }
 
   ngOnDestroy() {

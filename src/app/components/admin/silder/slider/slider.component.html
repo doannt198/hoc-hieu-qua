@@ -10,12 +10,12 @@
                     <p-button label="Thêm mới" icon="pi pi-plus" class="mr-3" (click)="showDiaglog()"></p-button>
                     <p-dialog header="Quản lý Slider" [(visible)]="showdialog" [modal]="true" [style]="{width: '90vw'}"
                         [draggable]="true" [resizable]="false">
-                        <div class="slider-form">
-                            <p-dialog header="Chọn Media" [(visible)]="showLibrary" [modal]="true"
+                        <div *ngIf="showdialog" class="slider-form">
+                            <p-dialog *ngIf="showdialog" header="Chọn Media" [(visible)]="showLibrary" [modal]="true"
                                     [style]="{width: '90vw', height: '50vw'}">
                                     <app-thu-vien (selecteImg)="selectedImg($event)"></app-thu-vien>
                                 </p-dialog>
-                            <form class="grid mt-3" (ngSubmit)="onSaveSlider()" #save='ngForm'>
+                            <form class="grid mt-3" (ngSubmit)="onSaveSlider(dataSave)" #dataSave='ngForm'>
                                 <div class="col-4 slider-image">
                                     <img [src]="UrlImg ? UrlImg: '../../../../../assets/images/empty-image.png' "
                                         alt="img" style="width:100%">
@@ -23,28 +23,31 @@
                                         <i class="pi pi-upload mr-2"></i>Ảnh đại diện
                                         <span class="text-red-500">*</span>
                                     </label>
+                                    <small *ngIf="submited" class="p-error">Vui lòng chọn ảnh đại diện</small>
                                 </div>
                                 <div class="col-8 pl-5">
                                     <div class="field">
                                         <span class="p-float-label p-input-icon-right">
                                             <i class="pi pi-user"></i>
-                                            <input id="Name" name="Name" [(ngModel)]="Name" class="p-inputtext p-component" value="">
-                                            <label for="name" class="">Tên <span class="text-red-500"> *</span></label>
+                                            <input id="Name" name="Name" [(ngModel)]="Name" required #name="ngModel" [ngClass]="{'p-invalid' : submited && name.errors?.required }"class="p-inputtext p-component " pInputText >
+                                            <label for="name" [ngClass]="{'invalid': submited && name.errors?.required}">Tên <span class="text-red-500"> *</span></label>
                                         </span>
+                                        <small *ngIf="submited && name.errors?.required || (name.errors?.required && name.touched)" class="p-error">Vui lòng nhập Slider</small>
                                     </div>
                                     <div class="field mt-5">
                                         <span class="p-float-label p-input-icon-right">
                                             <i class="pi pi-user"></i>
-                                            <input id="Screen" name="Screen" [(ngModel)]="Screen" class="p-inputtext p-component" value="">
-                                            <label for="name" class="">Màn hình <span class="text-red-500">
+                                            <input id="Screen" name="Screen" [(ngModel)]="Screen" required #screen="ngModel" [ngClass]="{'p-invalid' : submited && screen.errors?.required }" class="p-inputtext p-component" >
+                                            <label for="name" [ngClass]="{'invalid': submited && screen.errors?.required}">Màn hình <span class="text-red-500">
                                                     *</span>
                                             </label>
                                         </span>
+                                        <small *ngIf="submited && screen.errors?.required || (screen.errors?.required && screen.touched)" class="p-error">Vui lòng chọn màn hình hiển thị</small>
                                     </div>
                                     <div class="field mt-5">
                                         <span class="p-float-label p-input-icon-right">
                                             <i class="pi pi-user"></i>
-                                            <input id="Order" name="Order" [(ngModel)]="Order" class="p-inputtext p-component" value="">
+                                            <input id="Order" name="Order" [(ngModel)]="Order" class="p-inputtext p-component" >
                                             <label for="name" class="">Sắp xếp<span class="text-red-500">
                                                     *</span></label>
                                         </span>

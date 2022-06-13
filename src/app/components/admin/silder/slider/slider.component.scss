@@ -24,7 +24,12 @@
    .p-input-icon-right {
         width: 100%;
    }
-
+   .invalid {
+       color: red;
+   }
+   .invalid-border {
+       border: 2px solid red;
+   }
 }
 
 ::ng-deep {

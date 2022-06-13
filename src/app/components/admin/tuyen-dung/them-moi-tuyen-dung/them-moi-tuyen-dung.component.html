@@ -18,7 +18,9 @@
                             <div class="col-6">
                                 <span class="p-float-label p-input-icon-right mt-5">
                                     <i class="pi pi-user"></i>
-                                    <input id="float-input" type="text" name="Price" #price="ngModel" required [(ngModel)]='Price' pInputText>
+                                    <input id="float-input-invalid" type="text" name="Price" #price="ngModel" required [(ngModel)]='Price' pInputText
+                                    [ngClass]="{'ng-invalid ng-dirty' : submited && price.errors?.required}"
+                                    >
                                     <label for="float-input" [ngClass]="{'invalid': submited && price.errors?.required}">Giá <span class="text-red-500"> *</span></label>
                                 </span>
                                 <small *ngIf="submited && price.errors?.required || (price.errors?.required && name.touched)"
@@ -63,7 +65,8 @@
                                 <label for="float-input" [ngClass]="{'invalid': submited && requirement.errors?.required}" >Yêu cầu <span class="text-red-500"> *</span></label>
                                 <div class="textarea">
                                     <textarea pInputTextarea name='Requirement' [(ngModel)]="Requirement" required #requirement="ngModel"
-                                        [style]="{width: '100%', height: '20vw'}"></textarea>
+                                        [style]="{width: '100%', height: '20vw'}"  [ngClass]="{'invalid' : submited && requirement.errors?.required}"
+                                        ></textarea>
                                 </div>
                                 <small *ngIf="submited && requirement.errors?.required || (requirement.errors?.required && name.touched)"
                                 class="p-error">Vui lòng nhập tiêu đề bài viết</small>
