@@ -53,7 +53,6 @@ const routes: Routes = [
       { path: 'mon-hoc', component: MonHocComponent },
       { path: 'bai-kiem-tra', component: BaiKiemTraComponent },
       { path: 'tai-khoan/them-moi-tai-khoan', component: ThemMoiTaiKhoanComponent }, 
-      { path: 'danh-muc-tin-tuc/:id', component: ChiTietTinTucComponent },
       { path: 'tuyen-dung/:id', component: ChiTietTuyenDungComponent },
       { path: 'faq/them-moi', component: ThemMoiFaqComponent },
       { path: 'chi-tiet-faq/:id', component: ChiTietFaqComponent }

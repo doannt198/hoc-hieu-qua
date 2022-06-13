@@ -22,6 +22,9 @@ export class ChiTietTinTucComponent implements OnInit {
   submited = false
   items :any;
   show: any;
+  Name: any;
+  Order: any;
+  Status: any ;
   data: any;
     test: any
   datadetail: any;
@@ -47,6 +50,11 @@ export class ChiTietTinTucComponent implements OnInit {
       .subscribe({
         next: (response) => {
           this.data = response.Data
+          if(this.data.Status == 1) {
+            this.Status = true
+          } else if (this.data.Status == 0 ) {
+            this.Status = false
+          }
         },
         error: (error) => {
           console.error("getCategoryDetail", error)
@@ -63,7 +71,7 @@ export class ChiTietTinTucComponent implements OnInit {
       Id: this.data.Id,
       Name: this.data.Name,
       Order: this.data.Order,
-      Status: this.data.Status
+      Status: this.Status
     }
     console.log(dataSave)
     this.apiService.postCategory(dataSave)
@@ -71,9 +79,6 @@ export class ChiTietTinTucComponent implements OnInit {
       next: (response) => {
         if(response.Status === 'success') {
           this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Cập nhật thành công'})
-          this.category.Name = '',
-          this.category.Status = 0,
-          this.category.Order = ''
         } else {
           this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
         }
@@ -82,7 +87,12 @@ export class ChiTietTinTucComponent implements OnInit {
   }
 
   change(event: any) {
-    console.log(event)
+    if(event.checked == true) {
+      this.Status = 1
+    } else {
+      this.Status = 0
+    }
+    console.log(this.Status)
   }
 
   ngOnDestroy() {

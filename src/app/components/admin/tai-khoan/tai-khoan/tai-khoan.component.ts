@@ -3,6 +3,7 @@ import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api'
 import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-tai-khoan',
   templateUrl: './tai-khoan.component.html',
@@ -17,7 +18,8 @@ export class TaiKhoanComponent implements OnInit {
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private spinner: NgxSpinnerService
   ) { }
   query = {
     filter: '',
@@ -33,6 +35,7 @@ export class TaiKhoanComponent implements OnInit {
   }
 
   getListAccount(): void {
+    this.spinner.show()
     const queryParams = queryString.stringify(this.query);
     this.apiService
       .getListAccount(queryParams)
@@ -42,6 +45,7 @@ export class TaiKhoanComponent implements OnInit {
           console.log("tài khoản",response)
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
+          this.spinner.hide()
         },
         error: (error) => {
           console.log('error', error);
