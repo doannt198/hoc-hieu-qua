@@ -103,6 +103,10 @@ export class ApiService {
       return this.http.post(`${apiServer}/api/FAQ`, data)
     }
 
+    getDetailFaq(Id: any ): Observable<any> {
+      return this.http.get(`${apiServer}/api/faq/` + Id)
+    }
+
    /*  Api Slider */
 
     getListSlider(queryParams: any): Observable<any> {

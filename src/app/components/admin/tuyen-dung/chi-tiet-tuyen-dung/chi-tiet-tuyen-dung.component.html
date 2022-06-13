@@ -4,18 +4,24 @@
                   <p-breadcrumb [model]="items"></p-breadcrumb>
                   <div class="grid mt-2">
                       <div class="col-12 ">
-                          <form class="p-fluid" (ngSubmit)="onSave()" #onsave="ngForm">
+                          <form class="p-fluid" (ngSubmit)="onSave(datasave)" #datasave="ngForm">
                               <span class="p-float-label p-input-icon-right mt-3">
                                   <i class="pi pi-user"></i>
-                                  <input id="float-input" type="text" name="Name" [(ngModel)]='dataDetail.Name' pInputText>
+                                  <input id="float-input-invalid" type="text" name="Name" [(ngModel)]='dataDetail.Name' pInputText 
+                                  [ngClass]="{'ng-invalid ng-dirty' : submited && name.errors?.required}" 
+                                  required #name="ngModel">
                                   <label for="float-input">Tiêu đề <span class="text-red-500"> *</span></label>
                               </span>
+                              <small *ngIf="submited && name.errors?.required || (name.errors?.required && name.touched)"
+                              class="p-error">Vui lòng nhập tiêu đề bài viết</small>
                               <div class="grid">
                                   <div class="col-6">
                                       <span class="p-float-label p-input-icon-right mt-5">
                                           <i class="pi pi-user"></i>
-                                          <input id="float-input" type="text" name="Price" [(ngModel)]='dataDetail.Price' pInputText>
-                                          <label for="float-input">Giá <span class="text-red-500"> *</span></label>
+                                          <input id="float-input" type="text" name="Price" [(ngModel)]='dataDetail.Price' pInputText #price="ngModel"
+                                          [ngClass]="{'ng-invalid ng-dirty' : submited && price.errors?.required}"
+                                          >
+                                          <label for="float-input" [ngClass]="{'invalid': submited && price.errors?.required}">Giá <span class="text-red-500"> *</span></label>
                                       </span>
                                   </div>
                                   <div class="col-6">

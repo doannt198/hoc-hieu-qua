@@ -35,6 +35,7 @@ export class ChiTietTuyenDungComponent implements OnInit {
   Status: any;
   IsHot: any;
   Requirement: any;
+  submited = false
   dataSave: RecruitModel = new RecruitModel() 
   query = {
     filter: '',
@@ -70,9 +71,12 @@ export class ChiTietTuyenDungComponent implements OnInit {
       })
   }
 
-  onSave(): void {
+  onSave(datasave: any): void {
     /* const cvTag = this.dataDetail.Tags.split(",") */
-    
+    this.submited=true
+    if(datasave.invalid) {
+        return;
+    }
     const dataSave = {
       Id: this.dataDetail.Id,
       Name: this.dataDetail.Name,
@@ -89,8 +93,6 @@ export class ChiTietTuyenDungComponent implements OnInit {
       CreatedDate: this.dataDetail.CreatedDate,
       ModifiedDate: this.dataDetail.ModifiedDate
     }
-    
-    console.log("data sau khi lưu", dataSave)
     /* const CreatedDate = new Date()
     const ModifiedDate = new Date()
     const cvTag = this.Tags.toString()

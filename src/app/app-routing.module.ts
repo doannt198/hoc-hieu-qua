@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ThuVienComponent } from './common/thu-vien/thu-vien.component';
 import { BaiKiemTraComponent } from './components/admin/bai-kiem-tra/bai-kiem-tra/bai-kiem-tra.component';
+import { ChiTietFaqComponent } from './components/admin/faq/faq/chi-tiet-faq/chi-tiet-faq.component';
 import { FaqComponent } from './components/admin/faq/faq/faq.component';
 import { ThemMoiFaqComponent } from './components/admin/faq/faq/them-moi-faq/them-moi-faq.component';
 import { GiaoVienComponent } from './components/admin/giao-vien/giao-vien/giao-vien.component';
@@ -54,7 +55,8 @@ const routes: Routes = [
       { path: 'tai-khoan/them-moi-tai-khoan', component: ThemMoiTaiKhoanComponent }, 
       { path: 'danh-muc-tin-tuc/:id', component: ChiTietTinTucComponent },
       { path: 'tuyen-dung/:id', component: ChiTietTuyenDungComponent },
-      { path: 'faq/them-moi', component: ThemMoiFaqComponent }
+      { path: 'faq/them-moi', component: ThemMoiFaqComponent },
+      { path: 'chi-tiet-faq/:id', component: ChiTietFaqComponent }
     ],
   },
 ];

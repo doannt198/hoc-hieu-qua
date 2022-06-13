@@ -63,8 +63,9 @@ import { ThemMoiTaiKhoanComponent } from './components/admin/tai-khoan/them-moi-
 import { ChiTietTinTucComponent } from './components/admin/tin-tuc/chi-tiet-tin-tuc/chi-tiet-tin-tuc.component';
 import { ChiTietTuyenDungComponent } from './components/admin/tuyen-dung/chi-tiet-tuyen-dung/chi-tiet-tuyen-dung.component';
 import { ThemMoiFaqComponent } from './components/admin/faq/faq/them-moi-faq/them-moi-faq.component';
+import { ChiTietFaqComponent } from './components/admin/faq/faq/chi-tiet-faq/chi-tiet-faq.component';
 @NgModule({
-  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent, UngVienComponent, TaiKhoanComponent, FaqComponent, SliderComponent, GiaoVienComponent, LopHocComponent, MonHocComponent, BaiKiemTraComponent, ThemMoiTaiKhoanComponent, ChiTietTinTucComponent, ChiTietTuyenDungComponent, ThemMoiFaqComponent],
+  declarations: [AppComponent, DefaultLayoutComponent, FooterComponent, NavbarComponent, SidebarComponent, MenuNguoiDungComponent, MenuQuanTriComponent, DanhMucTinTucComponent, ThemMoiTinTucComponent, QuanLiTinTucComponent, ThemMoiComponent, ThuVienComponent, TuyenDungComponent, ThemMoiTuyenDungComponent, UngVienComponent, TaiKhoanComponent, FaqComponent, SliderComponent, GiaoVienComponent, LopHocComponent, MonHocComponent, BaiKiemTraComponent, ThemMoiTaiKhoanComponent, ChiTietTinTucComponent, ChiTietTuyenDungComponent, ThemMoiFaqComponent, ChiTietFaqComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
