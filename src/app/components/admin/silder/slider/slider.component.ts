@@ -59,6 +59,7 @@ export class SliderComponent implements OnInit {
         },
       });
   }
+
   showDiaglog():  void {
     this.showdialog = true
   }
@@ -109,8 +110,8 @@ export class SliderComponent implements OnInit {
     .subscribe({
       next: (response) => {
         this.messageService.add({ severity:'success', summary: 'Thông báo', detail: 'Thêm thành công'})
-          this.showdialog = false
           this.getListSlider();
+          this.showdialog = false
       },
       error: () => {
         this.messageService.add({ severity:'error', summary: 'Thông báo', detail: 'Thêm thất bại'})
@@ -128,7 +129,6 @@ export class SliderComponent implements OnInit {
 
   showLibraryDialog(): void {
     this.showLibrary = true
-    this.submited = false
   }
 
   ngOnDestroy() {

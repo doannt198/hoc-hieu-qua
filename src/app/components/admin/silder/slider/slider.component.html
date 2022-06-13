@@ -11,9 +11,9 @@
                     <p-dialog header="Quản lý Slider" [(visible)]="showdialog" [modal]="true" [style]="{width: '90vw'}"
                         [draggable]="true" [resizable]="false">
                         <div *ngIf="showdialog" class="slider-form">
-                            <p-dialog *ngIf="showdialog" header="Chọn Media" [(visible)]="showLibrary" [modal]="true"
+                            <p-dialog  header="Chọn Media" [(visible)]="showLibrary" [modal]="true"
                                     [style]="{width: '90vw', height: '50vw'}">
-                                    <app-thu-vien (selecteImg)="selectedImg($event)"></app-thu-vien>
+                                    <app-thu-vien *ngIf="showLibrary" (selecteImg)="selectedImg($event)"></app-thu-vien>
                                 </p-dialog>
                             <form class="grid mt-3" (ngSubmit)="onSaveSlider(dataSave)" #dataSave='ngForm'>
                                 <div class="col-4 slider-image">
