@@ -140,6 +140,7 @@ export class ThuVienComponent implements OnInit {
   deleteImages(item: any) {
     this.confirmationService.confirm({
       message: 'Bạn có chắc chắn muốn xoá ảnh không?',
+      icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.apiService.deleteLibrariesFile(item.Id)
         .subscribe({

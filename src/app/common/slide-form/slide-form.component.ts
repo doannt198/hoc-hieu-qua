@@ -35,17 +35,18 @@ export class SlideFormComponent implements OnInit, OnChanges {
   
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.selectSlider && this.selectSlider && this.selectSlider.Id) {
-      this.apiService
+       this.apiService
         .getListDetailSlider(this.selectSlider.Id)
         .subscribe({
           next: (response) => {
             this.detail = response.Data;
+            console.log("chi tiết", this.detail)
             this.detail.Status === 1 ? true : false;
           },
           error: (error) => {
             console.error(error);
           },
-        });
+        }); 
     }
   }
 

@@ -48,7 +48,6 @@ export class TuyenDungComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          console.log("tuyển dụng", response)
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
         },

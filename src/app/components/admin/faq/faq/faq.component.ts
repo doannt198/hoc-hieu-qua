@@ -63,6 +63,7 @@ export class FaqComponent implements OnInit {
   deleteFaq(dataList: any) {
     this.confirmationService.confirm({
       message: `Bạn có chắc chắn muốn xóa?`,
+      icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.spinner.show()
         this.apiService.deleteFaq(dataList.Id)

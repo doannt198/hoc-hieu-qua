@@ -63,6 +63,7 @@ export class TaiKhoanComponent implements OnInit {
   deleteAccount(dataList: any) {
     this.confirmationService.confirm({
       message: 'Bạn có chắc chắn muốn xoá?',
+      icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.apiService.deleteAccount(dataList.Id)
         .subscribe({
