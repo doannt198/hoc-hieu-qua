@@ -19,6 +19,7 @@ export class SliderComponent implements OnInit {
   Screen: any;
   Order: any ;
   Status: any;
+  cvStatus: any;
   constructor(
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
@@ -101,9 +102,14 @@ export class SliderComponent implements OnInit {
     if(dataSave.invalid) {
         return;
     }
+    if(this.Status == true) {
+      this.cvStatus = 1
+    } else {
+      this.cvStatus = 0
+    }
     this.dataSave.name = this.Name 
     this.dataSave.imageUrl = this.UrlImg
-    this.dataSave.status = this.Status
+    this.dataSave.status = this.cvStatus
     this.dataSave.order =  this.Order
     this.dataSave.screen =  this. Screen
     this.apiService.postSlider(this.dataSave)
