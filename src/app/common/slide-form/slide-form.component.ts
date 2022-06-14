@@ -28,7 +28,7 @@ export class SlideFormComponent implements OnInit, OnChanges {
     Screen: '',
     Order: 0,
     Status: false,
-    ImageUrl: ''
+    ImageUrl: null
   };
   @Input() selectSlider: any = null;
   @Output() loadSlider = new EventEmitter<any>();
@@ -40,8 +40,8 @@ export class SlideFormComponent implements OnInit, OnChanges {
         .subscribe({
           next: (response) => {
             this.detail = response.Data;
-            console.log("chi tiết", this.detail)
-            this.detail.Status === 1 ? true : false;
+          this.detail.Status = this.detail.Status == 1 ? true : false
+            console.log("chi tiết", this.detail.Status)
           },
           error: (error) => {
             console.error(error);
@@ -54,7 +54,7 @@ export class SlideFormComponent implements OnInit, OnChanges {
 
   selectedImg(event: any): void {
     this.showLibrary = false;
-    this.detail.UrlImg = event;
+    this.detail.ImageUrl = event;
   }
 
   onSaveSlider(dataForm: any): void {
