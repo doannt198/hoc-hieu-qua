@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as queryString from 'query-string';
 import { Subject, takeUntil } from 'rxjs';
+import { AccountModel } from 'src/app/model/account.model';
 import { ApiService } from 'src/app/service/api.service';
 @Component({
   selector: 'app-them-moi-tai-khoan',
@@ -25,7 +26,31 @@ export class ThemMoiTaiKhoanComponent implements OnInit {
     pageSize: 10,
   };
   selectedCategory: any
-
+  account: any = {
+    id: "",
+    userId: "",
+    userName: "",
+    password: "",
+    createdDate : null,
+    modifiedDate : null,
+    createdBy: "",
+    modifiedBy: "",
+    oldPassword: "",
+    roleId: "",
+    status: 0,
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    phone: "",
+    identityNo: "",
+    className: "",
+    birthday: "", 
+    avatar: "",
+    roleName: "",
+    roleDescription: "",
+  }
+  dataSave: AccountModel = new AccountModel()
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị'},

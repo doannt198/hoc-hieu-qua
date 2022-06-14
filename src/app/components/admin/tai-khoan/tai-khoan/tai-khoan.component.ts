@@ -4,6 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AccountModel } from 'src/app/model/account.model';
 @Component({
   selector: 'app-tai-khoan',
   templateUrl: './tai-khoan.component.html',
@@ -14,6 +15,7 @@ export class TaiKhoanComponent implements OnInit {
   dataList: any = [];
   data: any = [];
   totalRecord = 0;
+ 
   constructor(
     private apiService: ApiService,
     private confirmationService: ConfirmationService,

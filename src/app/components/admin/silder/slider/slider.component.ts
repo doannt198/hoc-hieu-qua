@@ -7,6 +7,7 @@ import {
 import { Subject, take, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -23,7 +24,8 @@ export class SliderComponent implements OnInit {
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private spinner: NgxSpinnerService
   ) {}
   query = {
     filter: '',
@@ -48,6 +50,7 @@ export class SliderComponent implements OnInit {
   }
 
   getListSlider(): void {
+    this.spinner.show()
     const queryParams = queryString.stringify(this.query);
     this.apiService
       .getListSlider(queryParams)
@@ -56,6 +59,7 @@ export class SliderComponent implements OnInit {
         next: (response) => {
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
+          this.spinner.hide();
         },
         error: (error) => {
           console.log('error', error);
