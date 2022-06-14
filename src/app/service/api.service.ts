@@ -88,6 +88,10 @@ export class ApiService {
     deleteAccount(queryParams: any): Observable<any> {
        return this.http.delete(`${apiServer}/api/Account/`+ queryParams)
     }
+
+    postAccount(data: any): Observable<any> {
+      return this.http.post(`${apiServer}/api/Account/`, data)
+    }
      
    /*  Api FAQ */
    

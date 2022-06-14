@@ -1,109 +1,123 @@
 <div class="chi-tiet-tin-tuc">
-          <div class="grid">
-              <div class="col-12">
+      <div class="grid">
+            <div class="col-12">
                   <p-breadcrumb [model]="items"></p-breadcrumb>
                   <p-tabView>
-                          <div class="grid mt-2">
+                        <div class="grid mt-2">
                               <div class="col-4 avatar">
-                                  <img [src]=" UrlImg ? UrlImg : '../../../../../../assets/images/empty-image.png'" alt="avatar" style="width:100%">
-                                  <label for="uploadfile" (click)="showLibraryDialog()">
-                                      <i class="pi pi-upload"></i>
-                                      Ảnh đại diện
-                                  </label>
-                                  <p-dialog header="Chọn Media" appendTo="body" [(visible)]="showLibrary" [modal]="true"
-                                      [style]="{width: '80vw', height: '50vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
-                                      <app-thu-vien (selectedImage)="selectedImages($event)" ></app-thu-vien>
-                                  </p-dialog>
+                                    <img [src]=" UrlImg ? UrlImg : '../../../../../../assets/images/empty-image.png'"
+                                          alt="avatar" style="width:100%">
+                                    <label for="uploadfile" (click)="showLibraryDialog()">
+                                          <i class="pi pi-upload"></i>
+                                          Ảnh đại diện
+                                    </label>
+                                    <p-dialog header="Chọn Media" appendTo="body" [(visible)]="showLibrary"
+                                          [modal]="true" [style]="{width: '80vw', height: '50vw'}" [baseZIndex]="10000"
+                                          [draggable]="false" [resizable]="false">
+                                          <app-thu-vien (selecteImg)="selectedImages($event)"></app-thu-vien>
+                                    </p-dialog>
                               </div>
                               <div class="col-8 pl-5">
-                                  <form class="p-fluid">
-                                            <div class="grid">
-                                                      <div class="col-6">
-                                                            <span class="p-float-label p-input-icon-right">
+                                    <form class="p-fluid">
+                                          <div class="grid">
+                                                <div class="col-6">
+                                                      <span class="p-float-label p-input-icon-right">
                                                             <i class="pi pi-user"></i>
-                                                             <input id="float-input" type="text" name="Name" pInputText > 
-                                                            <label for="float-input">Tài khoản đăng nhập<span class="text-red-500"> *</span></label>
+                                                            <input id="float-input" type="text" name="Name" pInputText>
+                                                            <label for="float-input">Tài khoản đăng nhập<span
+                                                                        class="text-red-500"> *</span></label>
+                                                      </span>
+                                                </div>
+                                                <div class="col-6">
+                                                      <span class="p-float-label p-input-icon-right">
+                                                            <i class="pi pi-user"></i>
+                                                            <input id="float-input" type="text" name="Class" pInputText>
+                                                            <label for="float-input"> Mật khẩu <span
+                                                                        class="text-red-500"> *</span></label>
+                                                      </span>
+                                                </div>
+                                                <div class="col-6">
+                                                      <span class="p-float-label p-input-icon-right">
+                                                            <i class="pi pi-user"></i>
+                                                            <input id="float-input" type="text" name="Name" pInputText>
+                                                            <label for="float-input">Họ <span class="text-red-500">
+                                                                        *</span></label>
+                                                      </span>
+                                                </div>
+                                                <div class="col-6">
+                                                      <span class="p-float-label p-input-icon-right">
+                                                            <i class="pi pi-user"></i>
+                                                            <input id="float-input" type="text" name="Name" pInputText>
+                                                            <label for="float-input">Tên<span class="text-red-500">
+                                                                        *</span></label>
+                                                      </span>
+                                                </div>
+                                                <div class="col-6">
+                                                      <span class="p-float-label p-input-icon-right">
+                                                            <i class="pi pi-user"></i>
+                                                            <input id="float-input" type="text" name="Name" pInputText>
+                                                            <label for="float-input">Email<span class="text-red-500">
+                                                                        *</span></label>
+                                                      </span>
+                                                </div>
+                                                <div class="col-6">
+                                                      <span class="p-float-label p-input-icon-right">
+                                                            <i class="pi pi-user"></i>
+                                                            <input id="float-input" type="text" name="Name" pInputText>
+                                                            <label for="float-input">Số điện thoại <span
+                                                                        class="text-red-500"> *</span></label>
+                                                      </span>
+                                                </div>
+                                                <div class="col-6">
+                                                      <span class="p-float-label p-input-icon-right">
+                                                            <i class="pi pi-user"></i>
+                                                            <input id="float-input" type="text" name="Name" pInputText>
+                                                            <label for="float-input">CMND/ CCCD <span
+                                                                        class="text-red-500"> *</span></label>
+                                                      </span>
+                                                </div>
+                                                <div class="col-6">
+                                                      <span class="p-float-label p-input-icon-right">
+                                                            <i class="pi pi-user"></i>
+                                                            <input id="float-input" type="text" name="Name" pInputText>
+                                                            <label for="float-input">Lớp<span class="text-red-500">
+                                                                        *</span></label>
+                                                      </span>
+                                                </div>
+                                                <div class="col-6 ">
+                                                      <div class="field mt-3">
+                                                            <span class="p-float-label p-input-icon-right">
+                                                                  <p-calendar [showIcon]="true"
+                                                                        placeholder="Chọn ngày sinh"></p-calendar>
                                                             </span>
                                                       </div>
-                                                      <div class="col-6">
+
+                                                </div>
+                                                <div class="col-6">
+                                                      <div class="field mt-3">
                                                             <span class="p-float-label p-input-icon-right">
-                                                            <i class="pi pi-user"></i>
-                                                             <input id="float-input" type="text" name="Class" pInputText > 
-                                                            <label for="float-input"> Mật khẩu <span class="text-red-500"> *</span></label>
+                                                                  <p-dropdown [options]="dataDropdown"
+                                                                        optionLabel="Name" id='intOrorderer'
+                                                                        name='selectedCategory'
+                                                                        [(ngModel)]="selectedCategory"></p-dropdown>
+                                                                  <label for="intOrorderer" class="">Danh mục</label>
                                                             </span>
                                                       </div>
-                                                      <div class="col-6">
-                                                            <span class="p-float-label p-input-icon-right">
-                                                            <i class="pi pi-user"></i>
-                                                             <input id="float-input" type="text" name="Name" pInputText > 
-                                                            <label for="float-input">Họ <span class="text-red-500"> *</span></label>
-                                                            </span>
+                                                </div>
+                                                <div class="col-12">
+                                                      <div class="field flex align-items-center mt-3">
+                                                            <p-inputSwitch name='Status'></p-inputSwitch>
+                                                            <label for="content" class="ml-2">Hoạt động</label>
                                                       </div>
-                                                      <div class="col-6">
-                                                            <span class="p-float-label p-input-icon-right">
-                                                            <i class="pi pi-user"></i>
-                                                             <input id="float-input" type="text" name="Name" pInputText > 
-                                                            <label for="float-input">Tên<span class="text-red-500"> *</span></label>
-                                                            </span>
-                                                      </div>
-                                                      <div class="col-6">
-                                                            <span class="p-float-label p-input-icon-right">
-                                                            <i class="pi pi-user"></i>
-                                                             <input id="float-input" type="text" name="Name" pInputText > 
-                                                            <label for="float-input">Email<span class="text-red-500"> *</span></label>
-                                                            </span>
-                                                      </div>
-                                                      <div class="col-6">
-                                                            <span class="p-float-label p-input-icon-right">
-                                                            <i class="pi pi-user"></i>
-                                                             <input id="float-input" type="text" name="Name" pInputText > 
-                                                            <label for="float-input">Số điện thoại <span class="text-red-500"> *</span></label>
-                                                            </span>
-                                                      </div>
-                                                      <div class="col-6">
-                                                            <span class="p-float-label p-input-icon-right">
-                                                            <i class="pi pi-user"></i>
-                                                             <input id="float-input" type="text" name="Name" pInputText > 
-                                                            <label for="float-input">CMND/ CCCD <span class="text-red-500"> *</span></label>
-                                                            </span>
-                                                      </div>
-                                                      <div class="col-6">
-                                                            <span class="p-float-label p-input-icon-right">
-                                                            <i class="pi pi-user"></i>
-                                                             <input id="float-input" type="text" name="Name" pInputText > 
-                                                            <label for="float-input">Lớp<span class="text-red-500"> *</span></label>
-                                                            </span>
-                                                      </div>
-                                                      <div class="col-6 ">
-                                                            <div class="field mt-3">
-                                                                      <span class="p-float-label p-input-icon-right">
-                                                                                <p-calendar [showIcon]="true" placeholder="Chọn ngày sinh" ></p-calendar>  
-                                                                      </span>
-                                                            </div>    
-                                                                      
-                                                      </div>
-                                                      <div class="col-6">
-                                                            <div class="field mt-3">
-                                                                      <span class="p-float-label p-input-icon-right">
-                                                                          <p-dropdown [options]="dataDropdown" optionLabel="Name" id='intOrorderer' name='selectedCategory'[(ngModel)]="selectedCategory" ></p-dropdown>
-                                                                          <label for="intOrorderer" class="">Danh mục</label>
-                                                                      </span>
-                                                            </div>
-                                                      </div>
-                                                      <div class="col-12">
-                                                            <div class="field flex align-items-center mt-3">
-                                                                      <p-inputSwitch name ='Status'></p-inputSwitch>
-                                                                      <label for="content" class="ml-2">Hoạt động</label>
-                                                                  </div>
-                                                      </div>
-                                            </div>
-                                      <button type="submit" class="p-button p-component mt-2 btn-submit">
-                                          <span class="p-button-label p-c">Lưu lại</span>
-                                      </button>
-                                  </form>
+                                                </div>
+                                          </div>
+                                          <button type="submit" class="p-button p-component mt-2 btn-submit">
+                                                <span class="p-button-label p-c">Lưu lại</span>
+                                          </button>
+                                    </form>
                               </div>
-                          </div>
+                        </div>
                   </p-tabView>
-              </div>
-          </div>
+            </div>
       </div>
+</div>

@@ -9,69 +9,8 @@
                 <div class="col-6 flex justify-content-end">
                     <p-button label="Thêm mới" icon="pi pi-plus" class="mr-3" (click)="showDiaglog()"></p-button>
                     <p-dialog header="Quản lý Slider" [(visible)]="showdialog" [modal]="true" [style]="{width: '90vw'}"
-                        [draggable]="true" [resizable]="false">
-                        <div *ngIf="showdialog" class="slider-form">
-                            <p-dialog header="Chọn Media" [(visible)]="showLibrary" [modal]="true"
-                                [style]="{width: '90vw', height: '50vw'}">
-                                <app-thu-vien *ngIf="showdialog" (selecteImg)="selectedImg($event)"></app-thu-vien>
-                            </p-dialog>
-                            <form class="grid mt-3" (ngSubmit)="onSaveSlider(dataSave)" #dataSave='ngForm'>
-                                <div class="col-4 slider-image">
-                                    <img [src]="UrlImg ? UrlImg: '../../../../../assets/images/empty-image.png' "
-                                        alt="img" style="width:100%">
-                                    <label for="upload-image" (click)="showLibraryDialog()">
-                                        <i class="pi pi-upload mr-2"></i>Ảnh đại diện
-                                        <span class="text-red-500">*</span>
-                                    </label>
-                                </div>
-                                <div class="col-8 pl-5">
-                                    <div class="field">
-                                        <span class="p-float-label p-input-icon-right">
-                                            <i class="pi pi-user"></i>
-                                            <input name="Name" [(ngModel)]="Name" required #name="ngModel"
-                                                [ngClass]="{'p-invalid' : submited && name.errors?.required }"
-                                                 id="float-input-invalid" pInputText>
-                                            <label for="name"
-                                                [ngClass]="{'invalid': submited && name.errors?.required}">Tên <span
-                                                    class="text-red-500"> *</span></label>
-                                        </span>
-                                        <small
-                                            *ngIf="submited && name.errors?.required || (name.errors?.required && name.touched)"
-                                            class="p-error">Vui lòng nhập Slider</small>
-                                    </div>
-                                    <div class="field mt-5">
-                                        <span class="p-float-label p-input-icon-right">
-                                            <i class="pi pi-user"></i>
-                                            <input name="Screen" [(ngModel)]="Screen" required #screen="ngModel"
-                                                [ngClass]="{'p-invalid' : submited && screen.errors?.required }"
-                                                 id="float-input-invalid" pInputText>
-                                            <label for="name"
-                                                [ngClass]="{'invalid': submited && screen.errors?.required}">Màn hình <span
-                                                    class="text-red-500"> *</span></label>
-                                        </span>
-                                        <small
-                                            *ngIf="submited && screen.errors?.required || (screen.errors?.required && screen.touched)"
-                                            class="p-error">Vui lòng chọn màn hình hiển thị</small>
-                                    </div>
-                                    <div class="field mt-5">
-                                        <span class="p-float-label p-input-icon-right">
-                                            <i class="pi pi-sort-numeric-up"></i>
-                                            <input name="Order" [(ngModel)]="Order" required 
-                                                 id="float-input-invalid" pInputText>
-                                            <label for="Order">Sắp xếp </label>
-                                        </span>
-                                    </div>
-                                    <div class="field flex align-items-center mt-3">
-                                        <p-inputSwitch name='Status' [(ngModel)]="Status"></p-inputSwitch>
-                                        <label for="content" class="ml-2">Hiển thị</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="p-button p-component mt-2 btn-submit">
-                                        <span class="p-button-label p-c">Lưu lại</span></button>
-                                </div>
-                            </form>
-                        </div>
+                        [esizable]="true">
+                     <app-slide-form *ngIf="showdialog" (loadSlider)="loadList()"></app-slide-form>
                     </p-dialog>
                     <p-button label="Xuất Excel" icon="pi pi-upload" routerLink="/quan-li-thu-vien"></p-button>
                 </div>
@@ -150,8 +89,8 @@
                 </td>
                 <td>
                     <div class="flex justify-content-end">
-                        <button pButton pRipple icon="pi pi-pencil"
-                            class="p-button-rounded p-button-secondary mr-2" (click)="showDialogDetail(dataList)"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary mr-2"
+                        ></button>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                             (click)="deleteProduct(dataList)"></button>
                     </div>
