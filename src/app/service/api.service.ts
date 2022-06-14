@@ -113,6 +113,10 @@ export class ApiService {
         return this.http.get(`${apiServer}/api/Slide?`+ queryParams)
     }
 
+    getListDetailSlider(Id: any): Observable<any> {
+        return this.http.get(`${apiServer}/api/Slide/`+Id)
+    }
+
     deleteSlider(Id: string): Observable<any> {
         return this.http.delete(`${apiServer}/api/Slide/`+ Id)
     }
