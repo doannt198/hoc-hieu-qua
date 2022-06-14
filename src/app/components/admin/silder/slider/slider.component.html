@@ -10,7 +10,7 @@
                     <p-button label="Thêm mới" icon="pi pi-plus" class="mr-3" (click)="showDiaglog()"></p-button>
                     <p-dialog header="Quản lý Slider" [(visible)]="showdialog" [modal]="true" [style]="{width: '90vw'}"
                         [esizable]="true">
-                     <app-slide-form *ngIf="showdialog" (loadSlider)="loadList()"></app-slide-form>
+                     <app-slide-form *ngIf="showdialog" [selectSlider] = "selectSlider" [dataDetail]="dataDetail" (loadSlider)="loadList()"></app-slide-form>
                     </p-dialog>
                     <p-button label="Xuất Excel" icon="pi pi-upload" routerLink="/quan-li-thu-vien"></p-button>
                 </div>
@@ -89,7 +89,7 @@
                 </td>
                 <td>
                     <div class="flex justify-content-end">
-                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary mr-2"
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary mr-2" (click)="handleEditSlider(dataList)"
                         ></button>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                             (click)="deleteProduct(dataList)"></button>

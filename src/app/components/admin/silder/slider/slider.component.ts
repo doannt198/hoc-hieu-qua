@@ -4,7 +4,7 @@ import {
   MessageService,
   PrimeNGConfig,
 } from 'primeng/api';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, take, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
 @Component({
@@ -17,7 +17,8 @@ export class SliderComponent implements OnInit {
   dataList: any = [];
   data: any = [];
   totalRecord = 0;
-
+  dataDetail: any;
+  selectSlider = null;
   constructor(
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
@@ -40,12 +41,12 @@ export class SliderComponent implements OnInit {
   fetchData(): void {
     this.getListSlider();
   }
-  
+
   loadList() {
-   this.getListSlider();
-   this.showdialog = false
+    this.getListSlider();
+    this.showdialog = false;
   }
- 
+
   getListSlider(): void {
     const queryParams = queryString.stringify(this.query);
     this.apiService
@@ -64,6 +65,7 @@ export class SliderComponent implements OnInit {
 
   showDiaglog(): void {
     this.showdialog = true;
+    this.selectSlider = null;
   }
 
   paginate(event: any): void {
@@ -71,6 +73,11 @@ export class SliderComponent implements OnInit {
     this.query.offSet = event.first;
     this.query.pageSize = event.rows;
     this.getListSlider();
+  }
+
+  handleEditSlider(item: any) {
+    this.showdialog = true;
+    this.selectSlider = item;
   }
 
   deleteProduct(dataList: any): void {

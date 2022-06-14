@@ -4,7 +4,7 @@
     </p-dialog>
     <form class="grid mt-3" (ngSubmit)="onSaveSlider(dataSave)" #dataSave='ngForm'>
         <div class="col-4 slider-image">
-            <img [src]="UrlImg ? UrlImg: '../../../../../assets/images/empty-image.png' " alt="img" style="width:100%">
+            <img [src]="detail.ImageUrl || '../../../../../assets/images/empty-image.png' " alt="img" style="width:100%">
             <label for="upload-image" (click)="showLibraryDialog()">
                 <i class="pi pi-upload mr-2"></i>Ảnh đại diện
                 <span class="text-red-500">*</span>
@@ -14,7 +14,7 @@
             <div class="field">
                 <span class="p-float-label p-input-icon-right">
                     <i class="pi pi-user"></i>
-                    <input name="Name" [(ngModel)]="Name" required #name="ngModel"
+                    <input name="Name" [(ngModel)]="detail.Name" required #name="ngModel"
                         [ngClass]="{'p-invalid' : submited && name.errors?.required }" id="float-input-invalid"
                         pInputText>
                     <label for="name" [ngClass]="{'invalid': submited && name.errors?.required}">Tên <span
@@ -26,7 +26,7 @@
             <div class="field mt-5">
                 <span class="p-float-label p-input-icon-right">
                     <i class="pi pi-user"></i>
-                    <input name="Screen" [(ngModel)]="Screen" required #screen="ngModel"
+                    <input name="Screen" [(ngModel)]="detail.Screen" required #screen="ngModel"
                         [ngClass]="{'p-invalid' : submited && screen.errors?.required }" id="float-input-invalid"
                         pInputText>
                     <label for="name" [ngClass]="{'invalid': submited && screen.errors?.required}">Màn hình
@@ -38,12 +38,12 @@
             <div class="field mt-5">
                 <span class="p-float-label p-input-icon-right">
                     <i class="pi pi-sort-numeric-up"></i>
-                    <input name="Order" [(ngModel)]="Order" required id="float-input-invalid" pInputText>
+                    <input name="Order" [(ngModel)]="detail.Order" required id="float-input-invalid" pInputText>
                     <label for="Order">Sắp xếp </label>
                 </span>
             </div>
             <div class="field flex align-items-center mt-3">
-                <p-inputSwitch name='Status' [(ngModel)]="Status"></p-inputSwitch>
+                <p-inputSwitch name='Status' [(ngModel)]="detail.Status"></p-inputSwitch>
                 <label for="content" class="ml-2">Hiển thị</label>
             </div>
         </div>
