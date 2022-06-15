@@ -5,6 +5,7 @@ import { BaiKiemTraComponent } from './components/admin/bai-kiem-tra/bai-kiem-tr
 import { ChiTietFaqComponent } from './components/admin/faq/faq/chi-tiet-faq/chi-tiet-faq.component';
 import { FaqComponent } from './components/admin/faq/faq/faq.component';
 import { ThemMoiFaqComponent } from './components/admin/faq/faq/them-moi-faq/them-moi-faq.component';
+import { ChiTietGiaoVienComponent } from './components/admin/giao-vien/chi-tiet-giao-vien/chi-tiet-giao-vien.component';
 import { GiaoVienComponent } from './components/admin/giao-vien/giao-vien/giao-vien.component';
 import { ThemGiaoVienComponent } from './components/admin/giao-vien/them-giao-vien/them-giao-vien.component';
 import { LopHocComponent } from './components/admin/lop-hoc/lop-hoc/lop-hoc.component';
@@ -50,7 +51,8 @@ const routes: Routes = [
       { path: 'faq', component: FaqComponent },
       { path: 'slider', component: SliderComponent },
       { path: 'giao-vien', component: GiaoVienComponent },
-      { path: 'giao-vien/them-moi', component: ThemGiaoVienComponent},
+      { path: 'giao-vien/them-moi', component: ThemGiaoVienComponent },
+      { path: 'giao-vien/chi-tiet-giao-vien/:id', component:ChiTietGiaoVienComponent }, 
       { path: 'lop-hoc', component: LopHocComponent },
       { path: 'mon-hoc', component: MonHocComponent },
       { path: 'bai-kiem-tra', component: BaiKiemTraComponent },
