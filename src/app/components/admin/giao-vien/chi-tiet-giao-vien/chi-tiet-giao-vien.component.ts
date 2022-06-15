@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { TeacherModel } from 'src/app/model/teacher.model';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -13,11 +14,13 @@ export class ChiTietGiaoVienComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private messageService: MessageService
+    private messageService: MessageService, 
+    private router: ActivatedRoute
   ) {}
   private readonly unsubscribe$: Subject<void> = new Subject();
   items: any;
   showLibrary = false;
+  Id=0;
   teacher: any = {
     fullName: '',
     avatar: '',
@@ -36,27 +39,41 @@ export class ChiTietGiaoVienComponent implements OnInit {
     offSet: 0,
     pageSize: 10,
   };
-  selectedCategory: any;
-  submited = false;
+  dataDetail:any
+  submited = false; 
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị' },
       { label: 'Giáo viên', routerLink: '/giao-vien' },
       { label: 'Thêm mới giáo viên' },
     ];
-   
+  this.Id = this.router.snapshot.params.id
+  this.getDetailTeacher(this.Id)
   }
 
-  onSave(dataSave: any) {
+  getDetailTeacher(Id: any) {
+    this.apiService.getDetailTeacher(Id)
+    .pipe()
+    .subscribe({
+        next: (response) => {
+            this.dataDetail = response.Data
+            console.log("datadetail", this.dataDetail)
+        },
+        error: (error) => {
+          console.error(error)
+        }
+    })
+  }
+   onSave(dataSave: any) {
     this.submited = true;
     if (dataSave.invalid) {
       return;
     }
-    this.dataSaveTeacher.fullName = this.teacher.fullName
-    this.dataSaveTeacher.avatar = this.teacher.avatar
-    this.dataSaveTeacher.order = this.teacher.order
-    this.dataSaveTeacher.descriptionShort = this.teacher.descriptionShort
-    this.dataSaveTeacher.description = this.teacher.description
+  this.teacher.fullName = this.dataDetail.FullName
+   this.teacher.avatar =this.dataDetail.Avatar
+   this.teacher.order = this.dataDetail.Order
+   this.teacher.descriptionShort = this.dataDetail.DescriptionShort
+   this.teacher.description = this.dataDetail.Description
     console.log("Thêm giao viên", this.dataSaveTeacher )
     this.apiService.postTeacher(this.dataSaveTeacher).subscribe({
       next: (response) => {
@@ -75,8 +92,8 @@ export class ChiTietGiaoVienComponent implements OnInit {
           detail: 'Thêm thất bại',
         });
       },
-    }); 
-  }
+    });  
+  } 
 
   showLibraryDialog(): void {
     this.showLibrary = true;
