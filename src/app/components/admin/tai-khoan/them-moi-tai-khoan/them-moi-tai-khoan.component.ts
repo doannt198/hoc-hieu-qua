@@ -20,6 +20,7 @@ export class ThemMoiTaiKhoanComponent implements OnInit {
   val: number = 5;
   dataDropdown: any = [];
   data: any = [];
+  submited = false
   query = {
     filter: '',
     offSet: 0,
@@ -37,7 +38,7 @@ export class ThemMoiTaiKhoanComponent implements OnInit {
     modifiedBy: "",
     oldPassword: "",
     roleId: "",
-    status: 0,
+    status: false,
     firstName: "",
     lastName: "",
     email: "",
@@ -62,6 +63,13 @@ export class ThemMoiTaiKhoanComponent implements OnInit {
   
   fetchData(): void {
     this.GetNewsCategory();
+  }
+
+  onSave(saveform: any): void {
+    this.submited = true
+    if(saveform.invalid) {
+      return 
+    }
   }
 
   GetNewsCategory(): void {
