@@ -139,6 +139,10 @@ export class ApiService {
     return this.http.delete(`${apiServer}/api/Teacher/${Id}`)
   }
 
+  postTeacher(data: any): Observable<any> {
+    return this.http.post(`${apiServer}/api/Teacher`, data)
+  }
+
    /* api ClassRoom */
 
    getListClassRoom(queryParams: any): Observable<any> {

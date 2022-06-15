@@ -1,6 +1,6 @@
 export class CategoryModel {
-          id: "" ;
-          name: "" ;
-          order: 0 ;
-          status: 0  ;  
+          id =  "" ;
+          name =  "" ;
+          order =  0 ;
+          status =  0  ;  
 }

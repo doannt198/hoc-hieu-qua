@@ -1,0 +1,75 @@
+<div class="chi-tiet-tin-tuc">
+    <div class="grid">
+        <div class="col-12">
+            <p-breadcrumb [model]="items"></p-breadcrumb>
+
+            <div class="grid mt-4">
+                <div class="col-3 avatar">
+                    <img [src]=" teacher.avatar || '../../../../../../assets/images/empty-image.png'" alt="avatar"
+                        style="width:100%">
+                    <label for="uploadfile" (click)="showLibraryDialog()">
+                        <i class="pi pi-upload"></i>
+                        Ảnh đại diện
+                    </label>
+                    <p-dialog header="Chọn Media" [(visible)]="showLibrary" [modal]="true"
+                        [style]="{width: '80vw', height: '50vw'}">
+                        <app-thu-vien (selecteImg)="selectedImg($event)"></app-thu-vien>
+                    </p-dialog>
+                </div>
+                <div class="col-9 pl-5">
+                    <form class="p-fluid" (ngSubmit)="onSave(dataSave)" #dataSave="ngForm">
+                        <span class="p-float-label p-input-icon-right">
+                            <i class="pi pi-user"></i>
+                            <input id="float-input-invalid" type="text" pInputText [(ngModel)]="teacher.fullName" name="fullName"
+                                required #title="ngModel"
+                                [ngClass]="{'ng-invalid ng-dirty' : submited && title.errors?.required}">
+                            <label for="float-input-invalid" [ngClass]="{'invalid' : submited && title.errors?.required}">Họ tên<span class="text-red-500"> *</span></label>
+                        </span>
+                        <small *ngIf="submited && title.errors?.required || (title.errors?.required && title.touched)"
+                            class="p-error">Vui lòng nhập họ tên</small>
+                        <div class="field mt-5">
+                            <span class="p-float-label p-input-icon-right">
+                                <i class="pi pi-sort-numeric-down"></i>
+                                <input id="float-input-invalid" type="text" pInputText [(ngModel)]="teacher.order" name="order"
+                                    required #title="ngModel"
+                                >
+                                <label for="float-input-invalid">Sắp xếp</label>
+                            </span>
+                        </div>
+                        <div class="grid">
+                            <div class="col-12">
+                                <div class="field">
+                                    <label for="float-input"
+                                        [ngClass]="{'invalid': submited && shortContent.errors?.required}">Mô tả ngắn
+                                        <span class="text-red-500"> *</span></label>
+                                    <div class="textarea">
+                                        <textarea name='ShortContent' required="true" #shortContent="ngModel"
+                                            [(ngModel)]="teacher.descriptionShort" pInputTextarea
+                                            [style]="{width: '100%', height: '20vw'}"></textarea>
+                                    </div>
+                                </div>
+                                <small
+                                    *ngIf="submited && shortContent.errors?.required || (shortContent.errors?.required && shortContent.touched)"
+                                    class="p-error">Vui lòng nhập mô tả ngắn</small>
+                            </div>
+                            <div class="col-12">
+                                <div class="field">
+                                    <label for="float-input"
+                                        [ngClass]="{'invalid': submited && content.errors?.required}">Mô tả chi
+                                        tiết<span class="text-red-500"> *</span></label>
+                                    <div class="textarea">
+                                        <textarea name='Content' [(ngModel)]="teacher.description" required #content="ngModel"
+                                            pInputTextarea [style]="{width: '100%', height: '20vw'}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="p-button p-component mt-2 btn-submit">
+                            <span class="p-button-label p-c">Lưu lại</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

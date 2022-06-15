@@ -3,6 +3,7 @@ import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api'
 import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import * as queryString from 'query-string';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-giao-vien',
   templateUrl: './giao-vien.component.html',
@@ -17,7 +18,8 @@ export class GiaoVienComponent implements OnInit {
     private apiService: ApiService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private primengConfig: PrimeNGConfig
+    private primengConfig: PrimeNGConfig,
+    private spinner: NgxSpinnerService
   ) { }
   query = {
     filter: '',
@@ -36,6 +38,7 @@ export class GiaoVienComponent implements OnInit {
   }
 
   getListTeacher(): void {
+    this.spinner.show()
     const queryParams = queryString.stringify(this.query);
     this.apiService
       .getListTeacher(queryParams)
@@ -45,6 +48,7 @@ export class GiaoVienComponent implements OnInit {
           console.log("Teahcer", response)
           this.dataList = response.Data.Data;
           this.totalRecord = response.Data.RecordsTotal;
+          this.spinner.hide()
         },
         error: (error) => {
           console.log('error', error);
