@@ -70,6 +70,8 @@ export class ThemMoiTaiKhoanComponent implements OnInit {
     if(saveform.invalid) {
       return 
     }
+    const dataSave = {...this.account}
+    console.log(dataSave)
   }
 
   GetNewsCategory(): void {

@@ -23,21 +23,21 @@
                                                 <div class="col-6">
                                                       <span class="p-float-label p-input-icon-right">
                                                             <i class="pi pi-user"></i>
-                                                            <input id="float-input" type="text" name="userName" [(ngModel)] = "account.userName" required #userName="ngModel" pInputText>
-                                                            <label for="float-input" [ngClass]="{'invalid' : submited && userName.errors?.required}">Tài khoản đăng nhập<span
+                                                            <input id="float-input" type="text" name="userName" [(ngModel)] = "account.userName" required #userNameForm="ngModel" pInputText>
+                                                            <label for="float-input" [ngClass]="{'invalid' : submited && userNameForm.errors?.required}">Tài khoản đăng nhập<span
                                                                         class="text-red-500"> *</span></label>
                                                       </span>
-                                                      <small *ngIf="submited && userName.errors?.required || (userName.errors?.required && userName.touched)"
+                                                      <small *ngIf="submited && userNameForm.errors?.required || (userNameForm.errors?.required && userNameForm.touched)"
                                                             class="p-error">Vui lòng nhập Tên đăng nhập </small>
                                                 </div>
                                                 <div class="col-6">
                                                       <span class="p-float-label p-input-icon-right">
                                                             <i class="pi pi-user"></i>
-                                                            <input id="float-input" type="text" name="password" [(ngModel)] = "account.password" required #psword="ngModel" pInputText>
-                                                            <label for="float-input" [ngClass]="{'invalid' : submited && userName.errors?.required}"> Mật khẩu <span
+                                                            <input id="float-input" type="text" name="passWord" [(ngModel)] = "account.password" required #passWordForm="ngModel" pInputText>
+                                                            <label for="float-input" [ngClass]="{'invalid' : submited && passWordForm.errors?.required}"> Mật khẩu <span
                                                                         class="text-red-500"> *</span></label>
                                                       </span>
-                                                      <small *ngIf="submited && psword.errors?.required || (psword.errors?.required && psword.touched)"
+                                                      <small *ngIf="submited && passWordForm.errors?.required || (passWordForm.errors?.required && passWordForm.touched)"
                                                             class="p-error">Vui lòng nhập Mật khẩu</small>
                                                 </div>
                                                 <div class="col-6 mt-3">
@@ -59,23 +59,23 @@
                                                 <div class="col-6 mt-3">
                                                       <span class="p-float-label p-input-icon-right">
                                                             <i class="pi pi-user"></i>
-                                                            <input id="float-input" type="email" name="email" [(ngModel)] = "account.email" email required #email="ngModel" pInputText>
+                                                            <input id="float-input" type="email" name="email" [(ngModel)] = "account.email" email required #Email="ngModel" pInputText>
                                                             <label for="float-input">Email<span class="text-red-500">
                                                                         *</span></label>
                                                       </span>
-                                                      <small *ngIf="submited && email.errors?.required || (email.errors?.required && email.touched )"
+                                                      <small *ngIf="submited && Email.errors?.required || (Email.errors?.required && Email.touched )"
                                                             class="p-error">Vui lòng nhập Email </small>
-                                                      <small *ngIf="email.errors?.email"
+                                                      <small *ngIf="Email.errors?.email"
                                                             class="p-error"> Vui lòng nhập đúng định dạng Email </small>
                                                 </div>
                                                 <div class="col-6 mt-3">
                                                       <span class="p-float-label p-input-icon-right">
                                                             <i class="pi pi-user"></i>
-                                                            <input id="float-input" type="text" name="phone" [(ngModel)] = "account.phone" required #phonenumber="ngModel" pInputText>
+                                                            <input id="float-input" type="text" name="phone" [(ngModel)] = "account.phone" required #phoneNumber="ngModel" pInputText>
                                                             <label for="float-input">Số điện thoại <span
                                                                         class="text-red-500"> *</span></label>
                                                       </span>
-                                                      <small *ngIf="submited && phonenumber.errors?.required || (phonenumber.errors?.required && phonenumber.touched)" 
+                                                      <small *ngIf="submited && phoneNumber.errors?.required || (phoneNumber.errors?.required && phoneNumber.touched)" 
                                                             class="p-error">Vui lòng nhập Số điện thoại </small>
                                                 </div>
                                                 <div class="col-6 mt-3">
@@ -108,8 +108,9 @@
                                                             <span class="p-float-label p-input-icon-right">
                                                                   <p-dropdown [options]="dataDropdown"
                                                                         optionLabel="Name" id='intOrorderer'
-                                                                        name='selectedCategory'
-                                                                        [(ngModel)]="selectedCategory"
+                                                                        optionValue="Id"
+                                                                        name='userId'
+                                                                        [(ngModel)]="account.userId"
                                                                         emptyMessage="Không có quyền nào"
                                                                   >                                                        
                                                                   </p-dropdown>
