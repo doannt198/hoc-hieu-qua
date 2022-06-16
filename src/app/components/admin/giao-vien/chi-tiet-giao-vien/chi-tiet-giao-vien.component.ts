@@ -31,7 +31,7 @@ export class ChiTietGiaoVienComponent implements OnInit {
     modifiedDate: '',
     createdBy: '',
     modifiedBy: '',
-    status: 0,
+    status: 1,
   };
   dataSaveTeacher: TeacherModel = new TeacherModel();
   query = {
@@ -57,7 +57,12 @@ export class ChiTietGiaoVienComponent implements OnInit {
     .subscribe({
         next: (response) => {
             this.dataDetail = response.Data
-            console.log("datadetail", this.dataDetail)
+            this.teacher = {...this.dataDetail}
+            this.teacher.fullName = this.dataDetail.FullName
+            this.teacher.avatar =this.dataDetail.Avatar
+            this.teacher.order = this.dataDetail.Order
+            this.teacher.descriptionShort = this.dataDetail.DescriptionShort
+            this.teacher.description = this.dataDetail.Description
         },
         error: (error) => {
           console.error(error)
@@ -69,12 +74,7 @@ export class ChiTietGiaoVienComponent implements OnInit {
     if (dataSave.invalid) {
       return;
     }
-  this.teacher.fullName = this.dataDetail.FullName
-   this.teacher.avatar =this.dataDetail.Avatar
-   this.teacher.order = this.dataDetail.Order
-   this.teacher.descriptionShort = this.dataDetail.DescriptionShort
-   this.teacher.description = this.dataDetail.Description
-    console.log("Thêm giao viên", this.dataSaveTeacher )
+    this.dataSaveTeacher = {...this.teacher}
     this.apiService.postTeacher(this.dataSaveTeacher).subscribe({
       next: (response) => {
         if (response.Status === 'success') {

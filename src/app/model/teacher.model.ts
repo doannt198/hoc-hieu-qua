@@ -9,5 +9,5 @@ export class TeacherModel {
   modifiedDate = '';
   createdBy = '';
   modifiedBy = '';
-  status = 0;
+  status = 1;
 }
