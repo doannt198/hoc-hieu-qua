@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import * as queryString from 'query-string';
 import { Subject, takeUntil } from 'rxjs';
@@ -15,7 +16,8 @@ export class ThemGiaoVienComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private messageService: MessageService, 
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {}
   private readonly unsubscribe$: Subject<void> = new Subject();
   items: any;
@@ -46,10 +48,10 @@ export class ThemGiaoVienComponent implements OnInit {
       { label: 'Giáo viên', routerLink: '/giao-vien' },
       { label: 'Thêm mới giáo viên' },
     ];
-   
   }
 
   onSave(dataSave: any) {
+    this.spinner.show();
     this.submited = true;
     if (dataSave.invalid) {
       return;
@@ -69,6 +71,7 @@ export class ThemGiaoVienComponent implements OnInit {
             detail: 'Thêm thành công',
           });
           this.router.navigate([`/giao-vien/chi-tiet-giao-vien/${response.Data}`])  
+          this.spinner.hide();
         }
       },
       error: () => {

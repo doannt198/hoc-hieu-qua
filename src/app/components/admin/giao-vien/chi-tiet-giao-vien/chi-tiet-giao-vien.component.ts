@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { Subject, takeUntil } from 'rxjs';
 import { TeacherModel } from 'src/app/model/teacher.model';
@@ -15,7 +16,8 @@ export class ChiTietGiaoVienComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private messageService: MessageService, 
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private spinner: NgxSpinnerService 
   ) {}
   private readonly unsubscribe$: Subject<void> = new Subject();
   items: any;
@@ -52,6 +54,7 @@ export class ChiTietGiaoVienComponent implements OnInit {
   }
 
   getDetailTeacher(Id: any) {
+    this.spinner.show();
     this.apiService.getDetailTeacher(Id)
     .pipe()
     .subscribe({
@@ -63,6 +66,7 @@ export class ChiTietGiaoVienComponent implements OnInit {
             this.teacher.order = this.dataDetail.Order
             this.teacher.descriptionShort = this.dataDetail.DescriptionShort
             this.teacher.description = this.dataDetail.Description
+            this.spinner.hide()
         },
         error: (error) => {
           console.error(error)
@@ -70,10 +74,12 @@ export class ChiTietGiaoVienComponent implements OnInit {
     })
   }
    onSave(dataSave: any) {
+     this.spinner.show();
     this.submited = true;
     if (dataSave.invalid) {
       return;
     }
+    this.spinner
     this.dataSaveTeacher = {...this.teacher}
     this.apiService.postTeacher(this.dataSaveTeacher).subscribe({
       next: (response) => {
@@ -84,6 +90,7 @@ export class ChiTietGiaoVienComponent implements OnInit {
             detail: 'Cập nhật thành công',
           });
         }
+        this.spinner.hide()
       },
       error: () => {
         this.messageService.add({
@@ -103,5 +110,9 @@ export class ChiTietGiaoVienComponent implements OnInit {
     this.showLibrary = false;
     this.teacher.avatar = event;
   }
-
+  
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }
