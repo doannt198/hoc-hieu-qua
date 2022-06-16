@@ -81,7 +81,7 @@ export class ChiTietGiaoVienComponent implements OnInit {
           this.messageService.add({
             severity: 'success',
             summary: 'Thông báo',
-            detail: 'Thêm thành công',
+            detail: 'Cập nhật thành công',
           });
         }
       },
@@ -89,7 +89,7 @@ export class ChiTietGiaoVienComponent implements OnInit {
         this.messageService.add({
           severity: 'error',
           summary: 'Thông báo',
-          detail: 'Thêm thất bại',
+          detail: 'Cập nhật thất bại',
         });
       },
     });  
