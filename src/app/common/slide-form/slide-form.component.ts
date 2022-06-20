@@ -40,6 +40,7 @@ export class SlideFormComponent implements OnInit, OnChanges {
         .subscribe({
           next: (response) => {
             this.detail = response.Data;
+          console.log("detaillllllllll", this.detail)
           this.detail.Status = this.detail.Status == 1 ? true : false
             console.log("chi tiết", this.detail.Status)
           },
