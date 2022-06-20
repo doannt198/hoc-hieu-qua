@@ -25,12 +25,17 @@ import { ThemMoiTuyenDungComponent } from './components/admin/tuyen-dung/them-mo
 import { TuyenDungComponent } from './components/admin/tuyen-dung/tuyen-dung/tuyen-dung.component';
 import { UngVienComponent } from './components/admin/tuyen-dung/ung-vien/ung-vien.component';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
+import { HomeComponent } from './containers/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tai-khoan',
+    redirectTo: 'home',
     pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: '',
