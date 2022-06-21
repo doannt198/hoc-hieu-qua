@@ -40,7 +40,7 @@
                             <div class="label">Tài khoản <span class="text-red-500">*</span></div>
                             <div class="input">
                                 <i class="pi pi-phone"></i>
-                                <input type="userName" id="userName" name="userName" [(ngModel)]='login.userName' required #name="ngModel"> 
+                                <input type="userName" id="userName" name="userName" [(ngModel)]='login.username' required #name="ngModel"> 
                             </div>
                         </div>
                         <div class="invalid" *ngIf="submited && name.errors?.required">Trường này không được bỏ trống</div>
@@ -49,7 +49,7 @@
                             <div class="label">Mật khẩu <span class="text-red-500"> *</span></div>
                             <div class="input">
                                 <i class="pi pi-unlock"></i>
-                                <input id="password" name="password" type="text" [(ngModel)]="login.passWord" required #pass="ngModel">
+                                <input id="password" name="password" type="text" [(ngModel)]="login.password" required #pass="ngModel">
                                 <i class="pi pi-eye-slash right"></i>
                             </div>
                         </div>

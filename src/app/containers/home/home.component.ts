@@ -9,8 +9,8 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
   login: any = {
-    userName : '',
-    passWord : ''
+    username : '',
+    password : ''
   }
   submited = false
   ngOnInit(): void {
