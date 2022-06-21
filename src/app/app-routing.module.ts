@@ -26,6 +26,7 @@ import { TuyenDungComponent } from './components/admin/tuyen-dung/tuyen-dung/tuy
 import { UngVienComponent } from './components/admin/tuyen-dung/ung-vien/ung-vien.component';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
 import { HomeComponent } from './containers/home/home.component';
+import { AuthGuardService } from '../app/service/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -65,7 +66,7 @@ const routes: Routes = [
       { path: 'tuyen-dung/:id', component: ChiTietTuyenDungComponent },
       { path: 'faq/them-moi', component: ThemMoiFaqComponent },
       { path: 'chi-tiet-faq/:id', component: ChiTietFaqComponent },
-    ],
+    ], canActivate: [AuthGuardService]
   },
 ];
 
