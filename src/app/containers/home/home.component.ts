@@ -8,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-
+  login: any = {
+    userName : '',
+    passWord : ''
+  }
+  submited = false
   ngOnInit(): void {
   }
 
+  logginform(loginForm: any ) {
+    console.log(this.login)
+    this.submited = true
+    if(loginForm.invalid) {
+          return;
+    }
+  }
 }

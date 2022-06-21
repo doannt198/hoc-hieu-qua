@@ -35,19 +35,19 @@
                             <span class="register-now">Đăng ký ngay</span>
                         </div>
                     </div>
-                    <form class="login-form">
+                    <form class="login-form" (ngSubmit)="logginform(loginForm)" #loginForm="ngForm">
                         <div class="form-group">
                             <div class="label">Tài khoản <span class="text-red-500">*</span></div>
                             <div class="input">
                                 <i class="pi pi-phone"></i>
-                                <input type="userName" id="userName" name="userName" class="" value="">
+                                <input type="userName" id="userName" name="userName" [(ngModel)]='login.userName'>
                             </div>
                         </div>
                         <span class="ml-2"></span>
                         <div class="form-group">
                             <div class="label">Mật khẩu <span class="text-red-500"> *</span></div>
                             <div class="input"><i class="pi pi-unlock"></i><input id="password" name="password"
-                                    type="password" class="" value="">
+                                    type="text" [(ngModel)]="login.passWord">
                                 <i class="pi pi-eye-slash right"></i>
                             </div>
                         </div>
