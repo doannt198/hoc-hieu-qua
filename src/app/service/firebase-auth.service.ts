@@ -1,4 +1,4 @@
-import { AngularFireAuth } from '@angular/fire/auth';
+/* import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
@@ -170,3 +170,4 @@ export class FirebaseAuthService {
 
     }
 }
+ */

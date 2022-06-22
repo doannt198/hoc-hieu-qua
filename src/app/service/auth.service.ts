@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import { UserManager, UserManagerSettings, User } from 'oidc-client';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FirebaseAuthService } from './firebase-auth.service';
 import { map } from 'rxjs';
-
-@Injectable()
+ */
+/* @Injectable()
 export class AuthService {
-  /* private manager: UserManager = new UserManager(environment.authenSettings); */
-  private user: User = null;
+  private manager: UserManager = new UserManager(environment.authenSettings); 
+  private user: User = null; */
 
-  constructor(private http: HttpClient,
+  /* constructor(private http: HttpClient,
     private firebaseAuthService: FirebaseAuthService,
     ) {
       this.manager.getUser().then(async user => {
@@ -26,22 +26,22 @@ export class AuthService {
         }
 
       });
-      }
+      } */
 
-  isLoggedIn(): Promise<boolean> {
+  /* isLoggedIn(): Promise<boolean> {
     localStorage.removeItem('menuItems');
     if (this.user != null) {
       return new Promise((resolve, reject) => resolve(!this.user.expired));
-    }
-
+    } */
+/* 
     return this.manager.getUser().then(user => {
       this.user = user;
       // this.getEmpDetail()
       return user != null && !user.expired;
     });
-  }
+  } */
 
-  getClaims(): any {
+  /* getClaims(): any {
     return this.user.profile;
   }
 
@@ -55,34 +55,34 @@ export class AuthService {
 
   getUserName(): string {
     return this.user.profile.name;
-  }
+  } */
 
-  isExpired(): boolean {
+ /*  isExpired(): boolean {
     return this.user.expired
-  }
+  } */
 
-  startAuthentication(): Promise<void> {
+  /* startAuthentication(): Promise<void> {
     return this.manager.signinRedirect();
-  }
+  } */
 
-  signout(): Promise<void> {
+ /*  signout(): Promise<void> {
     localStorage.removeItem('menuItems');
     localStorage.removeItem('avatarUrl');
     localStorage.removeItem('employeeId');
     localStorage.removeItem('storeId');
     return this.manager.signoutRedirect();
   }
-
-  completeAuthentication(): Promise<void> {
+ */
+ /*  completeAuthentication(): Promise<void> {
     localStorage.setItem('projectCd', '01');
     return this.manager.signinRedirectCallback()
       .then(user => { this.user = user; })
       .then(_ => this.getEmpDetail());
-  }
+  } */
 
-  getUserImage(): string {
+  /* getUserImage(): string {
     return localStorage.getItem('avatarUrl');
-  }
+  } */
 
 /*  async getEmpDetail() {
     if (localStorage.getItem("employeeId") === null) {
@@ -98,13 +98,13 @@ export class AuthService {
     
   } */
 
-  getWorkingProject() {
+  /* getWorkingProject() {
     return localStorage.getItem('projectCd');
   }
 
-  getCustomToken(token: string): Promise<any> {
+  getCustomToken(token: string): Promise<any> { */
    /*  const url = `${environment.cloudFunctionServer}/getCustomToken`; */
-    return this.http.post(url, {
+    /* return this.http.post(url, {
       data: {
         access_token: token
       }
@@ -114,7 +114,7 @@ export class AuthService {
 
   }
  
-}
+} */
 
 
 /* export function getClientSettings(): UserManagerSettings {

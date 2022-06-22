@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import WhereFilterOp = firebase.firestore.WhereFilterOp;
 import OrderByDirection = firebase.firestore.OrderByDirection;
@@ -10,11 +10,11 @@ export class FeedBaseService {
     constructor(
     ) {
     }
-    /**
-     * Method used to used get all document in collection
-     * @param collectionName: Name of collection want to get data
-     * @return Promise<SnapshotChange>: List of document in collection
-     */
+    
+      Method used to used get all document in collection
+      @param collectionName: Name of collection want to get data
+      @return Promise<SnapshotChange>: List of document in collection
+    
     getAllDocument(collectionName) {
         return firebase.firestore().collection(collectionName).get();
     }
@@ -35,4 +35,4 @@ export class FeedBaseService {
         return firebase.firestore().collection(collectionName).add(data);
     }
 
-}
+} */
