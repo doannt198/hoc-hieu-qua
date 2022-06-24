@@ -74,7 +74,7 @@ export class SidebarComponent implements OnInit {
               {
                 label: 'Menu quản trị',
                 icon: 'pi pi-list',
-                routerLink: '/menu-quan-tri'
+                routerLink: '/trang-chu/menu-quan-tri'
               }
             ] 
           },
@@ -85,12 +85,12 @@ export class SidebarComponent implements OnInit {
               { 
                 label: 'Danh mục',
                 icon: 'pi pi-list',
-                routerLink: '/danh-muc-tin-tuc'
+                routerLink: '/trang-chu/danh-muc-tin-tuc'
               },
               {
                 label: 'Bài viết',
                 icon: 'pi pi-copy',
-                routerLink: '/quan-li-tin-tuc'
+                routerLink: '/trang-chu/quan-li-tin-tuc'
               }
             ]
            },
@@ -100,29 +100,29 @@ export class SidebarComponent implements OnInit {
               { 
                 label: 'Tin tuyển dụng',
                 icon: 'pi pi-tags',
-                routerLink: '/quan-li-tuyen-dung'
+                routerLink: '/trang-chu/quan-li-tuyen-dung'
               },
               {
                 label: 'Ứng viên',
                 icon: 'pi pi-users',
-                routerLink: '/ung-vien'
+                routerLink: '/trang-chu/ung-vien'
               }
             ]
           },
           { 
             label: 'Tài khoản',
             icon: 'pi pi-users',
-            routerLink: '/tai-khoan'
+            routerLink: '/trang-chu/tai-khoan'
           },
           { label: 'Trang chủ', icon: 'pi pi-bookmark' },
           { label: 'FAQ', icon: 'pi pi-comments', routerLink: '/faq' },
           { label: 'Trò chơi', icon: 'pi pi-discord' },
           { label: 'Thư viện', icon: 'pi pi-chart-bar', routerLink: 'quan-li-thu-vien' },
-          { label: 'Slider', icon: 'pi pi-image', routerLink: '/slider' },
-          { label: 'Giáo viên', icon: 'pi pi-user-plus', routerLink: '/giao-vien' },
-          { label: 'Lớp học', icon: 'pi pi-microsoft', routerLink: '/lop-hoc' },
-          { label: 'Môn học', icon: 'pi pi-th-large', routerLink: '/mon-hoc' },
-          { label: 'Bài kiểm tra', icon: 'pi pi-server', routerLink: '/bai-kiem-tra' }
+          { label: 'Slider', icon: 'pi pi-image', routerLink: '/trang-chu/slider' },
+          { label: 'Giáo viên', icon: 'pi pi-user-plus', routerLink: '/trang-chu/giao-vien' },
+          { label: 'Lớp học', icon: 'pi pi-microsoft', routerLink: '/trang-chu/lop-hoc' },
+          { label: 'Môn học', icon: 'pi pi-th-large', routerLink: '/trang-chu/mon-hoc' },
+          { label: 'Bài kiểm tra', icon: 'pi pi-server', routerLink: '/trang-chu/bai-kiem-tra' }
         ],
       },
     ];

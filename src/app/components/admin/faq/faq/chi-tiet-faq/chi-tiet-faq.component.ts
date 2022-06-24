@@ -41,7 +41,7 @@ export class ChiTietFaqComponent implements OnInit {
     this.spinner.hide();
     this.items = [
       { label: 'Quản trị' },
-      { label: 'FAQ', routerLink: '/faq' },
+      { label: 'FAQ', routerLink: '/trang-chu/faq' },
       { label: 'Chi tiết FAQ' },
     ];
     this.Id = this.route.snapshot.params.id;

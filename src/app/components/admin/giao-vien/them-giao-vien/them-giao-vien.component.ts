@@ -45,7 +45,7 @@ export class ThemGiaoVienComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị' },
-      { label: 'Giáo viên', routerLink: '/giao-vien' },
+      { label: 'Giáo viên', routerLink: '/trang-chu/giao-vien' },
       { label: 'Thêm mới giáo viên' },
     ];
   }
