@@ -39,7 +39,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: '',
+    path: 'trang-chu',
     component: DefaultLayoutComponent,
     children: [
       { path: 'tai-khoan', component: TaiKhoanComponent }, 
