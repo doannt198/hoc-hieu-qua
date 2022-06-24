@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private apiService: ApiService
   ) { }
   login: any = {
     username : '',
@@ -22,18 +24,23 @@ export class HomeComponent implements OnInit {
   }
 
   logginform(loginForm: any ) {
-    console.log(this.login)
+    
     this.submited = true
     if(loginForm.invalid) {
           return;
     }
-    if(this.login.username==="admin" && this.login.password==="123456"){
-      this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Đăng nhập thành công'})
-      this.router.navigateByUrl('/trang-chu/tai-khoan')
-    } else if(this.login.username==="" && this.login.password==="") {
-      this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Vui lòng nhập tên tài khoản và mật khẩu'})
-    } else {
-      this.messageService.add({severity: 'error', summary: 'Thông báo', detail: 'Đăng nhập thất bại'})
-    }
+   if(this.login.username && this.login.password ) {
+    this.apiService.apiAuthentication(this.login)
+    .subscribe(results => {
+      console.log("authentication", results)
+      if(results.Status ==="success") {
+        this.messageService.add({severity: results.Status , summary:'Thông báo', detail: results.Message || "Đăng nhập thành công" })
+        this.router.navigateByUrl('/trang-chu/tai-khoan')
+      } else{
+        this.messageService.add({severity: results.Status , summary:'Thông báo', detail: results.Message || "Đăng nhập thành công" })
+      }
+    })
+    
+   }
   }
 }
