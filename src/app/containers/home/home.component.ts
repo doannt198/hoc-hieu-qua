@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
         this.messageService.add({severity: results.Status , summary:'Thông báo', detail: results.Message || "Đăng nhập thành công" })
       }
     })
-    
    }
   }
 }
