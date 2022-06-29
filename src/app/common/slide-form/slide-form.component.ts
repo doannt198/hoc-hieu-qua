@@ -5,8 +5,7 @@ import {
   MessageService,
   PrimeNGConfig,
 } from 'primeng/api';
-import { takeUntil } from 'rxjs';
-import { SliderModel } from 'src/app/model/slider.model';
+
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
