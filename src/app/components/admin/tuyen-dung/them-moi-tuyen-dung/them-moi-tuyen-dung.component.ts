@@ -55,7 +55,7 @@ export class ThemMoiTuyenDungComponent implements OnInit {
     }, 1000);
     this.items = [
       { label: 'Quản trị' },
-      { label: 'Tuyển dụng ', routerLink: '/quan-li-tuyen-dung' },
+      { label: 'Tuyển dụng ', routerLink: '/trang-chu/quan-li-tuyen-dung' },
       { label: 'Chi tiết tuyển dụng' },
     ];
     

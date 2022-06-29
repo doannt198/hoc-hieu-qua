@@ -38,7 +38,7 @@ export class ThemMoiComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị'},
-      { label: 'Tin tức',  routerLink: '/quan-li-tin-tuc'},
+      { label: 'Tin tức',  routerLink: '/trang-chu/quan-li-tin-tuc'},
       { label: 'Chi tiết tin tức'},
     ]
     this.fetchData();

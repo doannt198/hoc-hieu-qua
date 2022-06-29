@@ -8,7 +8,11 @@ export class ApiService {
   constructor(
     private http: HttpClient
     ) { }
+    /* Api Authen */
 
+    apiAuthentication(data: any): Observable<any> {
+        return this.http.post(`${apiServer}/api/Authentication/authenticate`, data)
+    }
     /* Api danh mục tin tức  */
     getNewsCategory(queryParams: any): Observable<any> { 
         return this.http.get(`${apiServer}/api/NewsCategory?`+ queryParams)

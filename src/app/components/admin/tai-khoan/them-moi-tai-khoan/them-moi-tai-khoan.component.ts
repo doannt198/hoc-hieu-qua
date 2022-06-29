@@ -55,7 +55,7 @@ export class ThemMoiTaiKhoanComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       { label: 'Quản trị'},
-      { label: 'Tài khoản ',  routerLink: '/tai-khoan'},
+      { label: 'Tài khoản ',  routerLink: '/trang-chu/tai-khoan'},
       { label: 'Chi tiết tài khoản'},
     ]
     this.fetchData();

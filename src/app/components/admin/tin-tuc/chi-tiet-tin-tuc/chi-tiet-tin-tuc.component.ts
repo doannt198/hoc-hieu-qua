@@ -35,7 +35,7 @@ export class ChiTietTinTucComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {label:'Quản trị'},
-      {label:'Tin tức', routerLink: '/danh-muc-tin-tuc'},
+      {label:'Tin tức', routerLink: '/trang-chu/danh-muc-tin-tuc'},
       {label:'Chi tiết tin tức'},
   ];
   this.Id = this.route.snapshot.params.id;

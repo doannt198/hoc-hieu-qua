@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterEvent } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private messageService: MessageService,
+    private apiService: ApiService
+  ) { }
   login: any = {
     username : '',
     password : ''
@@ -17,10 +24,22 @@ export class HomeComponent implements OnInit {
   }
 
   logginform(loginForm: any ) {
-    console.log(this.login)
+    
     this.submited = true
     if(loginForm.invalid) {
           return;
     }
+   if(this.login.username && this.login.password ) {
+    this.apiService.apiAuthentication(this.login)
+    .subscribe(results => {
+      console.log("authentication", results)
+      if(results.Status ==="success") {
+        this.messageService.add({severity: results.Status , summary:'Thông báo', detail: results.Message || "Đăng nhập thành công" })
+        this.router.navigateByUrl('/trang-chu/tai-khoan')
+      } else{
+        this.messageService.add({severity: results.Status , summary:'Thông báo', detail: results.Message || "Đăng nhập thành công" })
+      }
+    })
+   }
   }
 }

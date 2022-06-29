@@ -27,7 +27,7 @@ export class ThemMoiTinTucComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {label:'Quản trị'},
-      {label:'Tin tức', routerLink: '/danh-muc-tin-tuc'},
+      {label:'Tin tức', routerLink: '/trang-chu/danh-muc-tin-tuc'},
       {label:'Chi tiết tin tức'},
   ];
   }

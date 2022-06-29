@@ -28,7 +28,7 @@ export class ThemMoiFaqComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {label:'Quản trị'},
-      {label:'FAQ', routerLink: '/faq'},
+      {label:'FAQ', routerLink: '/trang-chu/faq'},
       {label:'Chi tiết FAQ'},
   ];
   }

@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
       {label: 'Quá trình học tập', icon: 'pi pi-chart-pie' },
       {label: 'Kích hoạt khoá học', icon: 'pi pi-key' },
       {label: 'Lịch sử kích hoạt', icon: 'pi pi-clock' },
-      {label: 'Đăng xuất', icon: 'pi pi-sign-out' }
+      {label: 'Đăng xuất', icon: 'pi pi-sign-out', routerLink: '/home'}
     ]
   }
 
