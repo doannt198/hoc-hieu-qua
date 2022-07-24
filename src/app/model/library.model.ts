@@ -1,19 +1,19 @@
 export class LibraryModel {
-    Id = '';
-    Name = '';
-    Size = '';
-    Height = 0;
-    Width = 0;
-    Description = '';
-    Url = '';
+    id = '';
+    name = '';
+    size = '';
+    height = 0;
+    width = 0;
+    description = '';
+    url = '';
     VideoImage = '';
-    Type: 'folder' | 'image' | 'video' = 'folder';
-    ParentId = '';
-    Path = '';
-    CreateDate: any = null;
-    CreateBy = '';
-    ModifiedDate: any = null;
-    ModifiedBy = '';
+    type: 'folder' | 'image' | 'video' = 'folder';
+    parentId = '';
+    path = '';
+    createDate: any = null;
+    createBy = '';
+    modifiedDate: any = null;
+    modifiedBy = '';
     children: any[] = [];
 }
 

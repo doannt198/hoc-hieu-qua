@@ -53,7 +53,8 @@ export class ThuVienComponent implements OnInit {
     this.apiService.getLibrariesFolder().subscribe({
       next: (response) => {
         console.log('data', response);
-        this.list = response.Data.Data;
+        this.list = response.data.data;
+        console.log("list", this.list)
         this.convertJsonToStructTree(this.list)
       },
       error: (error) => {
@@ -68,18 +69,18 @@ export class ThuVienComponent implements OnInit {
       i,
     roots = [];
     for (i = 0; i < list.length; i += 1) {
-      map[list[i].Id] = i; // initialize the map
+      map[list[i].id] = i; // initialize the map
       list[i].children = []; // initialize the children
     }
     for (i = 0; i < list.length; i += 1) {
       node = list[i];
-      if (node.ParentId !== '') {
+      if (node.parentId !== '') {
         // if you have dangling branches check that map[node.parentId] exists
-        if (list[map[node.ParentId]]) {
-          list[map[node.ParentId]].children.push({
-            nodeId: node.Id,
-            label: node.Name,
-            key: node.Id,
+        if (list[map[node.parentId]]) {
+          list[map[node.parentId]].children.push({
+            nodeId: node.id,
+            label: node.name,
+            key: node.id,
             data: node,
             expandedIcon: 'pi pi-folder-open',
             collapsedIcon: 'pi pi-folder',
@@ -115,7 +116,7 @@ export class ThuVienComponent implements OnInit {
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe({
       next: (response) => {
-        this.listFile = response.Data.Data
+        this.listFile = response.data.data
       },
       error: (error) => {
         console.log("error", error)
@@ -129,7 +130,7 @@ export class ThuVienComponent implements OnInit {
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe({
       next: (response) => {
-        this.listFile = response.Data.Data
+        this.listFile = response.data.data
       },
       error: (error) => {
         console.log("error", error)

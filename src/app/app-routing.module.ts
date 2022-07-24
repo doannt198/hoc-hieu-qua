@@ -34,10 +34,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  {
+  /* {
     path: 'home',
     component: HomeComponent
-  },
+  }, */
   {
     path: 'trang-chu',
     component: DefaultLayoutComponent,
