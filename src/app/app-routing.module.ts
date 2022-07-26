@@ -31,7 +31,7 @@ import { HomeComponent } from './containers/home/home.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'trang-chu',
     pathMatch: 'full',
   },
   /* {

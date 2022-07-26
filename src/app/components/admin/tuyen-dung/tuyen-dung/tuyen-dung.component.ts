@@ -48,8 +48,9 @@ export class TuyenDungComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          this.dataList = response.Data.Data;
-          this.totalRecord = response.Data.RecordsTotal;
+          this.dataList = response.data.data;
+          console.log(this.dataList)
+          this.totalRecord = response.data.recordsTotal;
         },
         error: (error) => {
           console.log('error', error);
@@ -58,7 +59,6 @@ export class TuyenDungComponent implements OnInit {
   }
 
   paginate(event: any) {
-    console.log(event);
     this.query.offSet = event.first;
     this.query.pageSize = event.rows;
     this.getRecruit();

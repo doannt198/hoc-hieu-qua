@@ -43,8 +43,8 @@ export class QuanLiTinTucComponent implements OnInit {
       .subscribe({
         next: (response) => {
           console.log(response)
-          this.dataList = response.Data.Data;
-          this.totalRecord = response.Data.RecordsTotal;
+          this.dataList = response.data.data;
+          this.totalRecord = response.data.recordsTotal;
           this.spinner.hide();
         },
         error: (error) => {

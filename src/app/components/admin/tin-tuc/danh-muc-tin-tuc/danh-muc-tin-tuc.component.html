@@ -46,11 +46,11 @@
                     </p-tableCheckbox>
                 </td>
                 <td>
-                    {{dataList?.Name}}
+                    {{dataList?.name}}
                 </td>
                 <td>
                     <div class="flex justify-content-end ">
-                        <div *ngIf="dataList.Status == 1; else notdisplay " >
+                        <div *ngIf="dataList.status == 1; else notdisplay " >
                             <i class="pi pi-check"></i>
                         </div>
                         <ng-template #notdisplay>
@@ -59,12 +59,12 @@
                     </div>
                 <td>
                     <div class="flex justify-content-end ">
-                        {{dataList?.Order}}
+                        {{dataList?.order}}
                     </div>
                 </td>
                 <td >
                     <div class="flex justify-content-end">
-                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary mr-2" routerLink='/trang-chu/danh-muc-tin-tuc/{{dataList?.Id}}'></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary mr-2" routerLink='/trang-chu/danh-muc-tin-tuc/{{dataList?.id}}'></button>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteCategory(dataList)"></button>
                     </div>
                 </td>

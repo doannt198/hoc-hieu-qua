@@ -50,8 +50,8 @@ export class DanhMucTinTucComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          this.dataList = response.Data.Data;
-          this.totalRecord = response.Data.RecordsTotal;
+          this.dataList = response.data.data;
+          this.totalRecord = response.data.recordsTotal;
           this.spinner.hide()
         },
         error: (error) => {
