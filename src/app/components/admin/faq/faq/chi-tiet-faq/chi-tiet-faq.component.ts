@@ -56,13 +56,13 @@ export class ChiTietFaqComponent implements OnInit {
       .subscribe({
         next: (response) => {
           console.log('dataDetail', response);
-          this.dataDetail = response.Data;
-          this.Title = this.dataDetail.Title
-          this.Order = this.dataDetail.Order
-          this.Content = this.dataDetail.Content
-          if (this.dataDetail.Status == 1) {
+          this.dataDetail = response.data;
+          this.Title = this.dataDetail.title
+          this.Order = this.dataDetail.order
+          this.Content = this.dataDetail.content
+          if (this.dataDetail.status == 1) {
             this.Status = true;
-          } else if (this.dataDetail.Status == 0) {
+          } else if (this.dataDetail.status == 0) {
             this.Status = false;
           }
           this.spinner.hide();
