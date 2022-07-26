@@ -41,8 +41,7 @@ export class SlideFormComponent implements OnInit, OnChanges {
           this.detail = response.data;
           this.detail.status = this.detail.status == 1 ? true : false
           const covertArray = this.detail.screen
-          this.detail.screen = covertArray.split(" ")
-          console.log("màn hình ", this.detail.screen)
+          this.detail.screen = covertArray.split(",")
           },
           error: (error) => {
             console.error(error);
