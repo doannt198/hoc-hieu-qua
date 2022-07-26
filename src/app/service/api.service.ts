@@ -130,11 +130,11 @@ export class ApiService {
     }
 
     deleteSlider(Id: string): Observable<any> {
-        return this.http.delete(`${apiServer}/api/Slide/`+ Id)
+        return this.http.delete(`${apiServer}/api/slide/`+ Id)
     }
 
     postSlider(data: any): Observable<any> {
-        return this.http.post(`${apiServer}/api/Slide`, data)
+        return this.http.post(`${apiServer}/api/slide`, data)
     }
 
    /*  Api Teacher */

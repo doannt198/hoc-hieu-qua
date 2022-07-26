@@ -65,8 +65,11 @@ export class SlideFormComponent implements OnInit, OnChanges {
     }
     const dataSave = {...this.detail};
     dataSave.status = dataSave.status ? 1 : 0;
+    const convertScreeen =  dataSave.screen
+    dataSave.screen = convertScreeen.join()
     this.apiService.postSlider(dataSave).subscribe({
       next: (response) => {
+        console.log("thêm slide", response)
         this.messageService.add({
           severity: 'success',
           summary: 'Thông báo',
