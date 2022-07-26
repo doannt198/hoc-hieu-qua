@@ -33,13 +33,13 @@ export class SlideFormComponent implements OnInit, OnChanges {
   @Output() loadSlider = new EventEmitter<any>();
   
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.selectSlider && this.selectSlider && this.selectSlider.Id) {
+    if (changes.selectSlider && this.selectSlider && this.selectSlider.id) {
        this.apiService
-        .getListDetailSlider(this.selectSlider.Id)
+        .getListDetailSlider(this.selectSlider.id)
         .subscribe({
           next: (response) => {
-          this.detail = response.Data;
-          this.detail.Status = this.detail.Status == 1 ? true : false
+          this.detail = response.data;
+          this.detail.status = this.detail.status == 1 ? true : false
           },
           error: (error) => {
             console.error(error);
@@ -53,7 +53,7 @@ export class SlideFormComponent implements OnInit, OnChanges {
 
   selectedImg(event: any): void {
     this.showLibrary = false;
-    this.detail.ImageUrl = event;
+    this.detail.imageUrl = event;
   }
 
   onSaveSlider(dataForm: any): void {
@@ -62,7 +62,7 @@ export class SlideFormComponent implements OnInit, OnChanges {
       return;
     }
     const dataSave = {...this.detail};
-    dataSave.Status = dataSave.Status ? 1 : 0;
+    dataSave.status = dataSave.status ? 1 : 0;
     this.apiService.postSlider(dataSave).subscribe({
       next: (response) => {
         this.messageService.add({

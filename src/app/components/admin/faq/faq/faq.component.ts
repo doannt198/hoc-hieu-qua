@@ -43,8 +43,8 @@ export class FaqComponent implements OnInit {
       .subscribe({
         next: (response) => {
           console.log("Faq", response)
-          this.dataList = response.Data.Data;
-          this.totalRecord = response.Data.RecordsTotal;
+          this.dataList = response.data.data;
+          this.totalRecord = response.data.recordsTotal;
           this.spinner.hide()
         },
         error: (error) => {
