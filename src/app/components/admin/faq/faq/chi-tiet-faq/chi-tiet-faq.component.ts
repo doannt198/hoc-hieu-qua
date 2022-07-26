@@ -84,10 +84,10 @@ export class ChiTietFaqComponent implements OnInit {
     }
     const createdDate = new Date();
     const modifiedDate = new Date();
-    this.dataSave.id = this.dataDetail.Id;
-    this.dataSave.title = this.dataDetail.Title;
-    this.dataSave.content = this.dataDetail.Content;
-    this.dataSave.order = this.dataDetail.Order;
+    this.dataSave.id = this.dataDetail.id;
+    this.dataSave.title = this.dataDetail.title;
+    this.dataSave.content = this.dataDetail.content;
+    this.dataSave.order = this.dataDetail.order;
     this.dataSave.status = this.cvStatus;
     this.dataSave.createdDate = createdDate;
     this.dataSave.modifiedDate = modifiedDate;

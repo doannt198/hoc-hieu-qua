@@ -56,9 +56,9 @@ export class ThemMoiFaqComponent implements OnInit {
     .subscribe({
       next: (response) => {
         console.log("dsd", response)
-        if(response.Status === 'success') {
+        if(response.status === 'success') {
           this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Thêm thành công'})
-          this.router.navigate([`/chi-tiet-faq/${response.Data}`])  
+          this.router.navigate([`/trang-chu/chi-tiet-faq/${response.data}`])  
         } 
       },
       error: () => {

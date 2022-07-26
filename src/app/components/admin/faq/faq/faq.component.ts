@@ -66,11 +66,11 @@ export class FaqComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.spinner.show()
-        this.apiService.deleteFaq(dataList.Id)
+        this.apiService.deleteFaq(dataList.id)
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe({
           next: (response) => {
-            if(response.Status === 'success') {
+            if(response.status === 'success') {
               this.messageService.add({severity: 'success', summary: 'Thông báo', detail: 'Xóa thành công'})
               this.getListFAQ()
               this.spinner.hide()
