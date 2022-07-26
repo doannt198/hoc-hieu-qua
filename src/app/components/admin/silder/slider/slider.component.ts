@@ -57,8 +57,9 @@ export class SliderComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          this.dataList = response.Data.Data;
-          this.totalRecord = response.Data.RecordsTotal;
+          this.dataList = response.data.data;
+          console.log("data", this.dataList)
+          this.totalRecord = response.data.recordsTotal;
           this.spinner.hide();
         },
         error: (error) => {

@@ -60,26 +60,26 @@
                     </p-tableCheckbox>
                 </td>
                 <td>
-                    <img [src]="dataList?.ImageUrl" alt="avatar" class="image-news">
+                    <img [src]="dataList?.imageUrl" alt="avatar" class="image-news">
                 </td>
                 <td>
                     <div class="flex justify-content-start ">
-                        {{dataList?.Name}}
+                        {{dataList?.name}}
                     </div>
                 </td>
                 <td>
                     <div class="flex justify-content-start ">
-                        {{dataList?.Order}}
+                        {{dataList?.order}}
                     </div>
                 </td>
                 <td>
                     <div class="flex justify-content-start ">
-                        {{dataList?.Screen}}
+                        {{dataList?.screen}}
                     </div>
                 </td>
                 <td>
                     <div class="flex justify-content-end ">
-                        <div *ngIf="dataList.Status == 1; else notdisplay">
+                        <div *ngIf="dataList.status == 1; else notdisplay">
                             <i class="pi pi-check"></i>
                         </div>
                         <ng-template #notdisplay>
