@@ -1,8 +1,11 @@
 <div class="quan-li-thu-vien mt-2">
     <div class="grid">
         <div class="col-3">
+            <div class="tieu-de-thu-vien mb-3">
+                Quản lý thư viện
+            </div>
             <div class="thu-muc-goc">
-                <p-button label="Thư mục gốc" icon="pi pi-folder" styleClass="p-button" ></p-button>
+                <p-button label="Thư mục gốc" icon="pi pi-folder" (click)="showModal()" styleClass="p-button" ></p-button>
                 <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false"
                     [resizable]="false">
                     <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore

@@ -49,6 +49,10 @@ export class ThuVienComponent implements OnInit {
     this.getSelectNode();
   }
 
+  showModal() {
+     this.displayModal = true
+  }
+
   getLibrariesFolder(): void {
     this.apiService.getLibrariesFolder().subscribe({
       next: (response) => {
