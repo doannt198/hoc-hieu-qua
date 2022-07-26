@@ -71,6 +71,7 @@ export class SliderComponent implements OnInit {
   showDiaglog(): void {
     this.showdialog = true;
     this.selectSlider = null
+    console.log("selectSlider", this.selectSlider)
   }
 
   paginate(event: any): void {
@@ -83,6 +84,7 @@ export class SliderComponent implements OnInit {
   handleEditSlider(item: any) {
     this.showdialog = true;
     this.selectSlider = item
+    console.log("selectSlider", this.selectSlider)
   }
 
   deleteProduct(dataList: any): void {

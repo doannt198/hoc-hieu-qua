@@ -101,10 +101,10 @@ export class ThuVienComponent implements OnInit {
 
   bindingData(item: any){
     return {
-      nodeId: item.Id,
+      nodeId: item.id,
       data: item,
-      key: item.Id,
-      label: item.Name,
+      key: item.id,
+      label: item.name,
       children: item.children,
       expandedIcon: 'pi pi-folder-open',
       collapsedIcon: 'pi pi-folder',
