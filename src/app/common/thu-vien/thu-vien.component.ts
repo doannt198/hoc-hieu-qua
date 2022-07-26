@@ -131,6 +131,7 @@ export class ThuVienComponent implements OnInit {
     .subscribe({
       next: (response) => {
         this.listFile = response.data.data
+        console.log("sss", this.listFile)
       },
       error: (error) => {
         console.log("error", error)

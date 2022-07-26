@@ -51,20 +51,20 @@
                     </p-tableCheckbox>
                 </td>
                 <td>
-                  {{dataList?.Name}}
+                  {{dataList?.name}}
                 </td>
                 <td>
-                  <div [innerHtml]='dataList?.Requirement'></div>
+                  <div [innerHtml]='dataList?.requirement'></div>
                 </td>
                 <td>
                     <div class="flex justify-content-end ">
-                        <div *ngIf="dataList.Status == 1 " >
+                        <div *ngIf="dataList.status == 1 " >
                             <i class="pi pi-check"></i>
                         </div>
                     </div>
                 <td>
                     <div class="flex justify-content-end ">
-                        {{dataList?.Order}}
+                        {{dataList?.order}}
                     </div>
                 </td>
                 <td >

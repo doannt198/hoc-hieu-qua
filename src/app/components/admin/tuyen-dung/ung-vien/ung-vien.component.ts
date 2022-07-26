@@ -48,9 +48,8 @@ export class UngVienComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          console.log("ứng dụng", response)
-          this.dataList = response.Data.Data;
-          this.totalRecord = response.Data.RecordsTotal;
+          this.dataList = response.data.data;
+          this.totalRecord = response.data.recordsTotal;
         },
         error: (error) => {
           console.log('error', error);

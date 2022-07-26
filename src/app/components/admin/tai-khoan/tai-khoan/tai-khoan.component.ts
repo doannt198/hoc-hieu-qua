@@ -46,7 +46,7 @@ export class TaiKhoanComponent implements OnInit {
         next: (response) => {
           console.log("tài khoản",response)
           this.dataList = response.data.data;
-          this.totalRecord = response.data.RecordsTotal;
+          this.totalRecord = response.data.recordsTotal;
           this.spinner.hide()
         },
         error: (error) => {
