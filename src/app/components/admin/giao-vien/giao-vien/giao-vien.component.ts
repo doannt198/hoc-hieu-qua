@@ -45,9 +45,9 @@ export class GiaoVienComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (response) => {
-          console.log("Teahcer", response)
-          this.dataList = response.Data.Data;
-          this.totalRecord = response.Data.RecordsTotal;
+          this.dataList = response.data.data;
+          console.log(this.dataList)
+          this.totalRecord = response.data.recordsTotal;
           this.spinner.hide()
         },
         error: (error) => {

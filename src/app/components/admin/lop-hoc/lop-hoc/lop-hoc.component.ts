@@ -43,8 +43,8 @@ export class LopHocComponent implements OnInit {
       .subscribe({
         next: (response) => {
           console.log("LỚp học", response)
-          this.dataList = response.Data.Data;
-          this.totalRecord = response.Data.RecordsTotal;
+          this.dataList = response.data.data;
+          this.totalRecord = response.data.recordsTotal;
         },
         error: (error) => {
           console.log('error', error);

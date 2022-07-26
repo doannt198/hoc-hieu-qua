@@ -47,24 +47,24 @@
                     </p-tableCheckbox>
                 </td>
                 <td>
-                    {{dataList?.Name}}
+                    {{dataList?.name}}
                 </td>
                 <td>
                     <div class="flex justify-content-start ">
-                        <div *ngIf="dataList.Status == 1 ">
+                        <div *ngIf="dataList.status == 1 ">
                             <i class="pi pi-check"></i>
                         </div>
                     </div>
                 </td>
                 <td>
-                    {{dataList?.Order}}
+                    {{dataList?.order}}
                 </td>
                 <td>
                     <div class="flex justify-content-end">
                         <button pButton pRipple icon="pi pi-pencil"
                             class="p-button-rounded p-button-secondary mr-2"></button>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
-                            (click)="deleteProduct(dataList.Id)"></button>
+                            (click)="deleteProduct(dataList.id)"></button>
                     </div>
                 </td>
             </tr>

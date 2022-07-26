@@ -51,19 +51,19 @@
                     </p-tableCheckbox>
                 </td>
                 <td>
-                    <img [src]="dataList?.Avatar" alt="avatar" class="image-news">
+                    <img [src]="dataList?.avatar" alt="avatar" class="image-news">
                 </td>
                 <td>
                     <div class="flex justify-content-start ">
-                        {{dataList?.FullName}}
+                        {{dataList?.fullName}}
                     </div>
                 </td>
                 <td>
-                    <div [innerHtml]='dataList?.DescriptionShort'></div>
+                    <div [innerHtml]='dataList?.descriptionShort'></div>
                 </td>
                 <td>
                     <div class="flex justify-content-end ">
-                        <div *ngIf="dataList.Status == 1; else notdisplay " >
+                        <div *ngIf="dataList.status == 1; else notdisplay " >
                             <i class="pi pi-check"></i>
                         </div>
                         <ng-template #notdisplay>
@@ -73,7 +73,7 @@
                 </td>
                 <td >
                     <div class="flex justify-content-end">
-                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary mr-2" routerLink="/trang-chu/giao-vien/chi-tiet-giao-vien/{{dataList?.Id}}"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary mr-2" routerLink="/trang-chu/giao-vien/chi-tiet-giao-vien/{{dataList?.id}}"></button>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteTeacher(dataList)"></button>
                     </div>
                 </td>
