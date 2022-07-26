@@ -32,3 +32,9 @@
         width: 100%
     }
 }
+
+:host::ng-deep {
+    .p-chips {
+        display: block;
+      }
+}

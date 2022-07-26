@@ -26,9 +26,7 @@
             <div class="field mt-5">
                 <span class="p-float-label p-input-icon-right">
                     <i class="pi pi-user"></i>
-                    <input name="Screen" [(ngModel)]="detail.Screen" required #screen="ngModel"
-                        [ngClass]="{'p-invalid' : submited && screen.errors?.required }" id="float-input-invalid"
-                        pInputText>
+                     <p-chips [(ngModel)]="detail.Screen" required #screen="ngModel" [ngClass]="{'p-invalid' :submited && screen.errors?.required }" ></p-chips>  
                     <label for="name" [ngClass]="{'invalid': submited && screen.errors?.required}">Màn hình
                         <span class="text-red-500"> *</span></label>
                 </span>
