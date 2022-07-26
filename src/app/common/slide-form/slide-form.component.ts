@@ -23,11 +23,11 @@ export class SlideFormComponent implements OnInit, OnChanges {
   showLibrary = false;
   submited = false;
   detail: any = {
-    Name: '',
-    Screen: '',
-    Order: 0,
-    Status: false,
-    ImageUrl: null
+    name: '',
+    screen: '',
+    order: 0,
+    status: false,
+    imageUrl: null
   };
   @Input() selectSlider: any = null;
   @Output() loadSlider = new EventEmitter<any>();
@@ -40,6 +40,9 @@ export class SlideFormComponent implements OnInit, OnChanges {
           next: (response) => {
           this.detail = response.data;
           this.detail.status = this.detail.status == 1 ? true : false
+          const covertArray = this.detail.screen
+          this.detail.screen = covertArray.split(" ")
+          console.log("màn hình ", this.detail.screen)
           },
           error: (error) => {
             console.error(error);
